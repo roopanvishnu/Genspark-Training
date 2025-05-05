@@ -1,0 +1,34 @@
+1. Customers Table
+
+Column 
+CustomerID	INT (PK)
+Name	VARCHAR	
+Phone	VARCHAR	
+Address	TEXT	
+
+2. Orders Table
+
+Column Name
+OrderID	INT (PK)	
+CustomerID	INT (FK)
+DressType  VARCHAR
+OrderQuantity INT	
+OrderDate	DATE	
+DeliveryDate	DATE	
+PickupDate	DATE
+Status	VARCHAR	
+
+3. Measurements Table
+
+Column Name	
+MeasurementID	INT (PK)
+OrderID	INT (FK)
+MeasurementData	TEXT	
+
+4. Bills Table
+
+Column Name	
+BillID	INT (PK)	
+OrderID	INT (FK)	
+BillDate	DATE	
+GrandTotalAmount	DECIMAL	

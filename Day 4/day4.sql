@@ -1,7 +1,5 @@
 -- 1) List all orders with the customer name and the employee who handled the order.
 
-
-
 select FirstName , ContactName,ProductName from Customers c join Orders o on c.CustomerID = o.CustomerID 
 join Employees e on e.EmployeeID = o.EmployeeID join [Order Details] od on o.OrderID = od.OrderID join Products p 
 on p.ProductID = od.ProductID;
@@ -19,17 +17,17 @@ join Suppliers s on p.SupplierID = s.SupplierID ;
 
 --(Join Orders, Order Details, Products)
 
-SELECT 
-    o.OrderID AS All_Orders,
+select
+    o.OrderID as All_Orders,
     p.ProductName,
     od.Quantity,
     od.UnitPrice
-FROM 
+from 
     [Order Details] od
-JOIN 
-    Products p ON od.ProductID = p.ProductID
-JOIN 
-    Orders o ON od.OrderID = o.OrderID;
+join 
+    Products p on od.ProductID = p.ProductID
+join 
+    Orders o on od.OrderID = o.OrderID;
 
 --4) List employees who report to other employees (manager-subordinate relationship).
 
@@ -43,18 +41,18 @@ select concat (FirstName ,' ',LastName) as FullName from Employees;
 --(Join Customers and Orders, then GROUP BY)
 
 
-SELECT 
+select 
     c.CustomerID,
     c.CompanyName,
-    COUNT(o.OrderID) AS TotalOrders
-FROM 
+    count(o.OrderID) as TotalOrders
+from 
     Customers c
-LEFT JOIN 
-    Orders o ON c.CustomerID = o.CustomerID
-GROUP BY 
+left join 
+    Orders o on c.CustomerID = o.CustomerID
+group by 
     c.CustomerID, c.CompanyName
-ORDER BY 
-    TotalOrders DESC;
+order by 
+    TotalOrders desc;
 
 --6) Find the average unit price of products per category.
 
@@ -77,127 +75,127 @@ select top 5 ProductName, UnitPrice from Products order by UnitPrice desc ;
 --9) Return the total sales amount (quantity × unit price) per order.
 
 --Use SUM(OrderDetails.Quantity * OrderDetails.UnitPrice) and GROUP BY
-SELECT 
+select 
     od.OrderID,
-    SUM(od.Quantity * od.UnitPrice) AS TotalSalesAmount
-FROM 
+    sum(od.Quantity * od.UnitPrice) as TotalSalesAmount
+from 
     [Order Details] od
-GROUP BY 
+group by 
     od.OrderID
-ORDER BY 
-    TotalSalesAmount DESC;
+order by 
+    TotalSalesAmount desc;
 
 
 --10) Create a stored procedure that returns all orders for a given customer ID.
 
 --Input: @CustomerID
-CREATE PROCEDURE sp_GetOrdersByCustomer
-    @CustomerID NVARCHAR(5)
-AS
-BEGIN
-    SELECT 
+create procedure sp_GetOrdersByCustomer
+    @CustomerID nvarchar(5)
+as
+begin
+    select 
         o.OrderID,
         o.OrderDate,
         o.ShipName,
         o.ShipCity,
         o.ShipCountry
-    FROM 
+    from 
         Orders o
-    WHERE 
+    where 
         o.CustomerID = @CustomerID
-    ORDER BY 
-        o.OrderDate DESC;
-END;
+    order by 
+        o.OrderDate desc;
+end;
 
-EXEC sp_GetOrdersByCustomer @CustomerID = 'ALFKI';
+exec sp_GetOrdersByCustomer @CustomerID = 'ALFKI';
 
 
 --11
 
-CREATE PROCEDURE sp_InsertProduct
-    @ProductName NVARCHAR(100),
-    @SupplierID INT,
-    @CategoryID INT,
+create procedure sp_InsertProduct
+    @ProductName nvarchar(100),
+    @SupplierID int,
+    @CategoryID int,
     @UnitPrice MONEY,
-    @UnitsInStock INT,
-    @UnitsOnOrder INT,
+    @UnitsInStock int,
+    @UnitsOnOrder int,
     @Discontinued BIT
-AS
-BEGIN
-    INSERT INTO Products (ProductName, SupplierID, CategoryID, UnitPrice, UnitsInStock, UnitsOnOrder, Discontinued)
-    VALUES (@ProductName, @SupplierID, @CategoryID, @UnitPrice, @UnitsInStock, @UnitsOnOrder, @Discontinued);
-END;
+as
+begin
+    insert into Products (ProductName, SupplierID, CategoryID, UnitPrice, UnitsInStock, UnitsOnOrder, Discontinued)
+    values (@ProductName, @SupplierID, @CategoryID, @UnitPrice, @UnitsInStock, @UnitsOnOrder, @Discontinued);
+end;
 
 
 --12
-CREATE PROCEDURE sp_TotalSalesPerEmployee
-AS
-BEGIN
-    SELECT 
+create procedure sp_TotalSalesPerEmployee
+as
+begin
+    select 
         e.EmployeeID,
-        e.FirstName + ' ' + e.LastName AS EmployeeName,
-        SUM(od.UnitPrice * od.Quantity) AS TotalSales
-    FROM 
+        e.FirstName + ' ' + e.LastName as EmployeeName,
+        sum(od.UnitPrice * od.Quantity) as TotalSales
+    from 
         Employees e
-        JOIN Orders o ON e.EmployeeID = o.EmployeeID
-        JOIN [Order Details] od ON o.OrderID = od.OrderID
-    GROUP BY 
+        JOIN Orders o on e.EmployeeID = o.EmployeeID
+        JOIN [Order Details] od on o.OrderID = od.OrderID
+    group by 
         e.EmployeeID, e.FirstName, e.LastName
-    ORDER BY 
-        TotalSales DESC;
-END;
+    order by 
+        TotalSales desc;
+end;
 
 --13
-WITH ProductRank AS (
-    SELECT 
+with ProductRank as (
+    select 
         ProductID,
         ProductName,
         CategoryID,
         UnitPrice,
-        RANK() OVER (PARTITION BY CategoryID ORDER BY UnitPrice DESC) AS PriceRank
-    FROM 
+        rank() over (partition by CategoryID order by UnitPrice desc) as PriceRank
+    from 
         Products
 )
-SELECT * FROM ProductRank;
+select * from ProductRank;
 
 
 --14
-WITH ProductRevenue AS (
-    SELECT 
+with ProductRevenue as (
+    select 
         p.ProductID,
         p.ProductName,
-        SUM(od.UnitPrice * od.Quantity) AS TotalRevenue
-    FROM 
+        sum(od.UnitPrice * od.Quantity) as TotalRevenue
+    from 
         Products p
-        JOIN [Order Details] od ON p.ProductID = od.ProductID
-    GROUP BY 
+        JOIN [Order Details] od on p.ProductID = od.ProductID
+   group by
         p.ProductID, p.ProductName
 )
-SELECT * FROM ProductRevenue WHERE TotalRevenue > 10000;
+select * from ProductRevenue where TotalRevenue > 10000;
 --15
 
-WITH EmployeeHierarchy AS (
-    SELECT 
+with EmployeeHierarchy as (
+    select 
         EmployeeID,
         LastName,
         FirstName,
         ReportsTo,
-        0 AS Level
-    FROM 
+        0 as Level
+    from 
         Employees
-    WHERE 
+    where 
         ReportsTo IS NULL
 
-    UNION ALL
+    union ALL
 
-    SELECT 
+    select 
         e.EmployeeID,
         e.LastName,
         e.FirstName,
         e.ReportsTo,
         eh.Level + 1
-    FROM 
+    from 
         Employees e
-        JOIN EmployeeHierarchy eh ON e.ReportsTo = eh.EmployeeID
+        JOIN EmployeeHierarchy eh on e.ReportsTo = eh.EmployeeID
 )
-SELECT * FROM EmployeeHierarchy ORDER BY Level, EmployeeID;
+select * from EmployeeHierarchy order by Level,EmployeeID;

@@ -1,0 +1,14 @@
+D:\cSharp\Practice\LargestNumber\LargestNumber\bin\Debug\net8.0\LargestNumber.exe
+D:\cSharp\Practice\LargestNumber\LargestNumber\bin\Debug\net8.0\LargestNumber.deps.json
+D:\cSharp\Practice\LargestNumber\LargestNumber\bin\Debug\net8.0\LargestNumber.runtimeconfig.json
+D:\cSharp\Practice\LargestNumber\LargestNumber\bin\Debug\net8.0\LargestNumber.dll
+D:\cSharp\Practice\LargestNumber\LargestNumber\bin\Debug\net8.0\LargestNumber.pdb
+D:\cSharp\Practice\LargestNumber\LargestNumber\obj\Debug\net8.0\LargestNumber.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\Practice\LargestNumber\LargestNumber\obj\Debug\net8.0\LargestNumber.AssemblyInfoInputs.cache
+D:\cSharp\Practice\LargestNumber\LargestNumber\obj\Debug\net8.0\LargestNumber.AssemblyInfo.cs
+D:\cSharp\Practice\LargestNumber\LargestNumber\obj\Debug\net8.0\LargestNumber.csproj.CoreCompileInputs.cache
+D:\cSharp\Practice\LargestNumber\LargestNumber\obj\Debug\net8.0\LargestNumber.dll
+D:\cSharp\Practice\LargestNumber\LargestNumber\obj\Debug\net8.0\refint\LargestNumber.dll
+D:\cSharp\Practice\LargestNumber\LargestNumber\obj\Debug\net8.0\LargestNumber.pdb
+D:\cSharp\Practice\LargestNumber\LargestNumber\obj\Debug\net8.0\LargestNumber.genruntimeconfig.cache
+D:\cSharp\Practice\LargestNumber\LargestNumber\obj\Debug\net8.0\ref\LargestNumber.dll

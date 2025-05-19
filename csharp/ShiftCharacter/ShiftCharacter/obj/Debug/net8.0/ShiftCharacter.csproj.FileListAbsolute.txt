@@ -1,0 +1,14 @@
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\bin\Debug\net8.0\ShiftCharacter.exe
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\bin\Debug\net8.0\ShiftCharacter.deps.json
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\bin\Debug\net8.0\ShiftCharacter.runtimeconfig.json
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\bin\Debug\net8.0\ShiftCharacter.dll
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\bin\Debug\net8.0\ShiftCharacter.pdb
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\obj\Debug\net8.0\ShiftCharacter.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\obj\Debug\net8.0\ShiftCharacter.AssemblyInfoInputs.cache
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\obj\Debug\net8.0\ShiftCharacter.AssemblyInfo.cs
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\obj\Debug\net8.0\ShiftCharacter.csproj.CoreCompileInputs.cache
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\obj\Debug\net8.0\ShiftCharacter.dll
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\obj\Debug\net8.0\refint\ShiftCharacter.dll
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\obj\Debug\net8.0\ShiftCharacter.pdb
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\obj\Debug\net8.0\ShiftCharacter.genruntimeconfig.cache
+D:\cSharp\Practice\ShiftCharacter\ShiftCharacter\obj\Debug\net8.0\ref\ShiftCharacter.dll

@@ -1,0 +1,14 @@
+D:\cSharp\Practice\AdminPass\AdminPass\bin\Debug\net8.0\AdminPass.exe
+D:\cSharp\Practice\AdminPass\AdminPass\bin\Debug\net8.0\AdminPass.deps.json
+D:\cSharp\Practice\AdminPass\AdminPass\bin\Debug\net8.0\AdminPass.runtimeconfig.json
+D:\cSharp\Practice\AdminPass\AdminPass\bin\Debug\net8.0\AdminPass.dll
+D:\cSharp\Practice\AdminPass\AdminPass\bin\Debug\net8.0\AdminPass.pdb
+D:\cSharp\Practice\AdminPass\AdminPass\obj\Debug\net8.0\AdminPass.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\Practice\AdminPass\AdminPass\obj\Debug\net8.0\AdminPass.AssemblyInfoInputs.cache
+D:\cSharp\Practice\AdminPass\AdminPass\obj\Debug\net8.0\AdminPass.AssemblyInfo.cs
+D:\cSharp\Practice\AdminPass\AdminPass\obj\Debug\net8.0\AdminPass.csproj.CoreCompileInputs.cache
+D:\cSharp\Practice\AdminPass\AdminPass\obj\Debug\net8.0\AdminPass.dll
+D:\cSharp\Practice\AdminPass\AdminPass\obj\Debug\net8.0\refint\AdminPass.dll
+D:\cSharp\Practice\AdminPass\AdminPass\obj\Debug\net8.0\AdminPass.pdb
+D:\cSharp\Practice\AdminPass\AdminPass\obj\Debug\net8.0\AdminPass.genruntimeconfig.cache
+D:\cSharp\Practice\AdminPass\AdminPass\obj\Debug\net8.0\ref\AdminPass.dll

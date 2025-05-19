@@ -1,0 +1,11 @@
+{
+  "customerName": "Roopan",
+  "items": [
+    {
+      "productId": 1,
+      "productName": "Laptop",
+      "productPrice": 1000,
+      "quantity": 1
+    }
+  ]
+}

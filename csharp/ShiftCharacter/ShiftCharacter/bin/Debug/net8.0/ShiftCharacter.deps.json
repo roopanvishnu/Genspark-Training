@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ShiftCharacter/1.0.0": {
+        "runtime": {
+          "ShiftCharacter.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ShiftCharacter/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

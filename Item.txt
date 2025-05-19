@@ -1,0 +1,16 @@
+Item
+itemName, itemType, itemColor
+
+Department
+deptName, floor, phone, empNo, 
+foreign key empno references Employee(empNo)
+
+Employee
+empNo, empName,salary, deptName, bossno
+foreign key (deptName) references Department(deptName),
+foreign key (bossno) references Employee(empno)
+
+Sales
+salesNo, salesQty, itemName, deptName
+foreign key itemName references Item(itemName)
+foreign key deptName references Department(deptName)

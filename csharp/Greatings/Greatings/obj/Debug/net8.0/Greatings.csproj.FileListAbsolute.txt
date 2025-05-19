@@ -1,0 +1,14 @@
+D:\cSharp\Practice\Greatings\Greatings\bin\Debug\net8.0\Greatings.exe
+D:\cSharp\Practice\Greatings\Greatings\bin\Debug\net8.0\Greatings.deps.json
+D:\cSharp\Practice\Greatings\Greatings\bin\Debug\net8.0\Greatings.runtimeconfig.json
+D:\cSharp\Practice\Greatings\Greatings\bin\Debug\net8.0\Greatings.dll
+D:\cSharp\Practice\Greatings\Greatings\bin\Debug\net8.0\Greatings.pdb
+D:\cSharp\Practice\Greatings\Greatings\obj\Debug\net8.0\Greatings.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\Practice\Greatings\Greatings\obj\Debug\net8.0\Greatings.AssemblyInfoInputs.cache
+D:\cSharp\Practice\Greatings\Greatings\obj\Debug\net8.0\Greatings.AssemblyInfo.cs
+D:\cSharp\Practice\Greatings\Greatings\obj\Debug\net8.0\Greatings.csproj.CoreCompileInputs.cache
+D:\cSharp\Practice\Greatings\Greatings\obj\Debug\net8.0\Greatings.dll
+D:\cSharp\Practice\Greatings\Greatings\obj\Debug\net8.0\refint\Greatings.dll
+D:\cSharp\Practice\Greatings\Greatings\obj\Debug\net8.0\Greatings.pdb
+D:\cSharp\Practice\Greatings\Greatings\obj\Debug\net8.0\Greatings.genruntimeconfig.cache
+D:\cSharp\Practice\Greatings\Greatings\obj\Debug\net8.0\ref\Greatings.dll

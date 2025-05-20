@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\bin\Debug\net8.0\InstagramPost.exe
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\bin\Debug\net8.0\InstagramPost.deps.json
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\bin\Debug\net8.0\InstagramPost.runtimeconfig.json
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\bin\Debug\net8.0\InstagramPost.dll
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\bin\Debug\net8.0\InstagramPost.pdb
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\obj\Debug\net8.0\InstagramPost.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\obj\Debug\net8.0\InstagramPost.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\obj\Debug\net8.0\InstagramPost.AssemblyInfo.cs
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\obj\Debug\net8.0\InstagramPost.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\obj\Debug\net8.0\InstagramPost.sourcelink.json
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\obj\Debug\net8.0\InstagramPost.dll
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\obj\Debug\net8.0\refint\InstagramPost.dll
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\obj\Debug\net8.0\InstagramPost.pdb
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\obj\Debug\net8.0\InstagramPost.genruntimeconfig.cache
+D:\GensparkTraining\Training\20-5\InstagramPost\InstagramPost\obj\Debug\net8.0\ref\InstagramPost.dll

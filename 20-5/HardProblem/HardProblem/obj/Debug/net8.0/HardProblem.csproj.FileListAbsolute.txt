@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\bin\Debug\net8.0\HardProblem.exe
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\bin\Debug\net8.0\HardProblem.deps.json
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\bin\Debug\net8.0\HardProblem.runtimeconfig.json
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\bin\Debug\net8.0\HardProblem.dll
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\bin\Debug\net8.0\HardProblem.pdb
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\obj\Debug\net8.0\HardProblem.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\obj\Debug\net8.0\HardProblem.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\obj\Debug\net8.0\HardProblem.AssemblyInfo.cs
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\obj\Debug\net8.0\HardProblem.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\obj\Debug\net8.0\HardProblem.sourcelink.json
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\obj\Debug\net8.0\HardProblem.dll
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\obj\Debug\net8.0\refint\HardProblem.dll
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\obj\Debug\net8.0\HardProblem.pdb
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\obj\Debug\net8.0\HardProblem.genruntimeconfig.cache
+D:\GensparkTraining\Training\20-5\HardProblem\HardProblem\obj\Debug\net8.0\ref\HardProblem.dll

@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\bin\Debug\net8.0\EasyQuestions.exe
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\bin\Debug\net8.0\EasyQuestions.deps.json
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\bin\Debug\net8.0\EasyQuestions.runtimeconfig.json
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\bin\Debug\net8.0\EasyQuestions.dll
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\bin\Debug\net8.0\EasyQuestions.pdb
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\obj\Debug\net8.0\EasyQuestions.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\obj\Debug\net8.0\EasyQuestions.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\obj\Debug\net8.0\EasyQuestions.AssemblyInfo.cs
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\obj\Debug\net8.0\EasyQuestions.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\obj\Debug\net8.0\EasyQuestions.sourcelink.json
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\obj\Debug\net8.0\EasyQuestions.dll
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\obj\Debug\net8.0\refint\EasyQuestions.dll
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\obj\Debug\net8.0\EasyQuestions.pdb
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\obj\Debug\net8.0\EasyQuestions.genruntimeconfig.cache
+D:\GensparkTraining\Training\20-5\EasyQuestions\EasyQuestions\obj\Debug\net8.0\ref\EasyQuestions.dll

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GensparkTraining\\Training\\20-5\\InstagramPost\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5B831B4A-D94A-4058-A9C6-308AB2233FD4}|InstagramPost\\InstagramPost.csproj|d:\\gensparktraining\\training\\20-5\\instagrampost\\instagrampost\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B831B4A-D94A-4058-A9C6-308AB2233FD4}|InstagramPost\\InstagramPost.csproj|solutionrelative:instagrampost\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\20-5\\InstagramPost\\InstagramPost\\Program.cs",
+              "RelativeDocumentMoniker": "InstagramPost\\Program.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\20-5\\InstagramPost\\InstagramPost\\Program.cs*",
+              "RelativeToolTip": "InstagramPost\\Program.cs*",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T04:46:54.694Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

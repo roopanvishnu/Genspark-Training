@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\GensparkTraining\\Training\\20-5\\MediumFour\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BE41EA6B-7603-414C-8130-3D067803791A}|MediumFour\\MediumFour.csproj|d:\\gensparktraining\\training\\20-5\\mediumfour\\mediumfour\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{BE41EA6B-7603-414C-8130-3D067803791A}|MediumFour\\MediumFour.csproj|solutionrelative:mediumfour\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BE41EA6B-7603-414C-8130-3D067803791A}|MediumFour\\MediumFour.csproj|d:\\gensparktraining\\training\\20-5\\mediumfour\\mediumfour\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BE41EA6B-7603-414C-8130-3D067803791A}|MediumFour\\MediumFour.csproj|solutionrelative:mediumfour\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\20-5\\MediumFour\\MediumFour\\.gitignore",
+              "RelativeDocumentMoniker": "MediumFour\\.gitignore",
+              "ToolTip": "D:\\GensparkTraining\\Training\\20-5\\MediumFour\\MediumFour\\.gitignore",
+              "RelativeToolTip": "MediumFour\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-20T12:06:38.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\GensparkTraining\\Training\\20-5\\MediumFour\\MediumFour\\Program.cs",
               "RelativeDocumentMoniker": "MediumFour\\Program.cs",

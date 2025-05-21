@@ -41,13 +41,15 @@ class Employee : IComparable<Employee>
         return this.Salary.CompareTo(other.Salary);
     }
 }
+
 class Program
 {
     static Dictionary<int, Employee> employees = new Dictionary<int, Employee>();
+
     static void Main(string[] args)
     {
         bool running = true;
-        while(running)
+        while (running)
         {
             Console.WriteLine("\n--- Employee Management Menu ---");
             Console.WriteLine("1. Add Employee");
@@ -60,144 +62,140 @@ class Program
             Console.WriteLine("8. Exit");
             Console.Write("Choose an option: ");
 
-            switch (Console.ReadLine())
+            string? choice = Console.ReadLine();
+            Action action = choice switch
+
+
             {
-                case "1":
-                    AddEmployee();
-                    break;
-                case "2":
-                    DisplayAllEmployees();
-                    break;
-                case "3":
-                    ModifyEmployee();
-                    break;
-                case "4":
-                    DisplayEmployeeById();
-                    break;
-                case "5":
-                    DeleteEmployee();
-                    break;
-                case "6":
-                    SortEmployeesBySalary();
-                    break;
-                case "7":
-                    FindEmployeesByName();
-                    break;
-                case "8":
-                    running = false;
-                    break;
-                default:
-                    Console.WriteLine("Invalid option. Please try again.");
-                    break;
+                "1" => AddEmployee,
+                "2" => DisplayAllEmployees,
+                "3" => ModifyEmployee,
+                "4" => DisplayEmployeeById,
+                "5" => DeleteEmployee,
+                "6" => SortEmployeesBySalary,
+                "7" => FindEmployeesByName,
+                "8" =>()=> running = false,
+                _ =>()=> Console.WriteLine("Invalid option. Please try again.")
+            };
+            action();
+    }
+
+
+        static void AddEmployee()
+        {
+            Employee emp = new Employee();
+            emp.TakeEmployeeDetailsFromUser();
+            if (!employees.ContainsKey(emp.Id))
+            {
+                employees.Add(emp.Id, emp);
+                Console.WriteLine("Employee added.");
+            }
+            else
+            {
+                Console.WriteLine("Employee with this ID already exists.");
             }
         }
-    }
-    static void AddEmployee()
-    {
-        Employee emp = new Employee();
-        emp.TakeEmployeeDetailsFromUser();
-        if(!employees.ContainsKey(emp.Id))
-        {
-            employees.Add(emp.Id, emp);
-            Console.WriteLine("Employee added ");
-        }
-        else
-        {
-            Console.WriteLine("Employee with this Id already exists");
-        }
-    }
-    static void DisplayAllEmployees()
-    {
-        if(employees.Count == 0)
-        {
-            Console.WriteLine("No Employees to display");
-            return;
-        }
-        foreach (var emp in employees.Values)
-        {
-            Console.WriteLine(emp);
-        }
-    }
-    static void ModifyEmployee()
-    {
-        Console.Write("Enter the id of the emplyee to modify: ");
-        int id = int.Parse(Console.ReadLine());
 
-        if(employees.TryGetValue(id,out Employee emp))
+        static void DisplayAllEmployees()
         {
-            Console.Write("Enter new name: ");
-            emp.Name = Console.ReadLine();
-            Console.Write("Enter new age: ");
-            emp.Age = int.Parse(Console.ReadLine());
-            Console.Write("Enter new salary: ");
-            emp.Salary = double.Parse(Console.ReadLine());
-            Console.WriteLine("Employee details updated.");
-        }
-        else
-        {
-            Console.WriteLine("Employee found dead");
-        }
-    }
-    static void DisplayEmployeeById()
-    {
-        Console.Write("Enter the ID to search ");
-        int id = int.Parse(Console.ReadLine());
+            if (employees.Count == 0)
+            {
+                Console.WriteLine("No employees to display.");
+                return;
+            }
 
-        if (employees.TryGetValue(id,out Employee emp))
-        {
-            Console.WriteLine(emp);
-        }
-        else
-        {
-            Console.WriteLine("EMployee found dead");
-        }
-    }
-    static void DeleteEmployee()
-    {
-        Console.Write("Enter the ID to delete: ");
-        int id = int.Parse(Console.ReadLine());
-
-        if (employees.Remove(id))
-        {
-            Console.WriteLine("Employee removed");
-        }
-        else
-        {
-            Console.WriteLine("EMplyee not found");
-        }
-    }
-    static void SortEmployeesBySalary()
-    {
-        if (employees.Count == 0)
-        {
-            Console.WriteLine("No employees to sort.");
-            return;
-        }
-
-        var sortedList = employees.Values.OrderBy(e => e.Salary).ToList();
-        foreach (var emp in sortedList)
-        {
-            Console.WriteLine(emp);
-        }
-    }
-
-    static void FindEmployeesByName()
-    {
-        Console.Write("Enter the name to search: ");
-        string name = Console.ReadLine();
-
-        var matches = employees.Values.Where(e => e.Name.Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
-
-        if (matches.Count > 0)
-        {
-            foreach (var emp in matches)
+            foreach (var emp in employees.Values)
             {
                 Console.WriteLine(emp);
             }
         }
-        else
+
+        static void ModifyEmployee()
         {
-            Console.WriteLine("No employee found with the given name.");
+            Console.Write("Enter the ID of the employee to modify: ");
+            int id = int.Parse(Console.ReadLine());
+
+            if (employees.TryGetValue(id, out Employee emp))
+            {
+                Console.Write("Enter new name: ");
+                emp.Name = Console.ReadLine();
+                Console.Write("Enter new age: ");
+                emp.Age = int.Parse(Console.ReadLine());
+                Console.Write("Enter new salary: ");
+                emp.Salary = double.Parse(Console.ReadLine());
+                Console.WriteLine("Employee details updated.");
+            }
+            else
+            {
+                Console.WriteLine("Employee not found.");
+            }
+        }
+
+        static void DisplayEmployeeById()
+        {
+            Console.Write("Enter the ID to search: ");
+            int id = int.Parse(Console.ReadLine());
+
+            if (employees.TryGetValue(id, out Employee emp))
+            {
+                Console.WriteLine(emp);
+            }
+            else
+            {
+                Console.WriteLine("Employee not found.");
+            }
+        }
+
+        static void DeleteEmployee()
+        {
+            Console.Write("Enter the ID to delete: ");
+            int id = int.Parse(Console.ReadLine());
+
+            if (employees.Remove(id))
+            {
+                Console.WriteLine("Employee removed.");
+            }
+            else
+            {
+                Console.WriteLine("Employee not found.");
+            }
+        }
+
+        static void SortEmployeesBySalary()
+        {
+            if (employees.Count == 0)
+            {
+                Console.WriteLine("No employees to sort.");
+                return;
+            }
+
+            var sortedList = employees.Values.OrderBy(e => e.Salary).ToList();
+            foreach (var emp in sortedList)
+            {
+                Console.WriteLine(emp);
+            }
+        }
+
+        static void FindEmployeesByName()
+        {
+            Console.Write("Enter the name to search: ");
+            string name = Console.ReadLine();
+
+            var matches = employees.Values
+                .Where(e => e.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            if (matches.Count > 0)
+            {
+                foreach (var emp in matches)
+                {
+                    Console.WriteLine(emp);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No employee found with the given name.");
+            }
         }
     }
 }

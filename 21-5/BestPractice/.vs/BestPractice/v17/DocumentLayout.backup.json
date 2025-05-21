@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|d:\\gensparktraining\\training\\21-5\\bestpractice\\bestpractice\\exceptions\\duplicateentityexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|solutionrelative:bestpractice\\exceptions\\duplicateentityexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|d:\\gensparktraining\\training\\21-5\\bestpractice\\bestpractice\\interfaces\\irepositor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|solutionrelative:bestpractice\\interfaces\\irepositor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|d:\\gensparktraining\\training\\21-5\\bestpractice\\bestpractice\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|solutionrelative:bestpractice\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|d:\\gensparktraining\\training\\21-5\\bestpractice\\bestpractice\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|solutionrelative:bestpractice\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|d:\\gensparktraining\\training\\21-5\\bestpractice\\bestpractice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|solutionrelative:bestpractice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|d:\\gensparktraining\\training\\21-5\\bestpractice\\bestpractice\\bestpractice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{16E7F967-F984-4F30-A496-4CC5C7A702E8}|BestPractice\\BestPractice.csproj|solutionrelative:bestpractice\\bestpractice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DuplicateEntityException.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\Exceptions\\DuplicateEntityException.cs",
+              "RelativeDocumentMoniker": "BestPractice\\Exceptions\\DuplicateEntityException.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\Exceptions\\DuplicateEntityException.cs*",
+              "RelativeToolTip": "BestPractice\\Exceptions\\DuplicateEntityException.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T04:49:56.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "BestPractice\\Models\\Employee.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\Models\\Employee.cs*",
+              "RelativeToolTip": "BestPractice\\Models\\Employee.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T04:49:02.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IRepositor.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\Interfaces\\IRepositor.cs",
+              "RelativeDocumentMoniker": "BestPractice\\Interfaces\\IRepositor.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\Interfaces\\IRepositor.cs*",
+              "RelativeToolTip": "BestPractice\\Interfaces\\IRepositor.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T04:45:33.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "BestPractice\\Repositories\\Repository.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\Repositories\\Repository.cs*",
+              "RelativeToolTip": "BestPractice\\Repositories\\Repository.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T04:44:25.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BestPractice",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\BestPractice.csproj",
+              "RelativeDocumentMoniker": "BestPractice\\BestPractice.csproj",
+              "ToolTip": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\BestPractice.csproj*",
+              "RelativeToolTip": "BestPractice\\BestPractice.csproj*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-21T04:42:20.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\Program.cs",
+              "RelativeDocumentMoniker": "BestPractice\\Program.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\21-5\\BestPractice\\BestPractice\\Program.cs*",
+              "RelativeToolTip": "BestPractice\\Program.cs*",
+              "ViewState": "AgIAAFoAAAAAAAAAAADwv8gAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T04:42:03.685Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

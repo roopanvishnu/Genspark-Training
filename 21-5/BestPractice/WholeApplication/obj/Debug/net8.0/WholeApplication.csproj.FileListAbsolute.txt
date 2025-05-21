@@ -1,0 +1,15 @@
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\bin\Debug\net8.0\WholeApplication.exe
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\bin\Debug\net8.0\WholeApplication.deps.json
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\bin\Debug\net8.0\WholeApplication.runtimeconfig.json
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\bin\Debug\net8.0\WholeApplication.dll
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\bin\Debug\net8.0\WholeApplication.pdb
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\obj\Debug\net8.0\WholeApplication.GeneratedMSBuildEditorConfig.editorconfig
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\obj\Debug\net8.0\WholeApplication.AssemblyInfoInputs.cache
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\obj\Debug\net8.0\WholeApplication.AssemblyInfo.cs
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\obj\Debug\net8.0\WholeApplication.csproj.CoreCompileInputs.cache
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\obj\Debug\net8.0\WholeApplication.sourcelink.json
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\obj\Debug\net8.0\WholeApplication.dll
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\obj\Debug\net8.0\refint\WholeApplication.dll
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\obj\Debug\net8.0\WholeApplication.pdb
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\obj\Debug\net8.0\WholeApplication.genruntimeconfig.cache
+D:\Corp\GenSpark\Presidio\2025\Participants\Day13\WholeApplication\obj\Debug\net8.0\ref\WholeApplication.dll

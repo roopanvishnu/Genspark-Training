@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\bin\Debug\net8.0\SingleResponsibilityPrinciple.exe
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\bin\Debug\net8.0\SingleResponsibilityPrinciple.deps.json
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\bin\Debug\net8.0\SingleResponsibilityPrinciple.runtimeconfig.json
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\bin\Debug\net8.0\SingleResponsibilityPrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\bin\Debug\net8.0\SingleResponsibilityPrinciple.pdb
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\obj\Debug\net8.0\SingleResponsibilityPrinciple.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\obj\Debug\net8.0\SingleResponsibilityPrinciple.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\obj\Debug\net8.0\SingleResponsibilityPrinciple.AssemblyInfo.cs
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\obj\Debug\net8.0\SingleResponsibilityPrinciple.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\obj\Debug\net8.0\SingleResponsibilityPrinciple.sourcelink.json
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\obj\Debug\net8.0\SingleResponsibilityPrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\obj\Debug\net8.0\refint\SingleResponsibilityPrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\obj\Debug\net8.0\SingleResponsibilityPrinciple.pdb
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\obj\Debug\net8.0\SingleResponsibilityPrinciple.genruntimeconfig.cache
+D:\GensparkTraining\Training\22-05\SOLID\SingleResponsibilityPrinciple\SingleResponsibilityPrinciple\obj\Debug\net8.0\ref\SingleResponsibilityPrinciple.dll

@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GensparkTraining\\Training\\22-05\\DelegateFunctions\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CC16C2E5-5148-491B-93D9-03A83037CD69}|DelegateFunctions\\DelegateFunctions.csproj|d:\\gensparktraining\\training\\22-05\\delegatefunctions\\delegatefunctions\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC16C2E5-5148-491B-93D9-03A83037CD69}|DelegateFunctions\\DelegateFunctions.csproj|solutionrelative:delegatefunctions\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC16C2E5-5148-491B-93D9-03A83037CD69}|DelegateFunctions\\DelegateFunctions.csproj|d:\\gensparktraining\\training\\22-05\\delegatefunctions\\delegatefunctions\\misc\\extendedfunction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC16C2E5-5148-491B-93D9-03A83037CD69}|DelegateFunctions\\DelegateFunctions.csproj|solutionrelative:delegatefunctions\\misc\\extendedfunction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ExtendedFunction.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\22-05\\DelegateFunctions\\DelegateFunctions\\Misc\\ExtendedFunction.cs",
+              "RelativeDocumentMoniker": "DelegateFunctions\\Misc\\ExtendedFunction.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\22-05\\DelegateFunctions\\DelegateFunctions\\Misc\\ExtendedFunction.cs",
+              "RelativeToolTip": "DelegateFunctions\\Misc\\ExtendedFunction.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAowA0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T05:32:06.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\22-05\\DelegateFunctions\\DelegateFunctions\\Program.cs",
+              "RelativeDocumentMoniker": "DelegateFunctions\\Program.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\22-05\\DelegateFunctions\\DelegateFunctions\\Program.cs",
+              "RelativeToolTip": "DelegateFunctions\\Program.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAiwE4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T04:40:34.208Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

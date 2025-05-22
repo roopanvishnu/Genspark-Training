@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DependencyInversionPrinciple")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5539c63397d37ee935969b734e0b6a22c767d0af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b72b2f53c3e79a1d65ebfc2706a5f50c2073759")]
 [assembly: System.Reflection.AssemblyProductAttribute("DependencyInversionPrinciple")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DependencyInversionPrinciple")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

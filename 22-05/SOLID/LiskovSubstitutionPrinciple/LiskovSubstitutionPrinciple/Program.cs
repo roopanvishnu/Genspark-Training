@@ -8,17 +8,27 @@
 //{
 //    public class Bird
 //    {
+//        public string Name { get; set; }
+
+//        public Bird(string name)
+//        {
+//            Name = name;
+//        }
+
 //        public virtual void Fly()
 //        {
-//            Console.WriteLine("This bird can fly.");
+//            Console.WriteLine($"{Name} is flying.");
 //        }
 //    }
 
 //    public class Ostrich : Bird
 //    {
+//        public Ostrich(string name) : base(name) { }
+
 //        public override void Fly()
 //        {
-//            Console.WriteLine("Ostriches can't fly");
+//            // Violates LSP: Ostriches can't fly, yet we override Fly method!
+//            throw new InvalidOperationException("Ostriches can't fly!");
 //        }
 //    }
 
@@ -26,64 +36,120 @@
 //    {
 //        static void MakeBirdFly(Bird bird)
 //        {
-//            bird.Fly();
+//            bird.Fly(); // Will crash if passed an Ostrich!
 //        }
 
 //        static void Main(string[] args)
 //        {
-//            Bird flyingBird = new Bird();
-//            Bird ostrich = new Ostrich();
+//            Bird sparrow = new Bird("Sparrow");
+//            Bird ostrich = new Ostrich("Ostrich");
 
-//            MakeBirdFly(flyingBird);
-//            MakeBirdFly(ostrich);
+//            MakeBirdFly(sparrow); // OK
+//            MakeBirdFly(ostrich); // Runtime exception
 //        }
 //    }
 //}
 
 
+
 // crt version
 using System;
+using System.Collections.Generic;
+
 namespace LSPGoodExample
 {
-    public class Bird
+    //  Base class only contains common attributes, not behaviors
+    public abstract class Bird
     {
-        public string? Birdname {  get; set; }
-    }
-    public class FlyingBird:Bird
-    {
-        public virtual void Fly()
+        public string Name { get; set; }
+
+        protected Bird(string name)
         {
-            Console.WriteLine($"{Birdname} is flying");
+            Name = name;
         }
     }
-    public class Sparrow:FlyingBird
+
+    //  Interface for birds that can fly
+    public interface IFlyable
     {
-        public override  void Fly()
+        void Fly();
+    }
+
+    //  Interface for birds that can run
+    public interface IRunnable
+    {
+        void Run();
+    }
+
+    //  Flying bird: Sparrow
+    public class Sparrow : Bird, IFlyable
+    {
+        public Sparrow(string name) : base(name) { }
+
+        public void Fly()
         {
-            Console.WriteLine($"{Birdname} is flying");
+            Console.WriteLine($"{Name} is flying.");
         }
     }
-    public class Ostrich: Bird
+
+    //  Flying bird: Eagle
+    public class Eagle : Bird, IFlyable
     {
+        public Eagle(string name) : base(name) { }
+
+        public void Fly()
+        {
+            Console.WriteLine($"{Name} is soaring through the sky.");
+        }
+    }
+
+    //  Non-flying bird: Ostrich
+    public class Ostrich : Bird, IRunnable
+    {
+        public Ostrich(string name) : base(name) { }
+
         public void Run()
         {
-            Console.WriteLine($"{Birdname} can run fast");
+            Console.WriteLine($"{Name} is running swiftly.");
         }
     }
 
     class Program
     {
-        static void MakeFlyingBirdFly(FlyingBird bird)
+        static void MakeBirdsFly(IEnumerable<IFlyable> birds)
         {
-            bird.Fly();
+            foreach (var bird in birds)
+            {
+                bird.Fly();
+            }
         }
+
+        static void MakeBirdsRun(IEnumerable<IRunnable> birds)
+        {
+            foreach (var bird in birds)
+            {
+                bird.Run();
+            }
+        }
+
         static void Main(string[] args)
         {
-            Sparrow sparrow = new Sparrow { Birdname = "Sparrow" };
-            Ostrich ostrich = new Ostrich { Birdname = "Ostrich" };
+            List<IFlyable> flyingBirds = new()
+            {
+                new Sparrow("Sparrow"),
+                new Eagle("Eagle")
+            };
 
-            MakeFlyingBirdFly(sparrow);
-            ostrich.Run();
+            List<IRunnable> runningBirds = new()
+            {
+                new Ostrich("Ostrich")
+            };
+
+            Console.WriteLine("Flying Birds:");
+            MakeBirdsFly(flyingBirds);
+
+            Console.WriteLine("\nRunning Birds:");
+            MakeBirdsRun(runningBirds);
         }
     }
 }

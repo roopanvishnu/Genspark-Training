@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{24E0CE61-BD31-4845-86BD-F3B6AAD62804}|SecureFileAccessApp\\SecureFileAccessApp.csproj|d:\\gensparktraining\\training\\23-05\\proxy\\securefileaccessapp\\securefileaccessapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24E0CE61-BD31-4845-86BD-F3B6AAD62804}|SecureFileAccessApp\\SecureFileAccessApp.csproj|solutionrelative:securefileaccessapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24E0CE61-BD31-4845-86BD-F3B6AAD62804}|SecureFileAccessApp\\SecureFileAccessApp.csproj|d:\\gensparktraining\\training\\23-05\\proxy\\securefileaccessapp\\securefileaccessapp\\services\\proxyfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24E0CE61-BD31-4845-86BD-F3B6AAD62804}|SecureFileAccessApp\\SecureFileAccessApp.csproj|solutionrelative:securefileaccessapp\\services\\proxyfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24E0CE61-BD31-4845-86BD-F3B6AAD62804}|SecureFileAccessApp\\SecureFileAccessApp.csproj|d:\\gensparktraining\\training\\23-05\\proxy\\securefileaccessapp\\securefileaccessapp\\services\\file.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24E0CE61-BD31-4845-86BD-F3B6AAD62804}|SecureFileAccessApp\\SecureFileAccessApp.csproj|solutionrelative:securefileaccessapp\\services\\file.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24E0CE61-BD31-4845-86BD-F3B6AAD62804}|SecureFileAccessApp\\SecureFileAccessApp.csproj|d:\\gensparktraining\\training\\23-05\\proxy\\securefileaccessapp\\securefileaccessapp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24E0CE61-BD31-4845-86BD-F3B6AAD62804}|SecureFileAccessApp\\SecureFileAccessApp.csproj|solutionrelative:securefileaccessapp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24E0CE61-BD31-4845-86BD-F3B6AAD62804}|SecureFileAccessApp\\SecureFileAccessApp.csproj|d:\\gensparktraining\\training\\23-05\\proxy\\securefileaccessapp\\securefileaccessapp\\interfaces\\ifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24E0CE61-BD31-4845-86BD-F3B6AAD62804}|SecureFileAccessApp\\SecureFileAccessApp.csproj|solutionrelative:securefileaccessapp\\interfaces\\ifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProxyFile.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\SecureFileAccessApp\\Services\\ProxyFile.cs",
+              "RelativeDocumentMoniker": "SecureFileAccessApp\\Services\\ProxyFile.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\SecureFileAccessApp\\Services\\ProxyFile.cs",
+              "RelativeToolTip": "SecureFileAccessApp\\Services\\ProxyFile.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAkwCIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:38:47.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "File.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\SecureFileAccessApp\\Services\\File.cs",
+              "RelativeDocumentMoniker": "SecureFileAccessApp\\Services\\File.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\SecureFileAccessApp\\Services\\File.cs",
+              "RelativeToolTip": "SecureFileAccessApp\\Services\\File.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:37:41.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\SecureFileAccessApp\\Models\\User.cs",
+              "RelativeDocumentMoniker": "SecureFileAccessApp\\Models\\User.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\SecureFileAccessApp\\Models\\User.cs",
+              "RelativeToolTip": "SecureFileAccessApp\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:34:56.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IFile.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\SecureFileAccessApp\\Interfaces\\IFile.cs",
+              "RelativeDocumentMoniker": "SecureFileAccessApp\\Interfaces\\IFile.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\SecureFileAccessApp\\Interfaces\\IFile.cs",
+              "RelativeToolTip": "SecureFileAccessApp\\Interfaces\\IFile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:34:07.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\SecureFileAccessApp\\Program.cs",
+              "RelativeDocumentMoniker": "SecureFileAccessApp\\Program.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Proxy\\SecureFileAccessApp\\SecureFileAccessApp\\Program.cs",
+              "RelativeToolTip": "SecureFileAccessApp\\Program.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAYwBMAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:33:19.761Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

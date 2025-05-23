@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\bin\Debug\net8.0\Singleton.exe
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\bin\Debug\net8.0\Singleton.deps.json
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\bin\Debug\net8.0\Singleton.runtimeconfig.json
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\bin\Debug\net8.0\Singleton.dll
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\bin\Debug\net8.0\Singleton.pdb
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\obj\Debug\net8.0\Singleton.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\obj\Debug\net8.0\Singleton.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\obj\Debug\net8.0\Singleton.AssemblyInfo.cs
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\obj\Debug\net8.0\Singleton.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\obj\Debug\net8.0\Singleton.sourcelink.json
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\obj\Debug\net8.0\Singleton.dll
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\obj\Debug\net8.0\refint\Singleton.dll
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\obj\Debug\net8.0\Singleton.pdb
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\obj\Debug\net8.0\Singleton.genruntimeconfig.cache
+D:\GensparkTraining\Training\23-05\Singleton\Singleton\Singleton\obj\Debug\net8.0\ref\Singleton.dll

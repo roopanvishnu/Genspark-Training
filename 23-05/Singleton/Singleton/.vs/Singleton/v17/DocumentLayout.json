@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GensparkTraining\\Training\\23-05\\Singleton\\Singleton\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0B1BA1D0-1C55-422F-AFDA-EC622819382D}|Singleton\\Singleton.csproj|d:\\gensparktraining\\training\\23-05\\singleton\\singleton\\singleton\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B1BA1D0-1C55-422F-AFDA-EC622819382D}|Singleton\\Singleton.csproj|solutionrelative:singleton\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B1BA1D0-1C55-422F-AFDA-EC622819382D}|Singleton\\Singleton.csproj|d:\\gensparktraining\\training\\23-05\\singleton\\singleton\\singleton\\io\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B1BA1D0-1C55-422F-AFDA-EC622819382D}|Singleton\\Singleton.csproj|solutionrelative:singleton\\io\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B1BA1D0-1C55-422F-AFDA-EC622819382D}|Singleton\\Singleton.csproj|d:\\gensparktraining\\training\\23-05\\singleton\\singleton\\singleton\\intefaces\\ifilemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B1BA1D0-1C55-422F-AFDA-EC622819382D}|Singleton\\Singleton.csproj|solutionrelative:singleton\\intefaces\\ifilemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FileManager.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Singleton\\Singleton\\Singleton\\IO\\FileManager.cs",
+              "RelativeDocumentMoniker": "Singleton\\IO\\FileManager.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Singleton\\Singleton\\Singleton\\IO\\FileManager.cs",
+              "RelativeToolTip": "Singleton\\IO\\FileManager.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAswDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:57:40.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IFileManager.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Singleton\\Singleton\\Singleton\\Intefaces\\IFileManager.cs",
+              "RelativeDocumentMoniker": "Singleton\\Intefaces\\IFileManager.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Singleton\\Singleton\\Singleton\\Intefaces\\IFileManager.cs",
+              "RelativeToolTip": "Singleton\\Intefaces\\IFileManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:55:42.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Singleton\\Singleton\\Singleton\\Program.cs",
+              "RelativeDocumentMoniker": "Singleton\\Program.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Singleton\\Singleton\\Singleton\\Program.cs",
+              "RelativeToolTip": "Singleton\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:54:35.413Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

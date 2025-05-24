@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SecureFileAccessApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50f8c0ea683bac70dfacc0ab475b44113bc6352b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+78d5e3103886e59e255c7ab4610eeb64279f12e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SecureFileAccessApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SecureFileAccessApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

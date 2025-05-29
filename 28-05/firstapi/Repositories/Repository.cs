@@ -5,7 +5,7 @@ namespace FirstAPI.Repositories
 {
     public  abstract class Repository<K, T> : IRepository<K, T> where T:class
     {
-        protected readonly ClinicContext _clinicContext;
+        public readonly ClinicContext _clinicContext;
 
         public Repository(ClinicContext clinicContext)
         {

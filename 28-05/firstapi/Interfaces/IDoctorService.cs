@@ -1,19 +1,12 @@
+using FirstAPI.Models;
 using FirstAPI.Models.DTOs.DoctorSpecialities;
 
-namespace FirstAPI.Models
+namespace FirstAPI.Interfaces
 {
-    namespace FirstAPI.Interfaces
+    public interface IDoctorService
     {
-        public interface IDoctorService
-        {
-            Task<Doctor> GetDoctorById(int id);
-            Task<IEnumerable<Doctor>> GetAllDoctors();
-            Task<Doctor> AddNewDoctor(Doctor doctor);
-            Task<Doctor> UpdateDoctor(Doctor doctor, int id);
-            Task<Doctor> DeleteDoctor(int id);
-
-            Task<Doctor> GetDoctorByName(string name);
-            Task<ICollection<Doctor>> GetDoctorsBySpeciality(string speciality);
-        }
+        public Task<Doctor> GetDoctByName(string name);
+        public Task<ICollection<Doctor>> GetDoctorsBySpeciality(string speciality);
+        public Task<Doctor> AddDoctor(DoctorAddRequestDto doctor);
     }
 }

@@ -1,146 +1,95 @@
+using System.Threading.Tasks;
 using FirstAPI.Interfaces;
+using FirstAPI.Misc;
 using FirstAPI.Models;
 using FirstAPI.Models.DTOs.DoctorSpecialities;
-using FirstAPI.Models.FirstAPI.Interfaces;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.VisualBasic;
 
 namespace FirstAPI.Services
 {
     public class DoctorService : IDoctorService
     {
+        DoctorMapper doctorMapper ;
+        SpecialityMapper specialityMapper;
         private readonly IRepository<int, Doctor> _doctorRepository;
         private readonly IRepository<int, Speciality> _specialityRepository;
         private readonly IRepository<int, DoctorSpeciality> _doctorSpecialityRepository;
 
-        public DoctorService(
-            IRepository<int, Doctor> doctorRepository,
-            IRepository<int, Speciality> specialityRepository,
-            IRepository<int, DoctorSpeciality> doctorSpecialityRepository)
+        public DoctorService(IRepository<int, Doctor> doctorRepository,
+                            IRepository<int, Speciality> specialityRepository,
+                            IRepository<int, DoctorSpeciality> doctorSpecialityRepository)
         {
+            doctorMapper = new DoctorMapper();
+            specialityMapper = new();
             _doctorRepository = doctorRepository;
             _specialityRepository = specialityRepository;
             _doctorSpecialityRepository = doctorSpecialityRepository;
+
         }
 
-        public async Task<Doctor> GetDoctorById(int id)
+        public async Task<Doctor> AddDoctor(DoctorAddRequestDto doctor)
         {
-            var doctor = await _doctorRepository.Get(id);
-            if (doctor == null) throw new Exception("Doctor not found");
-            return doctor;
-        }
-
-        public async Task<IEnumerable<Doctor>> GetAllDoctors()
-        {
-            return await _doctorRepository.GetAll();
-        }
-
-        public async Task<Doctor> AddNewDoctor(Doctor doctor)
-        {
-            var allDoctors = await _doctorRepository.GetAll();
-            if (allDoctors.Any(d => d.Name.Equals(doctor.Name, StringComparison.OrdinalIgnoreCase)))
+            try
             {
-                throw new Exception("Doctor with this name already exists");
-            }
-
-            var newDoctor = new Doctor
-            {
-                Name = doctor.Name,
-                YearsOfExperience = doctor.YearsOfExperience,
-                Status = doctor.Status ?? "Active" // or some default value
-            };
-
-            return await _doctorRepository.Add(newDoctor);
-        }
-
-        public async Task<Doctor> AddNewDoctor(DoctorAddRequestDto dto)
-        {
-            var allDoctors = await _doctorRepository.GetAll();
-            if (allDoctors.Any(d => d.Name.Equals(dto.Name, StringComparison.OrdinalIgnoreCase)))
-            {
-                throw new Exception("A doctor with this name already exists.");
-            }
-
-            var doctor = new Doctor
-            {
-                Name = dto.Name,
-                YearsOfExperience = dto.YearsOfExperience,
-                Status = "Active"  
-            };
-
-            var addedDoctor = await _doctorRepository.Add(doctor);
-
-            if (dto.Specialities != null && dto.Specialities.Any())
-            {
-                foreach (var specialityDto in dto.Specialities)
+                var newDoctor = doctorMapper.MapDoctorAddRequestDoctor(doctor);
+                newDoctor = await _doctorRepository.Add(newDoctor);
+                if (newDoctor == null)
+                    throw new Exception("Could not add doctor");
+                if (doctor.Specialities.Count() > 0)
                 {
-                    var existingSpecialities = await _specialityRepository.GetAll();
-                    var speciality = existingSpecialities.FirstOrDefault(s => s.Name.Equals(specialityDto.Name, StringComparison.OrdinalIgnoreCase));
-                    
-                    if (speciality == null)
+                    int[] specialities = await MapAndAddSpeciality(doctor);
+                    for (int i = 0; i < specialities.Length; i++)
                     {
-                        speciality = await _specialityRepository.Add(new Speciality
-                        {
-                            Name = specialityDto.Name,
-                            Status = "Active" 
-                        });
+                        var doctorSpeciality = specialityMapper.MapDoctorSpecility(newDoctor.Id, specialities[i]);
+                        doctorSpeciality = await _doctorSpecialityRepository.Add(doctorSpeciality);
                     }
-
-                    var doctorSpeciality = new DoctorSpeciality
-                    {
-                        DoctorId = addedDoctor.Id,
-                        SpecialityId = speciality.Id
-                    };
-
-                    await _doctorSpecialityRepository.Add(doctorSpeciality);
                 }
+                return newDoctor;
             }
-
-            return addedDoctor;
-        }
-
-        public async Task<Doctor> UpdateDoctor(Doctor doctor, int id)
-        {
-            var existingDoctor = await _doctorRepository.Get(id);
-            if (existingDoctor == null) throw new Exception("Doctor not found");
-
-            var allDoctors = await _doctorRepository.GetAll();
-            if (allDoctors.Any(d => d.Name.Equals(doctor.Name, StringComparison.OrdinalIgnoreCase) && d.Id != id))
+            catch (Exception e)
             {
-                throw new Exception("Another doctor with this name already exists.");
+                throw new Exception(e.Message);
             }
-
-            return await _doctorRepository.Update(id, doctor);
-        }
-        public async Task<Doctor> DeleteDoctor(int id)
-        {
-            var existingDoctor = await _doctorRepository.Get(id);
-            if (existingDoctor == null) throw new Exception("Doctor not found");
-
-            return await _doctorRepository.Delete(id);
         }
 
-        public async Task<Doctor> GetDoctorByName(string name)
+        private async Task<int[]> MapAndAddSpeciality(DoctorAddRequestDto doctor)
         {
-            var doctors = await _doctorRepository.GetAll();
-            var doctor = doctors.FirstOrDefault(d => d.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
-            if (doctor == null) throw new Exception("Doctor not found");
-            return doctor;
+            int[] specialityIds = new int[doctor.Specialities.Count()];
+            IEnumerable<Speciality> existingSpecialities = null;
+            try
+            {
+                existingSpecialities = await _specialityRepository.GetAll();
+            }
+            catch (Exception e)
+            {
+
+            }
+            int count = 0;
+            foreach (var item in doctor.Specialities)
+            {
+                Speciality speciality = null;
+                if (existingSpecialities != null)
+                    speciality = existingSpecialities.FirstOrDefault(s => s.Name.ToLower() == item.Name.ToLower());
+                if (speciality == null)
+                {
+                    speciality = specialityMapper.MapSpecialityAddRequestDoctor(item);
+                    speciality = await _specialityRepository.Add(speciality);
+                }
+                specialityIds[count] = speciality.Id;
+                count++;
+            }
+            return specialityIds;
         }
 
-        public async Task<ICollection<Doctor>> GetDoctorsBySpeciality(string specialityName)
+        public Task<Doctor> GetDoctByName(string name)
         {
-            var specialities = await _specialityRepository.GetAll();
-            var speciality = specialities.FirstOrDefault(s => s.Name.Equals(specialityName, StringComparison.OrdinalIgnoreCase));
+            throw new NotImplementedException();
+        }
 
-            if (speciality == null) throw new Exception("Speciality not found");
-
-            var doctorSpecialities = await _doctorSpecialityRepository.GetAll();
-            var doctorIds = doctorSpecialities
-                .Where(ds => ds.SpecialityId == speciality.Id)
-                .Select(ds => ds.DoctorId)
-                .Distinct();
-
-            var doctors = await _doctorRepository.GetAll();
-            return doctors.Where(d => doctorIds.Contains(d.Id)).ToList();
+        public Task<ICollection<Doctor>> GetDoctorsBySpeciality(string speciality)
+        {
+            throw new NotImplementedException();
         }
     }
 }

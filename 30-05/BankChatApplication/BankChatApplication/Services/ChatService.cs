@@ -22,16 +22,16 @@ public class ChatService : IChatService
     {
         var questions = new List<string>
         {
-            "What is a fixed deposit?",
+            "What is a fixed deposit? in 2 lines",
             "How does net banking work?",
-            "What are the benefits of a savings account?",
-            "How to apply for a credit card?",
-            "What is an overdraft facility?",
-            "How does mobile banking differ from net banking?",
-            "What are the latest interest rates for savings accounts?",
-            "How can I block my lost debit card?",
-            "What is the minimum balance for a current account?",
-            "How does UPI work in banking?"
+            "What are the benefits of a savings account? in 2 lines",
+            "How to apply for a credit card? 2 lines",
+            "What is an overdraft facility? 2 lines",
+            "How does mobile banking differ from net banking? 2 lines",
+            "What are the latest interest rates for savings accounts? 2 lines",
+            "How can I block my lost debit card? 2 lines",
+            "What is the minimum balance for a current account? 2 lines",
+            "How does UPI work in banking? 2 lines"
         };
 
         return await Task.FromResult(questions);

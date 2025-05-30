@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BankChatApplication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6c1fb1b1bb44f0ba31131d1f86da7b2717153c2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6eca1cb398cb21a1f5df4a97108ee7793f0e22f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("BankChatApplication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BankChatApplication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

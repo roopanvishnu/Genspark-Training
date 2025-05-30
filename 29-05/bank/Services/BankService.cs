@@ -17,7 +17,7 @@ public class BankService : IBankService
     {
         var account = await _bankRepository.GetAccountByNumberAsync(accountNumber);
         if(account == null)
-            throw new InvalidOperationException("Account not found.");
+            throw new InvalidOperationException("Account could not found.");
         return account.Balance;
     }
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "S53USYTJA8I=",
+  "dgSpecHash": "jkE/0qDAGqA=",
   "success": true,
   "projectFilePath": "/Users/roopanvishnu/Documents/GensparkTraining/Training/2-06/FirstAPI/FirstAPI.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "/Users/roopanvishnu/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.5/microsoft.entityframeworkcore.abstractions.9.0.5.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.entityframeworkcore.analyzers/9.0.5/microsoft.entityframeworkcore.analyzers.9.0.5.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.entityframeworkcore.design/9.0.5/microsoft.entityframeworkcore.design.9.0.5.nupkg.sha512",
+    "/Users/roopanvishnu/.nuget/packages/microsoft.entityframeworkcore.inmemory/8.0.11/microsoft.entityframeworkcore.inmemory.8.0.11.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.entityframeworkcore.relational/9.0.5/microsoft.entityframeworkcore.relational.9.0.5.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.extensions.caching.abstractions/9.0.5/microsoft.extensions.caching.abstractions.9.0.5.nupkg.sha512",

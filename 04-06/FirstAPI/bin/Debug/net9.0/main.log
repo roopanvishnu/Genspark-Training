@@ -1,0 +1,10 @@
+2025-06-05 00:31:27,892 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5001
+2025-06-05 00:31:27,928 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-05 00:31:27,928 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-05 00:31:27,928 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/hayagreevanv/Documents/genspark-training/2025-06-04/FirstAPI
+2025-06-05 00:37:33,869 [.NET TP Worker] INFO Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (55ms) [Parameters=[@__key_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Username", u."HashKey", u."Password", u."Role"
+FROM users AS u
+WHERE u."Username" = @__key_0
+LIMIT 2
+2025-06-05 00:55:41,383 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...

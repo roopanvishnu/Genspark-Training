@@ -1,0 +1,10 @@
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore OS files
+.DS_Store
+
+# Ignore IDE settings
+.idea/
+

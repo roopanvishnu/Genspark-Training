@@ -2,10 +2,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TaskManagement.API.Models.Entities;
 
-public class AuditLog:BaseEntity
+public class AuditLog : BaseEntity
 {
     [Required] [StringLength(100)] public string EntityName { get; set; } = string.Empty;
-    [Required] Guid EnitityId { get; set; }
+    [Required]
+    public Guid EntityId { get; set; }
     
     [Required] [StringLength(50)] public string Action { get; set; } = string.Empty; // this refers to create update delete 
     

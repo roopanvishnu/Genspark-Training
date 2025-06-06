@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SignalR Demo</h1>
+    <input type="text" id="user" placeholder="user">
+    <input type="text" id="message" placeholder="message">
+    <button id="send" onclick="sendMessage()">Send</button>
+    <div id="msgs">
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@8.0.7/dist/browser/signalr.min.js"></script>
+    <script>
+        console.log(signalR);
+        const connection = new signalR.HubConnectionBuilder()
+                                            .withUrl("http://localhost:5001/notificationhub",{withCredentials : true})
+                                            .withAutomaticReconnect()
+                                            .build();
+
+            connection.start().then(()=>{
+                connection.invoke("SendMessage","hex","joined");
+            }).catch(ex => {
+            console.error(ex.message);
+            });                        
+        const msgs = document.querySelector("#msgs");
+        connection.on("RecieveMessage",(user,message) => {
+            let p = document.createElement("p");
+            p.innerText = `${user} : ${message}`;
+            console.log(`${user} : ${message}`);
+            msgs.appendChild(p);
+        });
+
+        const sendMessage =() =>{
+            let user = document.querySelector("#user").value;
+            let message = document.querySelector("#message").value;
+            connection.invoke("SendMessage",user,message);
+        }
+
+    </script>
+</body>
+</html>
+<!-- <html>
+  <body>
+      <h2>SignalR Demo</h2>
+      <input type="text" id="user" placeholder="username"/>
+       <input type="text" id="message" placeholder="Message"/>
+       <button onclick="sendMessage()">Send</button>
+       <div id="msgs">
+ 
+       </div>
+      <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@8.0.7/dist/browser/signalr.min.js"></script>
+        <script>
+            const connection = new signalR.HubConnectionBuilder()
+                                .withUrl("http://localhost:5001/notificationhub",{
+                                    withCredentials:true
+                                })
+                                .withAutomaticReconnect()
+                                .build();
+            connection.on("ReceiveMessage",(user,message)=>{
+                console.log(`${user} - says - ${message}`)
+                const placeHolder = document.getElementById("msgs");
+                const content = document.createElement("p")
+                content.innerHTML = `${user} - says - ${message}`;
+                placeHolder.append(content);
+            });
+ 
+            connection.start().then(()=>{
+                connection.invoke("SendMessage","Ramu","Hello World");
+            })
+            .catch(err=>{
+                console.log("sinalR connection Failed")
+            })
+            function sendMessage(){
+                var user = document.getElementById("user").value;
+                var message = document.getElementById("message").value;
+                connection.invoke("SendMessage",user,message)
+                         .catch(err=>{
+                            console.error(err);
+                         })
+ 
+            }
+        </script>
+  </body>
+</html> -->

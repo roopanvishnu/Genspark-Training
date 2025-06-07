@@ -10,9 +10,9 @@ public class TaskAssignment: BaseEntity
     [ForeignKey("TaskId")] public virtual Task Task { get; set; } = null!;
     
     [Required]
-    public Guid AsssignedToUserId { get; set; }
-    
-    [ForeignKey("AsssignedToUserId")] public virtual User AsssignedToUser { get; set; } = null!;
+    public Guid AssignedToUserId { get; set; }
+
+    [ForeignKey("AssignedToUserId")] public virtual User AssignedToUser { get; set; } = null!;
     
     [Required]
     public Guid AssignedByUserId { get; set; }

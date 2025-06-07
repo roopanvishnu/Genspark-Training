@@ -1,5 +1,5 @@
 using TaskManagement.API.Models.Enums;
-using TaskStatus = System.Threading.Tasks.TaskStatus;
+using TaskStatus = TaskManagement.API.Models.Enums.TaskStatus;
 
 namespace TaskManagement.API.DTOs.Response.Task;
 

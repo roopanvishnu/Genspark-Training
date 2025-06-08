@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "5/e/Pqz1Nos=",
+  "dgSpecHash": "ar5hQj/3/4w=",
   "success": true,
   "projectFilePath": "/Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskManagementSolution/TaskManagement.API/TaskManagement.API/TaskManagement.API.csproj",
   "expectedPackageFiles": [
+    "/Users/roopanvishnu/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
+    "/Users/roopanvishnu/.nuget/packages/hinetcloud.system.identitymodel.tokens.jwt/23.10.10.15/hinetcloud.system.identitymodel.tokens.jwt.23.10.10.15.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/roopanvishnu/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.11/microsoft.aspnetcore.authentication.jwtbearer.8.0.11.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.aspnetcore.connections.abstractions/8.0.11/microsoft.aspnetcore.connections.abstractions.8.0.11.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.aspnetcore.openapi/8.0.16/microsoft.aspnetcore.openapi.8.0.16.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.aspnetcore.signalr.common/8.0.11/microsoft.aspnetcore.signalr.common.8.0.11.nupkg.sha512",
@@ -32,6 +35,12 @@
     "/Users/roopanvishnu/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.2/microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.extensions.options/8.0.2/microsoft.extensions.options.8.0.2.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/Users/roopanvishnu/.nuget/packages/microsoft.identitymodel.abstractions/8.12.0/microsoft.identitymodel.abstractions.8.12.0.nupkg.sha512",
+    "/Users/roopanvishnu/.nuget/packages/microsoft.identitymodel.jsonwebtokens/7.1.2/microsoft.identitymodel.jsonwebtokens.7.1.2.nupkg.sha512",
+    "/Users/roopanvishnu/.nuget/packages/microsoft.identitymodel.logging/8.12.0/microsoft.identitymodel.logging.8.12.0.nupkg.sha512",
+    "/Users/roopanvishnu/.nuget/packages/microsoft.identitymodel.protocols/7.1.2/microsoft.identitymodel.protocols.7.1.2.nupkg.sha512",
+    "/Users/roopanvishnu/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/7.1.2/microsoft.identitymodel.protocols.openidconnect.7.1.2.nupkg.sha512",
+    "/Users/roopanvishnu/.nuget/packages/microsoft.identitymodel.tokens/8.12.0/microsoft.identitymodel.tokens.8.12.0.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/microsoft.openapi/1.6.14/microsoft.openapi.1.6.14.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/npgsql/8.0.6/npgsql.8.0.6.nupkg.sha512",
@@ -48,11 +57,23 @@
     "/Users/roopanvishnu/.nuget/packages/system.composition.hosting/6.0.0/system.composition.hosting.6.0.0.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/system.composition.runtime/6.0.0/system.composition.runtime.6.0.0.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/system.composition.typedparts/6.0.0/system.composition.typedparts.6.0.0.nupkg.sha512",
+    "/Users/roopanvishnu/.nuget/packages/system.identitymodel.tokens.jwt/7.1.2/system.identitymodel.tokens.jwt.7.1.2.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/system.reflection.metadata/6.0.1/system.reflection.metadata.6.0.1.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
     "/Users/roopanvishnu/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'HiNetCloud.System.IdentityModel.Tokens.Jwt 23.10.10.15' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "HiNetCloud.System.IdentityModel.Tokens.Jwt",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

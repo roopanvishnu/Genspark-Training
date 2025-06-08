@@ -77,15 +77,14 @@ public async Task<AuthResponseDto> LoginAsync(LoginDto dto)
         var jwtKey = _config["Jwt:Key"]!;
         var issuer = _config["Jwt:Issuer"]!;
         var audience = _config["Jwt:Audience"]!;
-        var expiration = DateTime.UtcNow.AddMinutes(Convert.ToDouble(_config["Jwt:AccessTokenExpirationMinutes"]));
+        var expiration = DateTime.UtcNow.AddDays(1);
 
         var claims = new[]
         {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
             new Claim(ClaimTypes.Name, user.Name),
             new Claim(ClaimTypes.Role, user.Role.ToString()),
-            new Claim(ClaimTypes.Email, user.Email),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            new Claim(JwtRegisteredClaimNames.Email, user.Email),
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));

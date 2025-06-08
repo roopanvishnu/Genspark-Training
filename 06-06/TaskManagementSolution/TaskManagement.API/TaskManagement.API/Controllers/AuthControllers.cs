@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagement.API.DTOs.Auth;
@@ -28,22 +27,12 @@ public class AuthController : ControllerBase
         var response = await _authService.LoginAsync(dto);
         return Ok(new { success = true, message = "Login successful", data = response });
     }
-
+    [Authorize]
     [HttpGet("me")]
-    [Authorize] // Add this attribute to require authentication
     public IActionResult Me()
     {
-        // Use the same claim names as defined in the token generation
-        var name = User.FindFirstValue("name") ?? "Unknown";
-        var role = User.FindFirstValue("role") ?? "Unknown";
-        var id = User.FindFirstValue("sub"); // 'sub' is the standard JWT claim for user ID
-        var email = User.FindFirstValue("email");
-
-        return Ok(new
-        {
-            success = true,
-            message = "Current user",
-            data = new { id, name, role, email }
-        });
+        var name = User.Identity?.Name ?? "Unknown";
+        var role = User.IsInRole("Manager") ? "Manager" : "TeamMember";
+        return Ok(new { success = true, message = "Current user", data = new { name, role } });
     }
 }

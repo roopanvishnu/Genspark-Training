@@ -8,7 +8,6 @@
 
     <ItemGroup>
         <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-        <PackageReference Include="HiNetCloud.System.IdentityModel.Tokens.Jwt" Version="23.10.10.15" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.16"/>
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="8.0.11" />

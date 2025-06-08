@@ -47,10 +47,6 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
-            "HiNetCloud.System.IdentityModel.Tokens.Jwt": {
-              "target": "Package",
-              "version": "[23.10.10.15, )"
-            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.11, )"

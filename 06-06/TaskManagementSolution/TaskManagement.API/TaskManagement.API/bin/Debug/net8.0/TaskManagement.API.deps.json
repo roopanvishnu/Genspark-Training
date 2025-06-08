@@ -9,7 +9,6 @@
       "TaskManagement.API/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
-          "HiNetCloud.System.IdentityModel.Tokens.Jwt": "23.10.10.15",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.11",
           "Microsoft.AspNetCore.OpenApi": "8.0.16",
           "Microsoft.AspNetCore.SignalR.Common": "8.0.11",
@@ -32,7 +31,6 @@
           }
         }
       },
-      "HiNetCloud.System.IdentityModel.Tokens.Jwt/23.10.10.15": {},
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
@@ -729,13 +727,6 @@
       "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
-    },
-    "HiNetCloud.System.IdentityModel.Tokens.Jwt/23.10.10.15": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-P8dLEE0Hy/iS10OTKkkYMS6DJrph36Y/abl3UAULLIeHvvTgu8CuZl5Dw4h9e+I0SFDttj673XKbdmhvCV/jPw==",
-      "path": "hinetcloud.system.identitymodel.tokens.jwt/23.10.10.15",
-      "hashPath": "hinetcloud.system.identitymodel.tokens.jwt.23.10.10.15.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

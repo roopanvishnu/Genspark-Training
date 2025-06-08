@@ -15,15 +15,6 @@
           }
         }
       },
-      "HiNetCloud.System.IdentityModel.Tokens.Jwt/23.10.10.15": {
-        "type": "package",
-        "compile": {
-          "lib/net48/System.IdentityModel.Tokens.Jwt.dll": {}
-        },
-        "runtime": {
-          "lib/net48/System.IdentityModel.Tokens.Jwt.dll": {}
-        }
-      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1170,19 +1161,6 @@
         "lib/netstandard2.1/BCrypt.Net-Next.dll",
         "lib/netstandard2.1/BCrypt.Net-Next.xml",
         "readme.md"
-      ]
-    },
-    "HiNetCloud.System.IdentityModel.Tokens.Jwt/23.10.10.15": {
-      "sha512": "P8dLEE0Hy/iS10OTKkkYMS6DJrph36Y/abl3UAULLIeHvvTgu8CuZl5Dw4h9e+I0SFDttj673XKbdmhvCV/jPw==",
-      "type": "package",
-      "path": "hinetcloud.system.identitymodel.tokens.jwt/23.10.10.15",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "hinetcloud.system.identitymodel.tokens.jwt.23.10.10.15.nupkg.sha512",
-        "hinetcloud.system.identitymodel.tokens.jwt.nuspec",
-        "lib/net48/MUVUBYMV2AYQNQFRYMBUMU2MI.md5",
-        "lib/net48/System.IdentityModel.Tokens.Jwt.dll"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -3099,7 +3077,6 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "BCrypt.Net-Next >= 4.0.3",
-      "HiNetCloud.System.IdentityModel.Tokens.Jwt >= 23.10.10.15",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.11",
       "Microsoft.AspNetCore.OpenApi >= 8.0.16",
       "Microsoft.AspNetCore.SignalR.Common >= 8.0.11",
@@ -3156,10 +3133,6 @@
           "BCrypt.Net-Next": {
             "target": "Package",
             "version": "[4.0.3, )"
-          },
-          "HiNetCloud.System.IdentityModel.Tokens.Jwt": {
-            "target": "Package",
-            "version": "[23.10.10.15, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
@@ -3224,17 +3197,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.410/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'HiNetCloud.System.IdentityModel.Tokens.Jwt 23.10.10.15' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "libraryId": "HiNetCloud.System.IdentityModel.Tokens.Jwt",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

@@ -59,6 +59,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 
+
 // ─── CORS Configuration ───────────────────────────────────────
 builder.Services.AddCors(options =>
 {
@@ -71,48 +72,31 @@ builder.Services.AddCors(options =>
 // ─── JWT Authentication ────────────────────────────────────────
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.RequireHttpsMetadata = false;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
     {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtSettings["Issuer"],
-        ValidAudience = jwtSettings["Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]!)),
-        //ClockSkew = TimeSpan.Zero,
-        //RoleClaimType = ClaimTypes.Role
-    };
-
-    // Log errors during JWT validation
-    options.Events = new JwtBearerEvents
-    {
-        OnAuthenticationFailed = context =>
+        options.Events = new JwtBearerEvents
         {
-            Console.WriteLine($"JWT ERROR: {context.Exception.Message}");
-            return Task.CompletedTask;
-        },
-        OnMessageReceived = context =>
-        {
-            var accessToken = context.Request.Query["access_token"];
-            var path = context.HttpContext.Request.Path;
-            if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs/tasks"))
+            OnAuthenticationFailed = context =>
             {
-                context.Token = accessToken;
-            }
-            return Task.CompletedTask;
-        }
-    };
-});
+                Console.WriteLine($"Authentication failed: {context.Exception}");
+                return Task.CompletedTask;
+            },
+        };
+        var jwtKey = builder.Configuration["Jwt:Key"]!;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+        };
+    });
+builder.Services.AddAuthorization();
+
 
 // ─── Middleware Pipeline ───────────────────────────────────────
 var app = builder.Build();

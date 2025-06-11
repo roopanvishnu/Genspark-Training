@@ -181,3 +181,5 @@ app.MapHub<TaskHub>("/hubs/tasks");
 app.UseRateLimiter();
 app.MapControllers();
 app.Run();
+
+// for to run front end serve -l 64855

@@ -54,7 +54,7 @@ namespace TaskManagement.API.Controllers
             });
         }
 
-        //[Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(Guid id)
         {

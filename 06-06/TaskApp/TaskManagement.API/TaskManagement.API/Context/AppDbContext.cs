@@ -10,6 +10,7 @@ namespace TaskManagement.API.Context
             : base(options)
         {
         }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         public DbSet<User> Users { get; set; }
         public DbSet<TaskItem> Tasks { get; set; }
@@ -56,6 +57,16 @@ namespace TaskManagement.API.Context
             // Soft delete global filter (optional, can be removed if handled manually)
             modelBuilder.Entity<User>().HasQueryFilter(e => !e.IsDeleted);
             modelBuilder.Entity<TaskItem>().HasQueryFilter(e => !e.IsDeleted);
+            
+            
+            
+            //refresh token
+            modelBuilder.Entity<RefreshToken>()
+                .HasOne(r => r.User)
+                .WithMany(u => u.RefreshTokens)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade); // or .Restrict
+
         }
     }
 }

@@ -1,0 +1,36 @@
+2025-06-10 23:43:07.531 +05:30 [INF] User profile is available. Using '/Users/roopanvishnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-10 23:43:07.764 +05:30 [INF] Now listening on: http://localhost:5227
+2025-06-10 23:43:07.766 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-10 23:43:07.766 +05:30 [INF] Hosting environment: Development
+2025-06-10 23:43:07.767 +05:30 [INF] Content root path: /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API
+2025-06-10 23:53:12.051 +05:30 [INF] Application is shutting down...
+sers/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API
+2025-06-10 23:53:12.051 +05:30 [INF] Application is shutting down...
+2025-06-10 23:56:37.558 +05:30 [INF] User profile is available. Using '/Users/roopanvishnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-10 23:56:37.708 +05:30 [INF] Now listening on: http://localhost:5227
+2025-06-10 23:56:37.710 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-10 23:56:37.711 +05:30 [INF] Hosting environment: Development
+2025-06-10 23:56:37.711 +05:30 [INF] Content root path: /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API
+2025-06-10 23:56:38.656 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.html - null null
+2025-06-10 23:56:38.814 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.html - 200 null text/html;charset=utf-8 160.2527ms
+2025-06-10 23:56:38.870 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-10 23:56:38.874 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=u2025-06-10 23:2025-06-10 23:56:38.978 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - null null
+2025-06-10 23:56:39.146 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 167.783ms
+2025-06-10 23:58:58.924 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.html - null null
+2025-06-10 23:58:58.926 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.html - 200 null text/html;charset=utf-8 2.2236ms
+2025-06-10 23:58:58.940 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-10 23:58:58.941 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=u2025-06-10 232025-06-10 23:58:59.018 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - null null
+2025-06-10 23:58:59.034 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.9377ms
+2025-06-10 23:59:25.322 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.html - null null
+2025-06-10 23:59:25.323 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.html - 200 null text/html;charset=utf-8 0.9374ms
+2025-06-10 23:59:25.353 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-10 23:59:25.359 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=u2025-06-10 23:2025-06-10 23:59:25.489 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - null null
+2025-06-10 23:59:25.505 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.7473ms
+2025-06-10 23:59:59.288 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/v1/users/test-exception - null null
+2025-06-10 23:59:59.295 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-10 23:59:59.330 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.UserController.TestException (TaskManagement.API)'
+2025-06-10 23:59:59.343 +05:30 [INF] Route matched with {action = "TestException", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IA2025-06-10 23:59:59.343 +05:30 [INF] Route matched with {action = "TestException", controller = "User"}. Execu2025-06-10 23:59:59.468 +05:30 [INF] Executing ObjectResult, writing value of type 'TaskManagement.API.DTOs.Response.ApiResponse`1[[System.String, System.Private.CoreLib, Vers2025-06-10 23:59:59.468 +05:30 [INF] Executing ObjectResult, writi2025-06-10 23:59:59.481 +05:30 [INF] Executed action TaskManagement.API.Controllers.UserController.TestException (TaskManagement.API) in 133.6902ms
+2025-06-10 23:59:59.481 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.UserController.TestException (TaskManagement.API)'
+2025-06-10 23:59:59.482 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/v1/users/test-exception - 500 null application/json; charset=utf-8 194.6312ms
+I)'
+2025-06-10 23:59:59.482 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/v1/users/test-exception - 500 null application/json; charset=utf-8 194.6312ms

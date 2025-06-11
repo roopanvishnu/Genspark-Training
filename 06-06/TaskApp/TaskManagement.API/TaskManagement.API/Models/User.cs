@@ -15,4 +15,9 @@ public class User
     public string? UpdatedBy { get; set; }
 
     public ICollection<TaskItem> AssignedTasks { get; set; }
+    
+    
+    //relation for refresh token
+    public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
+
 }

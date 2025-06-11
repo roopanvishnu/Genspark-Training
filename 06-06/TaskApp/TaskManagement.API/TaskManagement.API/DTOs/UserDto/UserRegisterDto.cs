@@ -1,9 +1,21 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace TaskManagement.API.DTOs;
 
 public class UserRegisterDto
 {
-    public string FullName { get; set; } = string.Empty;
-    public string Email { get; set; } = string.Empty;
-    public string Password { get; set; } = string.Empty;
-    public string Role { get; set; } = "TeamMember"; // Optional, default
+    [Required]
+    [MaxLength(100)]
+    public string? FullName { get; set; }
+
+    [Required]
+    [EmailAddress]
+    public string? Email { get; set; }
+
+    [Required]
+    [MinLength(4)]
+    public string? Password { get; set; }
+
+    [Required]
+    public string? Role { get; set; }
 }

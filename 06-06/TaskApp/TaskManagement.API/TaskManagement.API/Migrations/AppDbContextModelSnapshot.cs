@@ -57,6 +57,35 @@ namespace TaskManagement.API.Migrations
                     b.ToTable("AuditLogs");
                 });
 
+            modelBuilder.Entity("TaskManagement.API.Models.RefreshToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsRevoked")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("TaskManagement.API.Models.TaskAttachment", b =>
                 {
                     b.Property<Guid>("Id")
@@ -176,6 +205,17 @@ namespace TaskManagement.API.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("TaskManagement.API.Models.RefreshToken", b =>
+                {
+                    b.HasOne("TaskManagement.API.Models.User", "User")
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TaskManagement.API.Models.TaskAttachment", b =>
                 {
                     b.HasOne("TaskManagement.API.Models.TaskItem", "TaskItem")
@@ -205,6 +245,8 @@ namespace TaskManagement.API.Migrations
             modelBuilder.Entity("TaskManagement.API.Models.User", b =>
                 {
                     b.Navigation("AssignedTasks");
+
+                    b.Navigation("RefreshTokens");
                 });
 #pragma warning restore 612, 618
         }

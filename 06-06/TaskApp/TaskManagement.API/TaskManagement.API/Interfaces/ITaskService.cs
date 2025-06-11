@@ -11,5 +11,9 @@ public interface ITaskService
     Task<FileStreamResult?> DownloadAttachmentAsync(Guid taskId, string currentUserId, string role);
     Task<List<TaskDto>> GetAssignedTasksAsync(string currentUserId);
     Task<bool> UpdateTaskAsync(Guid id, UpdateTaskDto dto, string updatedBy);
-
+    Task<TaskDto?> GetTaskByIdAsync(Guid id, string userId, string role);
+    Task<(List<TaskDto> tasks, int total)> GetTasksAsync(string? status, Guid? assigneeId, int page, int pageSize);
+    Task<List<string>?> GetAttachmentsAsync(Guid taskId, string userId, string role);
+    Task<bool> UploadAttachmentAsync(Guid taskId, IFormFile file, string userId);
+    Task<FileStreamResult?> DownloadFileByNameAsync(string filename);
 }

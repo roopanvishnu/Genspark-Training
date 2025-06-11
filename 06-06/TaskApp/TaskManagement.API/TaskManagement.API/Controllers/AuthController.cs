@@ -56,6 +56,29 @@ namespace TaskManagement.API.Controllers
                 data = user
             });
         }
+        [HttpPost("refresh")]
+        public async Task<IActionResult> RefreshToken([FromBody] string refreshToken)
+        {
+            var result = await _authService.RefreshTokenAsync(refreshToken);
+            if (result == null)
+                return Unauthorized(new { success = false, message = "Invalid or expired refresh token" });
+
+            return Ok(new
+            {
+                success = true,
+                message = "Token refreshed successfully",
+                accessToken = result.Value.accessToken,
+                refreshToken = result.Value.refreshToken
+            });
+        }
+
+        [Authorize]
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            return Ok(new { success = true, message = "Logged out successfully" });
+        }
+
         
     }
 }

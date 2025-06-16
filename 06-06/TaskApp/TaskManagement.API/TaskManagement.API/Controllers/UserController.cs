@@ -25,13 +25,7 @@ namespace TaskManagement.API.Controllers
             _authService = authService;
             _logger = logger;
         }
-        [HttpGet("test-exception")]
-        public IActionResult TestException()
-        {
-            throw new Exception("This is a test exception from controller.");
-        }
-
-
+        
         // GET /api/v1/users/me
         [Authorize]
         [HttpGet("me")]

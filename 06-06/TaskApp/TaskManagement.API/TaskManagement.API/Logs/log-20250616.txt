@@ -1,0 +1,18 @@
+2025-06-16 15:41:26.371 +05:30 [INF] User profile is available. Using '/Users/roopanvishnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-16 15:41:26.506 +05:30 [WRN] Overriding address(es) 'http://localhost:5227'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-06-16 15:41:26.526 +05:30 [INF] Now listening on: https://localhost:7120
+2025-06-16 15:41:26.526 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-16 15:41:26.526 +05:30 [INF] Hosting environment: Development
+2025-06-16 15:41:26.527 +05:30 [INF] Content root path: /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API
+2025-06-16 15:42:08.076 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7120/ - null null
+2025-06-16 15:42:08.186 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/ - 404 0 null 114.1177ms
+2025-06-16 15:42:08.195 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7120/, R2025-06-16 15:42:08.195 +2025-06-16 15:42:11.502 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7120/swagger/index.html - null null
+2025-06-16 15:42:11.685 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/swagger/index.html - 200 null text/html;charset=utf-8 183.5298ms
+2025-06-16 15:42:11.835 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7120/swagger/v1/swagger.json - null null
+2025-06-16 15:42:12.023 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 188.5348ms
+2025-06-16 15:55:27.086 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7120/swagger/index.html - null null
+2025-06-16 15:55:27.089 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/swagger/index.html - 200 null text/html;charset=utf-8 2.748ms
+2025-06-16 15:55:27.380 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7120/swagger/v1/swagger.json - null null
+2025-06-16 15:55:27.420 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.2774ms
+ null null
+2025-06-16 15:55:27.420 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.2774ms

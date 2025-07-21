@@ -1,0 +1,33 @@
+
+<div class="d-flex justify-content-center m-2">
+  <input
+    class="form-control w-50 me-2"
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="handleSearchProducts()"
+    placeholder="Search products"
+  />
+</div>
+
+@if (!loading) {
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div
+        class="col-sm-6 col-md-4 col-lg-3 mb-4"
+        *ngFor="let product of products"
+      >
+        <app-product [product]="product"></app-product>
+      </div>
+    </div>
+    @if (isFetching) {
+      <div class="text-center mt-3">
+        <div class="spinner-border text-success" role="status"></div>
+      </div>
+    }
+  </div>
+} @else {
+  <div class="text-center mt-5">
+    <div class="spinner-border text-success" role="status"></div>
+  </div>
+}
+

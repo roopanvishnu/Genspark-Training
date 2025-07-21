@@ -1,0 +1,45 @@
+<h2 class="task-list-header">
+  📋 Manager Task List
+  <button class="view-deleted-btn" (click)="goToDeletedTasks()">🗑️ View Deleted Tasks</button>
+</h2>
+
+    <div *ngIf="tasks.length === 0">No tasks found.</div>
+
+    <div *ngFor="let task of tasks" class="task-card">
+      <h3>{{ task.title }}</h3>
+      <p><strong>Status:</strong> {{ task.status }}</p>
+      <p><strong>Due Date:</strong> {{ task.dueDate | date: 'short' }}</p>
+      <p><b>Description: </b></p>
+      <p>{{ task.description }}</p>
+      <p *ngIf="task.teamComment; else noComment">
+  <strong>Comment:</strong> {{ task.teamComment }}
+</p>
+<ng-template #noComment>
+  <p><em>No comments</em></p>
+</ng-template>
+
+
+      <div class="button-group">
+  <button (click)="editTask(task.id)">✏️ Edit</button>
+  <button (click)="assignTask(task.id)">👥 Assign</button>
+  <button (click)="broadcastTask(task.id)">📣 Broadcast</button> 
+  <button (click)="viewAttachments(task.id)">📂 View Attachments</button>
+  <button (click)="deleteTask(task.id)" class="danger-btn">🗑️ Delete</button> 
+</div>
+
+
+    </div>
+
+    <div class="pagination" *ngIf="totalPages > 1">
+      <button (click)="fetchTasks(currentPage - 1)" [disabled]="currentPage === 1">⬅️ Prev</button>
+
+      <ng-container *ngFor="let page of getPages()">
+        <button
+          [disabled]="page === currentPage"
+          (click)="fetchTasks(page)">
+          {{ page }}
+        </button>
+      </ng-container>
+
+      <button (click)="fetchTasks(currentPage + 1)" [disabled]="currentPage === totalPages">Next ➡️</button>
+    </div> 

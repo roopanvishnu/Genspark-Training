@@ -1,0 +1,60 @@
+.notif-title {
+  text-align: center;
+  color: #007acc;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: #777;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+.notification-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem auto;
+  border-radius: 8px;
+  max-width: 600px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+}
+
+.notification-card .icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.notification-card .message-text {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Color-coded styles by message type */
+.notification-card.info {
+  background-color: #e6f4ff;
+  border-left: 6px solid #1e88e5;
+}
+
+.notification-card.success {
+  background-color: #e6ffed;
+  border-left: 6px solid #43a047;
+}
+
+.notification-card.warning {
+  background-color: #fffde7;
+  border-left: 6px solid #ffa000;
+}
+
+.notification-card.error {
+  background-color: #ffebee;
+  border-left: 6px solid #e53935;
+}

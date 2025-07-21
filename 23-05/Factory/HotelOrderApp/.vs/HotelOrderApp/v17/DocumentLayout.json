@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|d:\\gensparktraining\\training\\23-05\\factory\\hotelorderapp\\hotelorderapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|solutionrelative:hotelorderapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|d:\\gensparktraining\\training\\23-05\\factory\\hotelorderapp\\hotelorderapp\\services\\foodfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|solutionrelative:hotelorderapp\\services\\foodfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|d:\\gensparktraining\\training\\23-05\\factory\\hotelorderapp\\hotelorderapp\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|solutionrelative:hotelorderapp\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|d:\\gensparktraining\\training\\23-05\\factory\\hotelorderapp\\hotelorderapp\\menuitems\\shawarma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|solutionrelative:hotelorderapp\\menuitems\\shawarma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|d:\\gensparktraining\\training\\23-05\\factory\\hotelorderapp\\hotelorderapp\\menuitems\\friedrice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|solutionrelative:hotelorderapp\\menuitems\\friedrice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|d:\\gensparktraining\\training\\23-05\\factory\\hotelorderapp\\hotelorderapp\\menuitems\\biriyani.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|solutionrelative:hotelorderapp\\menuitems\\biriyani.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|d:\\gensparktraining\\training\\23-05\\factory\\hotelorderapp\\hotelorderapp\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|solutionrelative:hotelorderapp\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|d:\\gensparktraining\\training\\23-05\\factory\\hotelorderapp\\hotelorderapp\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|solutionrelative:hotelorderapp\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|d:\\gensparktraining\\training\\23-05\\factory\\hotelorderapp\\hotelorderapp\\interfaces\\ifoodfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|solutionrelative:hotelorderapp\\interfaces\\ifoodfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|d:\\gensparktraining\\training\\23-05\\factory\\hotelorderapp\\hotelorderapp\\interfaces\\ifood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA1B867D-8A03-4969-84D6-59F1969BEF47}|HotelOrderApp\\HotelOrderApp.csproj|solutionrelative:hotelorderapp\\interfaces\\ifood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FoodFactory.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Services\\FoodFactory.cs",
+              "RelativeDocumentMoniker": "HotelOrderApp\\Services\\FoodFactory.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Services\\FoodFactory.cs",
+              "RelativeToolTip": "HotelOrderApp\\Services\\FoodFactory.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:41:32.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "HotelOrderApp\\Models\\Order.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Models\\Order.cs",
+              "RelativeToolTip": "HotelOrderApp\\Models\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:33:47.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Shawarma.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\MenuItems\\Shawarma.cs",
+              "RelativeDocumentMoniker": "HotelOrderApp\\MenuItems\\Shawarma.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\MenuItems\\Shawarma.cs",
+              "RelativeToolTip": "HotelOrderApp\\MenuItems\\Shawarma.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:40:53.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Program.cs",
+              "RelativeDocumentMoniker": "HotelOrderApp\\Program.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Program.cs",
+              "RelativeToolTip": "HotelOrderApp\\Program.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwBsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:23:01.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "HotelOrderApp\\Services\\OrderService.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Services\\OrderService.cs",
+              "RelativeToolTip": "HotelOrderApp\\Services\\OrderService.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:45:51.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Interfaces\\IOrderService.cs",
+              "RelativeDocumentMoniker": "HotelOrderApp\\Interfaces\\IOrderService.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Interfaces\\IOrderService.cs",
+              "RelativeToolTip": "HotelOrderApp\\Interfaces\\IOrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:33:05.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Biriyani.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\MenuItems\\Biriyani.cs",
+              "RelativeDocumentMoniker": "HotelOrderApp\\MenuItems\\Biriyani.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\MenuItems\\Biriyani.cs",
+              "RelativeToolTip": "HotelOrderApp\\MenuItems\\Biriyani.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:36:33.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FriedRice.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\MenuItems\\FriedRice.cs",
+              "RelativeDocumentMoniker": "HotelOrderApp\\MenuItems\\FriedRice.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\MenuItems\\FriedRice.cs",
+              "RelativeToolTip": "HotelOrderApp\\MenuItems\\FriedRice.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:40:13.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IFoodFactory.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Interfaces\\IFoodFactory.cs",
+              "RelativeDocumentMoniker": "HotelOrderApp\\Interfaces\\IFoodFactory.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Interfaces\\IFoodFactory.cs",
+              "RelativeToolTip": "HotelOrderApp\\Interfaces\\IFoodFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:29:43.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IFood.cs",
+              "DocumentMoniker": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Interfaces\\IFood.cs",
+              "RelativeDocumentMoniker": "HotelOrderApp\\Interfaces\\IFood.cs",
+              "ToolTip": "D:\\GensparkTraining\\Training\\23-05\\Factory\\HotelOrderApp\\HotelOrderApp\\Interfaces\\IFood.cs",
+              "RelativeToolTip": "HotelOrderApp\\Interfaces\\IFood.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:27:53.571Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

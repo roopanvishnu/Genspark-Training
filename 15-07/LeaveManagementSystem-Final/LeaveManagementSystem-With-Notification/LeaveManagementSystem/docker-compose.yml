@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5050:5050"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=User ID=postgres;Password=Vasu@281;Host=db;Port=5432;Database=EmpLeaveManagementSystem;
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Vasu@281
+      POSTGRES_DB: EmpLeaveManagementSystem
+    ports:
+      - "5440:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

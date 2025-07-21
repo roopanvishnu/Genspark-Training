@@ -1,0 +1,110 @@
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.header input,
+.header select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  flex: 1;
+}
+
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leave-table th,
+.leave-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.leave-table th {
+  background: #f8f8f8;
+  font-weight: bold;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status.approved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status.rejected ,.status.auto-rejected{
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.review-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.review-btn:hover {
+  background-color: #0056b3;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;         /* ✅ vertical alignment */
+  justify-content: center;     /* ✅ center everything horizontally */
+  gap: 12px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.pagination button {
+  padding: 6px 14px;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pagination button[disabled] {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-weight: 500;
+  color: #333;
+  padding: 2px 8px;
+  font-size: 15px;
+}

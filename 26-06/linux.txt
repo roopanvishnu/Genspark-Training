@@ -1,0 +1,24 @@
+
+1. You have a file with permissions -rw-r--r--, and you run chmod +x file.sh. What happens?
+Answer: it will add execute permissions to all(owner group and others) and the permissions will become -rwxr-xr-x
+
+2. What is the difference between chmod 744 file.txt and chmod u=rwx,go=r file.txt?
+Answer: it gives read write and execute permissions to owner and only read. permissions to group and others, both are same , one is symbolic whereas the other is octal
+
+3. What is the sticky bit, and when should you use it?
+Answer: allows only the owner to delete the file or rename it (+t)
+
+4. You are told to give the owner full access, group only execute, and others no permissions. What symbolic command achieves this?
+Answer: chmod u=rwx,g=x,o= file.txt
+
+5. What is umask, and why is it important?
+Answer: t is default permisiion given to files when created
+
+6. If the umask is 022, what are the default permissions for a new file and a new directory?
+Answer: rw-r--r-- for file and rwx-r-xr-x for dir
+
+7. Why is umask often set to 002 in development environments but 027 or 077 in production?
+Answer: in dev mode, 002 allows groups to read and write to files and work together whereas in 027 group can read and others are not allowef any permissions, 077 makes sure only owner has all permissions and group/others have no permissions making it secure in production.
+
+8. Adduser vs Useradd?
+Answer: Both adds a new user but user add is low level and we need to explicitly set password and working directory whereas add user is more friendly and prompts for password and sets up working dir.

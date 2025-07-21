@@ -1,0 +1,18 @@
+<div class="assign-container">
+  <h1>Assign Task</h1>
+
+  <div *ngIf="teamMembers.length > 0" class="assign-form">
+    <h3>Select a Team Member</h3>
+
+    <label for="teamMember">Team Member:</label>
+    <select id="teamMember" [(ngModel)]="selectedUserId">
+      <option *ngFor="let member of teamMembers" [value]="member.id">
+        {{ member.fullName }} ({{ member.email }})
+      </option>
+    </select>
+
+    <button (click)="assign()">Assign</button>
+  </div>
+
+  <p *ngIf="teamMembers.length === 0" class="info-message">No team members found to assign this task.</p>
+</div>

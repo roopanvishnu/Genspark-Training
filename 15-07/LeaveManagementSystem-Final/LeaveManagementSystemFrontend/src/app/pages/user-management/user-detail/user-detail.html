@@ -1,0 +1,170 @@
+<div class="p-6 md:p-10 bg-[#fef8f4] min-h-screen text-gray-800 font-sans space-y-8">
+  <!-- Back Button -->
+  <button
+    (click)="goBack()"
+    class="text-[#006f6d] hover:underline flex items-center gap-2 transition-all"
+  >
+    <i class="fas fa-arrow-left"></i>
+    <span class="font-medium">Back to Users</span>
+  </button>
+
+  <!-- Header -->
+  <div class="flex items-center gap-3">
+    <i class="fas fa-id-badge text-3xl text-[#006f6d]"></i>
+    <h2 class="text-3xl md:text-4xl font-bold text-[#006f6d]">User Details</h2>
+  </div>
+
+  <div *ngIf="userDetail" class="space-y-10">
+<!-- Profile Info -->
+<section class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-[#cce5e5]">
+  <div class="flex items-center gap-4 mb-6">
+    <i class="fas fa-user-circle text-2xl text-[#006f6d]"></i>
+    <h3 class="text-2xl font-semibold text-[#006f6d]">Profile Info</h3>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:items-start gap-8">
+    <!-- Avatar -->
+    <div class="flex-shrink-0 flex justify-center">
+      <div class="w-24 h-24 rounded-full bg-[#e0f0ef] flex items-center justify-center text-[#006f6d] text-4xl shadow-inner">
+        <i class="fas fa-user"></i>
+      </div>
+    </div>
+
+    <!-- Details -->
+    <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm md:text-base">
+      <div class="bg-[#f8fbfb] p-4 rounded-lg shadow-sm">
+        <p class="text-gray-500 text-xs font-medium mb-1">Username</p>
+        <p class="text-gray-800 font-semibold">{{ userDetail.username }}</p>
+      </div>
+
+      <div class="bg-[#f8fbfb] p-4 rounded-lg shadow-sm">
+        <p class="text-gray-500 text-xs font-medium mb-1">Email</p>
+        <p class="text-gray-800 font-semibold">{{ userDetail.email }}</p>
+      </div>
+
+      <div class="bg-[#f8fbfb] p-4 rounded-lg shadow-sm">
+        <p class="text-gray-500 text-xs font-medium mb-1">Role</p>
+        <p class="text-gray-800 font-semibold">{{ userDetail.role }}</p>
+      </div>
+
+      <div class="bg-[#f8fbfb] p-4 rounded-lg shadow-sm">
+        <p class="text-gray-500 text-xs font-medium mb-1">Gender</p>
+        <p class="text-gray-800 font-semibold">{{ userDetail.gender }}</p>
+      </div>
+
+      <div class="bg-[#f8fbfb] p-4 rounded-lg shadow-sm">
+        <p class="text-gray-500 text-xs font-medium mb-1">Active Status</p>
+        <p [ngClass]="{
+          'text-green-600 font-semibold': userDetail.isActive,
+          'text-gray-500 font-medium': !userDetail.isActive
+        }">
+          {{ userDetail.isActive ? 'Active' : 'Inactive' }}
+        </p>
+      </div>
+
+      <div class="bg-[#f8fbfb] p-4 rounded-lg shadow-sm">
+        <p class="text-gray-500 text-xs font-medium mb-1">Created At</p>
+        <p class="text-gray-800 font-semibold">{{ userDetail.createdAt | date: 'medium' }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Leave Balances -->
+    <section class="bg-white p-6 rounded-2xl shadow-md border border-[#cce5e5]">
+      <div class="flex items-center gap-2 mb-4">
+        <i class="fas fa-clipboard-list text-xl text-[#006f6d]"></i>
+        <h3 class="text-xl font-semibold text-[#006f6d]">Leave Balances</h3>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          *ngFor="let lb of userDetail.leaveBalances"
+          class="p-4 rounded-xl border border-[#cce5e5] bg-[#f9fdfa] shadow hover:shadow-md transition-all"
+        >
+          <h4 class="text-lg font-bold text-[#006f6d] mb-1">{{ lb.leaveTypeName }}</h4>
+          <ul class="text-sm space-y-1">
+            <li>Remaining: <strong>{{ lb.remainingLeaves }}</strong></li>
+            <li>Used: <strong>{{ lb.usedLeaves }}</strong></li>
+            <li>Total: <strong>{{ lb.totalLeaves }}</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leave Requests -->
+    <section class="bg-white p-6 rounded-2xl shadow-md border border-[#cce5e5]">
+      <div class="flex items-center gap-2 mb-4">
+        <i class="fas fa-calendar-check text-xl text-[#006f6d]"></i>
+        <h3 class="text-xl font-semibold text-[#006f6d]">Leave Requests</h3>
+      </div>
+
+      <div *ngIf="pagedLeaveRequests.length === 0" class="text-gray-500 italic">
+        No leave requests found.
+      </div>
+
+      <div *ngIf="pagedLeaveRequests.length > 0" class="space-y-4">
+        <div
+          *ngFor="let lr of pagedLeaveRequests"
+          class="border border-[#e0f0ef] rounded-xl p-4 bg-white hover:shadow-md transition cursor-pointer"
+          [routerLink]="['/leave-approvals', lr.id]"
+        >
+          <div class="flex justify-between items-center mb-2">
+            <h4 class="text-lg font-bold text-[#006f6d]">{{ lr.leaveTypeName }}</h4>
+            <span
+              class="px-3 py-1 text-xs font-semibold rounded-full"
+              [ngClass]="{
+                'bg-green-100 text-green-700': lr.status === 'Approved',
+                'bg-red-100 text-red-700': lr.status === 'Rejected',
+                'bg-yellow-100 text-yellow-800': lr.status === 'Pending',
+                'bg-gray-200 text-gray-500': lr.status === 'Cancelled',
+                'bg-gray-100 text-gray-800': lr.status === 'Auto-Rejected'
+              }"
+            >
+              {{ lr.status }}
+            </span>
+          </div>
+
+          <ul class="text-sm space-y-1 text-gray-700">
+            <li>
+              <i class="fas fa-calendar-alt mr-1 text-[#006f6d]"></i>
+              {{ lr.startDate | date:'mediumDate' }} → {{ lr.endDate | date:'mediumDate' }}
+            </li>
+            <li>
+              <i class="fas fa-sticky-note mr-1 text-[#006f6d]"></i>
+              <strong>Reason:</strong> {{ lr.reason }}
+            </li>
+            <li>
+              <i class="fas fa-user-check mr-1 text-[#006f6d]"></i>
+              <strong>Reviewed By:</strong> {{ lr.reviewedByName || 'Pending' }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="mt-6 flex justify-center items-center gap-6">
+        <button
+          (click)="prevPage()"
+          [disabled]="page === 1"
+          class="w-10 h-10 flex justify-center items-center border border-[#006f6d] text-[#006f6d] rounded-md hover:bg-[#006f6d] hover:text-white disabled:opacity-40 transition"
+        >
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <span class="font-medium text-[#006f6d] text-sm">
+          Page {{ page }} of {{ totalPages }}
+        </span>
+
+        <button
+          (click)="nextPage()"
+          [disabled]="page === totalPages"
+          class="w-10 h-10 flex justify-center items-center border border-[#006f6d] text-[#006f6d] rounded-md hover:bg-[#006f6d] hover:text-white disabled:opacity-40 transition"
+        >
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+  </div>
+</div>

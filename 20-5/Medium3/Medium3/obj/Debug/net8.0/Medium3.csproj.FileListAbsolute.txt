@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\bin\Debug\net8.0\Medium3.exe
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\bin\Debug\net8.0\Medium3.deps.json
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\bin\Debug\net8.0\Medium3.runtimeconfig.json
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\bin\Debug\net8.0\Medium3.dll
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\bin\Debug\net8.0\Medium3.pdb
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\obj\Debug\net8.0\Medium3.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\obj\Debug\net8.0\Medium3.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\obj\Debug\net8.0\Medium3.AssemblyInfo.cs
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\obj\Debug\net8.0\Medium3.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\obj\Debug\net8.0\Medium3.sourcelink.json
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\obj\Debug\net8.0\Medium3.dll
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\obj\Debug\net8.0\refint\Medium3.dll
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\obj\Debug\net8.0\Medium3.pdb
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\obj\Debug\net8.0\Medium3.genruntimeconfig.cache
+D:\GensparkTraining\Training\20-5\Medium3\Medium3\obj\Debug\net8.0\ref\Medium3.dll

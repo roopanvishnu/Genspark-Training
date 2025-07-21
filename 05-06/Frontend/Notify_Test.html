@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SignalR Document Upload History</h1>
+    <input type="text" id="user" placeholder="user">
+    <input type="text" id="message" placeholder="message">
+    <button id="send" onclick="sendMessage()">Send</button>
+    <div id="msgs">
+
+    </div>
+
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js"></script>
+    <script>
+        var connection = new signalR.HubConnectionBuilder()
+                                        .withUrl("http://localhost:5175/notification", {withCredentials : true})
+                                        .withAutomaticReconnect()
+                                        .build();                           
+        connection.start().then(()=>{
+            connection.invoke("SendMessage","Hex","Connected");
+        }).catch(err => console.log(err.message));
+
+         const msgs = document.querySelector("#msgs");
+        connection.on("RecieveMessage",(user,message) => {
+            let p = document.createElement("p");
+            p.innerText = `${user} : ${message}`;
+            console.log(`${user} : ${message}`);
+            
+            msgs.appendChild(p);
+        });
+
+        const sendMessage =() =>{
+            let user = document.querySelector("#user").value;
+            let message = document.querySelector("#message").value;
+            connection.invoke("SendMessage",user,message);
+        }
+    </script>
+</body>
+</html>

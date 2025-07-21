@@ -1,0 +1,492 @@
+2025-07-01 15:46:15.139 +05:30 [INF] User profile is available. Using '/Users/roopanvishnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-01 15:46:15.333 +05:30 [WRN] Overriding address(es) 'http://localhost:5227'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-07-01 15:46:15.418 +05:30 [INF] Now listening on: https://localhost:7120
+2025-07-01 15:46:15.419 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-01 15:46:15.420 +05:30 [INF] Hosting environment: Development
+2025-07-01 15:46:15.420 +05:30 [INF] Content root path: /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API
+2025-07-01 15:47:15.858 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/login - null null
+2025-07-01 15:47:15.973 +05:30 [INF] CORS policy execution successful.
+2025-07-01 15:47:15.976 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/login - 204 null null 123.7842ms
+2025-07-01 15:47:15.982 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7120/api/v1/auth/login - application/json 55
+2025-07-01 15:47:15.986 +05:30 [INF] CORS policy execution successful.
+2025-07-01 15:47:15.997 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:47:16.031 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Micro2025-07-01 15:47:16.031 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Task2025-07-01 15:47:16.903 +05:30 [WRN] Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to2025-07-01 15:47:16.903 +05:30 [WRN] Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configu2025-07-01 15:47:16.903 +05:30 [WRN] Entity 'TaskItem' has a global query filter defined and is the required end of a relationship with the entity 'TaskAttachment'. This may l2025-07-01 15:47:16.903 +05:30 [WRN] Entity 'TaskItem' has a global query filter defined and is the required end of a relationship with the entity 'TaskAttachment'. This may lead to unexpected results when the required entity is filtered out. Either configu2025-07-01 15:47:17.337 +05:30 [ERR] An error occurred using the connection to database 'taskmanagementdb' on server 'tcp://localhost:5432'.
+2025-07-01 15:47:17.361 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagement.API.Context.AppDbContext'.
+System.Inval2025-07-01 15:47:17.361 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagement.API.Context.AppDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operati2025-07-01 15:47:17.392 +05:30 [INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 1354.9903ms
+2025-07-01 15:47:17.393 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:47:17.397 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An exception has been raised that is li2025-07-01 15:47:17.397 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at TaskManagement.API.Implementations.AuthService.LoginWithRefreshAsync(UserLoginDto dto) in /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API/Implementations/AuthService.cs:line 92
+   at TaskManagement.API.Controllers.AuthController.Login(UserLoginDto dto) in /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API/Controllers/AuthController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddle2025-07-01 15:47:17.461 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7120/api/v1/auth/login - 500 null text/plain; charset=utf-8 1478.7818ms
+2025-07-01 15:47:17.726 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7120/api/v1/auth/login - application/json 55
+2025-07-01 15:47:17.731 +05:30 [INF] CORS policy execution successful.
+2025-07-01 15:47:17.731 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:47:17.732 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Micro2025-07-01 15:47:17.732 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Task2025-07-01 15:47:17.753 +05:30 [ERR] An error occurred using the connection to database 'taskmanagementdb' on server 'tcp://localhost:5432'.
+2025-07-01 15:47:17.758 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagement.API.Context.AppDbContext'.
+System.Inval2025-07-01 15:47:17.758 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagement.API.Context.AppDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operati2025-07-01 15:47:17.782 +05:30 [INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 49.7662ms
+2025-07-01 15:47:17.782 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:47:17.783 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An exception has been raised that is li2025-07-01 15:47:17.783 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at TaskManagement.API.Implementations.AuthService.LoginWithRefreshAsync(UserLoginDto dto) in /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API/Implementations/AuthService.cs:line 92
+   at TaskManagement.API.Controllers.AuthController.Login(UserLoginDto dto) in /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API/Controllers/AuthController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddle2025-07-01 15:47:17.808 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7120/api/v1/auth/login - 500 null text/plain; charset=utf-8 81.2119ms
+2025-07-01 15:47:45.306 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/login - null null
+2025-07-01 15:47:45.309 +05:30 [INF] CORS policy execution successful.
+2025-07-01 15:47:45.310 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/login - 204 null null 3.4812ms
+2025-07-01 15:47:45.313 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7120/api/v1/auth/login - application/json 55
+2025-07-01 15:47:45.314 +05:30 [INF] CORS policy execution successful.
+2025-07-01 15:47:45.315 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:47:45.317 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Micro2025-07-01 15:47:45.317 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Task2025-07-01 15:47:45.484 +05:30 [ERR] An error occurred using the connection to database 'taskmanagementdb' on server 'tcp://localhost:5432'.
+2025-07-01 15:47:45.494 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagement.API.Context.AppDbContext'.
+System.Inval2025-07-01 15:47:45.494 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagement.API.Context.AppDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operati2025-07-01 15:47:45.579 +05:30 [INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 259.2181ms
+2025-07-01 15:47:45.580 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:47:45.581 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An exception has been raised that is li2025-07-01 15:47:45.581 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at TaskManagement.API.Implementations.AuthService.LoginWithRefreshAsync(UserLoginDto dto) in /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API/Implementations/AuthService.cs:line 92
+   at TaskManagement.API.Controllers.AuthController.Login(UserLoginDto dto) in /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API/Controllers/AuthController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddle2025-07-01 15:47:45.621 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7120/api/v1/auth/login - 500 null text/plain; charset=utf-8 308.5456ms
+2025-07-01 15:48:13.177 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7120/swagger/index.html - null null
+2025-07-01 15:48:13.292 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/swagger/index.html - 200 null text/html;charset=utf-8 114.684ms
+2025-07-01 15:48:13.440 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7120/swagger/v1/swagger.json - null null
+2025-07-01 15:48:13.545 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 104.7277ms
+2025-07-01 15:48:41.892 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7120/api/v1/auth/login - application/json 64
+2025-07-01 15:48:41.916 +05:30 [INF] CORS policy execution failed.
+2025-07-01 15:48:41.917 +05:30 [INF] Request origin https://localhost:7120 does not have permission to access the resource.
+2025-07-01 15:48:41.918 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:48:41.919 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Micro2025-07-01 15:48:41.919 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Task2025-07-01 15:48:41.942 +05:30 [ERR] An error occurred using the connection to database 'taskmanagementdb' on server 'tcp://localhost:5432'.
+2025-07-01 15:48:41.946 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagement.API.Context.AppDbContext'.
+System.Inval2025-07-01 15:48:41.946 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagement.API.Context.AppDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operati2025-07-01 15:48:42.021 +05:30 [INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 99.6659ms
+2025-07-01 15:48:42.022 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:48:42.023 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An exception has been raised that is li2025-07-01 15:48:42.023 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5432
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at TaskManagement.API.Implementations.AuthService.LoginWithRefreshAsync(UserLoginDto dto) in /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API/Implementations/AuthService.cs:line 92
+   at TaskManagement.API.Controllers.AuthController.Login(UserLoginDto dto) in /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API/Controllers/AuthController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddle2025-07-01 15:48:42.230 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7120/api/v1/auth/login - 500 null text/plain; charset=utf-8 338.5125ms
+2025-07-01 15:58:01.962 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7120/api/v1/auth/login - application/json 64
+2025-07-01 15:58:02.005 +05:30 [INF] CORS policy execution failed.
+2025-07-01 15:58:02.006 +05:30 [INF] Request origin https://localhost:7120 does not have permission to access the resource.
+2025-07-01 15:58:02.008 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:58:02.058 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Micro2025-07-01 15:58:02.058 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Task2025-07-01 15:58:02.396 +05:30 [INF] Executed DbCommand (97ms) [Parameters=[@__dto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Cr2025-07-01 15:58:02.396 +05:30 [INF] Executed DbCommand (97ms) [Parameters=[@__dto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Em2025-07-01 15:58:03.075 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType 2025-07-01 15:58:03.075 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?', @p5='?' (DbType = Guid)], 2025-07-01 15:58:03.118 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-01 15:58:03.118 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Ve2025-07-01 15:58:03.174 +05:30 [INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 1078.147ms
+2025-07-01 15:58:03.175 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:58:03.196 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7120/api/v1/auth/login - 200 null application/json; charset=utf-8 1238.8164ms
+2025-07-01 15:58:07.143 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/login - null null
+2025-07-01 15:58:07.146 +05:30 [INF] CORS policy execution successful.
+2025-07-01 15:58:07.147 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/login - 204 null null 3.2479ms
+2025-07-01 15:58:07.149 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7120/api/v1/auth/login - application/json 55
+2025-07-01 15:58:07.156 +05:30 [INF] CORS policy execution successful.
+2025-07-01 15:58:07.156 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:58:07.159 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Micro2025-07-01 15:58:07.159 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Task2025-07-01 15:58:07.165 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__dto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Cre2025-07-01 15:58:07.165 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__dto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Em2025-07-01 15:58:07.401 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType =2025-07-01 15:58:07.401 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?', @p5='?' (DbType = Guid)], 2025-07-01 15:58:07.401 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-01 15:58:07.401 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Ve2025-07-01 15:58:07.402 +05:30 [INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 239.1069ms
+2025-07-01 15:58:07.407 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-01 15:58:07.407 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7120/api/v1/auth/login - 200 null application/json; charset=utf-8 258.6545ms
+2025-07-01 15:2025-07-01 15:58:07.407 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7120/api/v1/auth/login - 200 null appl2025-07-01 15:58:08.007 +05:30 [INF] CORS policy execution successful.
+2025-07-01 15:58:08.008 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - 204 null null 556.9782ms
+2025-07-01 15:58:08.010 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7120/api/v1/users?page=1&pageSize=10 - null null
+2025-07-01 15:58:08.089 +05:30 [INF] CORS policy execution successful.
+2025-07-01 15:58:08.095 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API)'
+2025-07-01 15:58:08.101 +05:30 [INF] Route matched with {action = "GetUsers", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Mi2025-07-01 15:58:08.101 +05:30 [INF] Route matched with {action = "GetUsers", controller = "User"}. Executing controller action with signature 2025-07-01 15:58:08.111 +05:30 [INF] Fetching users list with page: 1, pageSize: 10
+2025-07-01 15:58:08.172 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Users" AS u
+WHERE NOT (u."2025-07-01 15:58:08.172 +05:30 [INF]2025-07-01 15:58:08.213 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30'2025-07-01 15:58:08.213 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Email", u."FullName", u."IsDeleted",2025-07-01 15:58:08.249 +05:30 [INF] Successfully fetched 10 users out of 20 total records
+2025-07-01 15:58:08.250 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-01 15:58:08.250 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[TaskManagement.API.DTOs.UserDto, TaskManagement.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int2025-07-01 15:58:08.272 +05:30 [INF] Executed action TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API) in 170.7031ms
+2025-07-01 15:58:08.273 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API)'
+2025-07-01 15:58:08.296 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/api/v1/users?page=1&pageSize=10 - 200 null application/json; charset=utf-8 286.5634ms
+2025-07-01 16:00:27.424 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - null null
+2025-07-01 16:00:27.456 +05:30 [INF] CORS policy execution successful.
+2025-07-01 16:00:27.457 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - 204 null null 32.5028ms
+2025-07-01 16:00:27.459 +2025-07-01 16:00:27.457 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/users?pa2025-07-01 16:00:27.708 +05:30 [INF] CORS policy execution successful.
+2025-07-01 16:00:27.712 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API)'
+2025-07-01 16:00:27.713 +05:30 [INF] Route matched with {action = "GetUsers", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Mi2025-07-01 16:00:27.713 +05:30 [INF] Route matched with {action = "GetUsers", controller = "User"}. Executing controller action with signature 2025-07-01 16:00:27.753 +05:30 [INF] Fetching users list with page: 1, pageSize: 10
+2025-07-01 16:00:27.779 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Users" AS u
+WHERE NOT (u."2025-07-01 16:00:27.779 +05:30 [INF]2025-07-01 16:00:27.829 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='302025-07-01 16:00:27.829 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Email", u."FullName", u."IsDeleted",2025-07-01 16:00:27.856 +05:30 [INF] Successfully fetched 10 users out of 20 total records
+2025-07-01 16:00:27.857 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-01 16:00:27.857 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[TaskManagement.API.DTOs.UserDto, TaskManagement.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int2025-07-01 16:00:27.901 +05:30 [INF] Executed action TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API) in 153.0928ms
+2025-07-01 16:00:27.902 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API)'
+2025-07-01 16:00:27.902 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/api/v1/users?page=1&pageSize=10 - 200 null application/json; charset=utf-8 443.8599ms
+2025-07-01 16:17:54.941 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - null null
+2025-07-01 16:17:55.199 +05:30 [INF] CORS policy execution successful.
+2025-07-01 16:17:55.200 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - 204 null null 259.7245ms
+2025-07-01 16:17:55.202 2025-07-01 16:17:55.200 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/users?pag2025-07-01 16:17:55.648 +05:30 [INF] CORS policy execution successful.
+2025-07-01 16:17:55.711 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API)'
+2025-07-01 16:17:55.719 +05:30 [INF] Route matched with {action = "GetUsers", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Mi2025-07-01 16:17:55.719 +05:30 [INF] Route matched with {action = "GetUsers", controller = "User"}. Executing controller action with signature 2025-07-01 16:17:55.750 +05:30 [INF] Fetching users list with page: 1, pageSize: 10
+2025-07-01 16:17:55.845 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Users" AS u
+WHERE NOT (u."2025-07-01 16:17:55.845 +05:30 [INF]2025-07-01 16:17:55.900 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30'2025-07-01 16:17:55.900 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Email", u."FullName", u."IsDeleted",2025-07-01 16:17:55.944 +05:30 [INF] Successfully fetched 10 users out of 20 total records
+2025-07-01 16:17:55.948 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-01 16:17:55.948 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[TaskManagement.API.DTOs.UserDto, TaskManagement.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int2025-07-01 16:17:55.952 +05:30 [INF] Executed action TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API) in 213.6297ms
+2025-07-01 16:17:56.195 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API)'
+2025-07-01 16:17:56.196 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/api/v1/users?page=1&pageSize=10 - 200 null application/json; charset=utf-8 993.241ms
+2025-07-01 16:21:59.293 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - null null
+2025-07-01 16:22:00.064 +05:30 [INF] CORS policy execution successful.
+2025-07-01 16:22:00.066 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - 204 null null 775.8825ms
+2025-07-01 16:22:00.071 2025-07-01 16:22:00.066 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/users?pag2025-07-01 16:22:00.312 +05:30 [INF] CORS policy execution successful.
+2025-07-01 16:22:00.355 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API)'
+2025-07-01 16:22:00.356 +05:30 [INF] Route matched with {action = "GetUsers", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Mi2025-07-01 16:22:00.356 +05:30 [INF] Route matched with {action = "GetUsers", controller = "User"}. Executing controller action with signature 2025-07-01 16:22:00.466 +05:30 [INF] Fetching users list with page: 1, pageSize: 10
+2025-07-01 16:22:00.533 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Users" AS u
+WHERE NOT (u."2025-07-01 16:22:00.533 +05:30 [INF]2025-07-01 16:22:00.632 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='302025-07-01 16:22:00.632 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Email", u."FullName", u."IsDeleted",2025-07-01 16:22:00.660 +05:30 [INF] Successfully fetched 10 users out of 20 total records
+2025-07-01 16:22:00.753 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-01 16:22:00.753 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[TaskManagement.API.DTOs.UserDto, TaskManagement.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int2025-07-01 16:22:00.760 +05:30 [INF] Executed action TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API) in 298.8939ms
+2025-07-01 16:22:00.760 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API)'
+2025-07-01 16:22:00.804 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/api/v1/users?page=1&pageSize=10 - 200 null application/json; charset=utf-8 733.0885ms
+2025-07-01 17:21:42.873 +05:30 [INF] Application is shutting down...
+ps://localhost:7120/api/v1/users?page=1&pageSize=10 - 200 null application/json; charset=utf-8 733.0885ms
+2025-07-01 17:21:42.873 +05:30 [INF] Application is shutting down...

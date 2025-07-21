@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\bin\Debug\net8.0\nterfaceSegregationPrinciple.exe
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\bin\Debug\net8.0\nterfaceSegregationPrinciple.deps.json
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\bin\Debug\net8.0\nterfaceSegregationPrinciple.runtimeconfig.json
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\bin\Debug\net8.0\nterfaceSegregationPrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\bin\Debug\net8.0\nterfaceSegregationPrinciple.pdb
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\obj\Debug\net8.0\nterfaceSegregationPrinciple.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\obj\Debug\net8.0\nterfaceSegregationPrinciple.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\obj\Debug\net8.0\nterfaceSegregationPrinciple.AssemblyInfo.cs
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\obj\Debug\net8.0\nterfaceSegregationPrinciple.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\obj\Debug\net8.0\nterfaceSegregationPrinciple.sourcelink.json
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\obj\Debug\net8.0\nterfaceSegregationPrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\obj\Debug\net8.0\refint\nterfaceSegregationPrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\obj\Debug\net8.0\nterfaceSegregationPrinciple.pdb
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\obj\Debug\net8.0\nterfaceSegregationPrinciple.genruntimeconfig.cache
+D:\GensparkTraining\Training\22-05\SOLID\nterfaceSegregationPrinciple\nterfaceSegregationPrinciple\obj\Debug\net8.0\ref\nterfaceSegregationPrinciple.dll

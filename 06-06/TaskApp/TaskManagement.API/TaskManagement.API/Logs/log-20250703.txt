@@ -1,0 +1,111 @@
+2025-07-03 10:08:21.991 +05:30 [INF] User profile is available. Using '/Users/roopanvishnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-03 10:08:22.137 +05:30 [WRN] Overriding address(es) 'http://localhost:5227'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-07-03 10:08:22.162 +05:30 [INF] Now listening on: https://localhost:7120
+2025-07-03 10:08:22.163 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-03 10:08:22.163 +05:30 [INF] Hosting environment: Development
+2025-07-03 10:08:22.163 +05:30 [INF] Content root path: /Users/roopanvishnu/Documents/GensparkTraining/Training/06-06/TaskApp/TaskManagement.API/TaskManagement.API
+2025-07-03 10:08:32.463 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/login - null null
+2025-07-03 10:08:32.562 +05:30 [INF] CORS policy execution successful.
+2025-07-03 10:08:32.565 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/login - 204 null null 103.5302ms
+2025-07-03 10:08:32.573 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7120/api/v1/auth/login - application/json 55
+2025-07-03 10:08:32.581 +05:30 [INF] CORS policy execution successful.
+2025-07-03 10:08:32.594 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-03 10:08:32.621 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Micro2025-07-03 10:08:32.621 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Task2025-07-03 10:08:33.312 +05:30 [WRN] Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to2025-07-03 10:08:33.312 +05:30 [WRN] Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configu2025-07-03 10:08:33.313 +05:30 [WRN] Entity 'TaskItem' has a global query filter defined and is the required end of a relationship with the entity 'TaskAttachment'. This may l2025-07-03 10:08:33.313 +05:30 [WRN] Entity 'TaskItem' has a global query filter defined and is the required end of a relationship with the entity 'TaskAttachment'. This may lead to unexpected results when the required entity is filtered out. Either configu2025-07-03 10:08:33.936 +05:30 [INF] Executed DbCommand (52ms) [Parameters=[@__dto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Cr2025-07-03 10:08:33.936 +05:30 [INF] Executed DbCommand (52ms) [Parameters=[@__dto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Em2025-07-03 10:08:34.478 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType =2025-07-03 10:08:34.478 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?', @p5='?' (DbType = Guid)], 2025-07-03 10:08:34.491 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-03 10:08:34.491 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Ve2025-07-03 10:08:34.520 +05:30 [INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 1895.0005ms
+2025-07-03 10:08:34.521 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-03 10:08:34.533 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7120/api/v1/auth/login - 200 null application/json; charset=utf-8 1959.5849ms
+2025-07-03 10:08:34.553 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - null null
+2025-07-03 10:08:34.560 +05:30 [INF] CORS policy execution successful.
+2025-07-03 10:08:34.561 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - 204 null null 7.9116ms
+2025-07-03 10:08:34.564 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7120/api/v1/users?page=1&pageSize=10 - null null
+2025-07-03 10:08:34.632 +05:30 [INF] CORS policy execution successful.
+2025-07-03 10:08:34.639 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API)'
+2025-07-03 10:08:34.644 +05:30 [INF] Route matched with {action = "GetUsers", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Mi2025-07-03 10:08:34.644 +05:30 [INF] Route matched with {action = "GetUsers", controller = "User"}. Executing controller action with signature 2025-07-03 10:08:34.656 +05:30 [INF] Fetching users list with page: 1, pageSize: 10
+2025-07-03 10:08:34.729 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Users" AS u
+WHERE NOT (u."I2025-07-03 10:08:34.729 +05:30 [INF2025-07-03 10:08:34.808 +05:30 [INF] Executed DbCommand (52ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='302025-07-03 10:08:34.808 +05:30 [INF] Executed DbCommand (52ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Email", u."FullName", u."IsDeleted",2025-07-03 10:08:34.812 +05:30 [INF] Successfully fetched 10 users out of 20 total records
+2025-07-03 10:08:34.814 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-03 10:08:34.814 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[TaskManagement.API.DTOs.UserDto, TaskManagement.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType6`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int2025-07-03 10:08:34.846 +05:30 [INF] Executed action TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API) in 201.3262ms
+2025-07-03 10:08:34.846 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.UserController.GetUsers (TaskManagement.API)'
+2025-07-03 10:08:34.847 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/api/v1/users?page=1&pageSize=10 - 200 null application/json; charset=utf-8 282.7463ms
+2025-07-03 11:53:59.313 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - null null
+2025-07-03 11:53:59.357 +05:30 [INF] CORS policy execution successful.
+2025-07-03 11:53:59.359 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/users?page=1&pageSize=10 - 204 null null 46.6379ms
+2025-07-03 11:53:59.363 +2025-07-03 11:53:59.359 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/users?pa2025-07-03 11:53:59.580 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The toke2025-07-03 11:53:59.580 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '03/07/2025 5:38:34 AM', Current time (UTC): '03/07/2025 6:23:59 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsof2025-07-03 11:53:59.647 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '03/07/2025 5:382025-07-03 11:53:59.647 +05:30 [INF] Bearer was not authen2025-07-03 11:53:59.651 +05:30 [INF] CORS policy execution successful.
+2025-07-03 11:53:59.661 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following r2025-07-03 11:532025-07-03 11:53:59.675 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-07-03 11:53:59.694 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/api/v1/users?page=1&pageSize=10 - 401 0 null 331.0651ms
+2025-07-03 11:53:59.701 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/refresh - null null
+2025-07-03 11:53:59.703 +05:30 [INF] CORS policy execution successful.
+2025-07-03 11:53:59.703 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/refresh - 204 null null 1.5517ms
+2025-07-03 11:53:59.705 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7120/api/v1/auth/refresh - text/plain 88
+2025-07-03 11:53:59.748 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The toke2025-07-03 11:53:59.748 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '03/07/2025 5:38:34 AM', Current time (UTC): '03/07/2025 6:23:59 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsof2025-07-03 11:53:59.753 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '03/07/2025 5:382025-07-03 11:53:59.753 +05:30 [INF] Bearer was not authen2025-07-03 11:53:59.754 +05:30 [INF] CORS policy execution successful.
+2025-07-03 11:53:59.756 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.RefreshToken (TaskManagement.API)'
+2025-07-03 11:53:59.967 +05:30 [INF] Route matched with {action = "RefreshToken", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`2025-07-03 11:53:59.967 +05:30 [INF] Route matched with {action = "RefreshToken", controller = "Auth"}. Executing controller action with signature Syste2025-07-03 11:54:00.019 +05:30 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-07-03 11:54:00.061 +05:30 [INF] Executed action TaskManagement.API.Controllers.AuthController.RefreshToken (TaskManagement.API) in 67.655ms
+2025-07-03 11:54:00.062 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.RefreshToken (TaskManagement.API)'
+2025-07-03 11:54:00.094 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7120/api/v1/auth/refresh - 415 null application/problem+json; charset=utf-8 388.713ms
+2025-07-03 11:54:07.844 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/login - null null
+2025-07-03 11:54:07.845 +05:30 [INF] CORS policy execution successful.
+2025-07-03 11:54:07.846 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/auth/login - 204 null null 1.4804ms
+2025-07-03 11:54:07.848 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7120/api/v1/auth/login - application/json 44
+2025-07-03 11:54:07.854 +05:30 [INF] CORS policy execution successful.
+2025-07-03 11:54:07.854 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-03 11:54:07.855 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Micro2025-07-03 11:54:07.855 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Task2025-07-03 11:54:08.032 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__dto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Cre2025-07-03 11:54:08.032 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__dto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Em2025-07-03 11:54:08.350 +05:30 [INF] Executed DbCommand (34ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType 2025-07-03 11:54:08.350 +05:30 [INF] Executed DbCommand (34ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?', @p5='?' (DbType = Guid)], 2025-07-03 11:54:08.351 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-03 11:54:08.351 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Ve2025-07-03 11:54:08.353 +05:30 [INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 456.8057ms
+2025-07-03 11:54:08.353 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+2025-07-03 11:54:08.354 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7120/api/v1/auth/login - 200 null application/json; charset=utf-8 505.2891ms
+2025-07-03 11:54:08.361 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/tasks/assigned - null null
+2025-07-03 11:54:08.395 +05:30 [INF] CORS policy execution successful.
+2025-07-03 11:54:08.396 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/tasks/assigned - 204 null null 34.4861ms
+2025-07-03 11:54:08.398 +05:30 [INF2025-07-03 11:54:08.396 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:2025-07-03 11:54:08.447 +05:30 [INF] CORS policy execution successful.
+2025-07-03 11:54:08.449 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.TaskController.GetAssignedTasks (TaskManagement.API)'
+2025-07-03 11:54:08.497 +05:30 [INF] Route matched with {action = "GetAssignedTasks", controller = "Task"}. Executing controller action with signature System.Threading.Tasks.T2025-07-03 11:54:08.497 +05:30 [INF] Route matched with {action = "GetAssignedTasks", controller = "Task"}. Executing controller action with signat2025-07-03 11:54:08.597 +05:30 [INF] Fetching assigned tasks for user ID: 4b27ea38-ffdf-49ae-8580-2e809344da4e
+2025-07-03 11:54:08.723 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__currentUserId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."AssigneeId", 2025-07-03 11:54:08.723 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__currentUserId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."AssigneeId", t."CreatedAt", t."CreatedBy", t."Description", t."DueDate", t."IsBroadcasted", t."IsDeleted", t."Status", t."TeamComment", t."Title", t."UpdatedAt", t."UpdatedBy", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."Email", t0."FullName", t0."IsDeleted", t0."PasswordHash", t0."Role", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."FileName", t1."FilePath", t1."TaskItemId", t1."UploadedAt"
+FROM "Tasks" AS t
+LEFT JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Email", u."FullName", u."IsDeleted", u."PasswordHash", u."Role", u."UpdatedAt", u."UpdatedBy"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t0 ON t."AssigneeId" = t0."Id"
+LEFT JOIN "TaskAttachments" AS 2025-07-03 11:54:08.811 +05:30 [INF] Successfully fetched 4 assigned tasks for user ID: 4b27ea38-ffdf-49ae-8580-2e809344da4e
+2025-07-03 11:54:08.811 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-03 11:54:08.811 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List`1[[TaskManagement.API.DTOs.TaskDtos.TaskD2025-07-03 11:54:08.861 +05:30 [INF] Executed action TaskManagement.API.Controllers.TaskController.GetAssignedTasks (TaskManagement.API) in 363.8965ms
+2025-07-03 11:54:08.861 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.TaskController.GetAssignedTasks (TaskManagement.API)'
+2025-07-03 11:54:08.894 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/api/v1/tasks/assigned - 200 null application/json; charset=utf-8 495.6356ms
+2025-07-03 12:13:05.455 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7120/api/v1/tasks/assigned - null null
+2025-07-03 12:13:05.457 +05:30 [INF] CORS policy execution successful.
+2025-07-03 12:13:05.457 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7120/api/v1/tasks/assigned - 204 null null 2.123ms
+2025-07-03 12:13:05.460 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7120/api/v1/tasks/assigned - null null
+2025-07-03 12:13:05.465 +05:30 [INF] CORS policy execution successful.
+2025-07-03 12:13:05.465 +05:30 [INF] Executing endpoint 'TaskManagement.API.Controllers.TaskController.GetAssignedTasks (TaskManagement.API)'
+2025-07-03 12:13:05.467 +05:30 [INF] Route matched with {action = "GetAssignedTasks", controller = "Task"}. Executing controller action with signature System.Threading.Tasks.T2025-07-03 12:13:05.467 +05:30 [INF] Route matched with {action = "GetAssignedTasks", controller = "Task"}. Executing controller action with signat2025-07-03 12:13:05.471 +05:30 [INF] Fetching assigned tasks for user ID: 4b27ea38-ffdf-49ae-8580-2e809344da4e
+2025-07-03 12:13:05.488 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__currentUserId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."AssigneeId", t2025-07-03 12:13:05.488 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__currentUserId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."AssigneeId", t."CreatedAt", t."CreatedBy", t."Description", t."DueDate", t."IsBroadcasted", t."IsDeleted", t."Status", t."TeamComment", t."Title", t."UpdatedAt", t."UpdatedBy", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."Email", t0."FullName", t0."IsDeleted", t0."PasswordHash", t0."Role", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."FileName", t1."FilePath", t1."TaskItemId", t1."UploadedAt"
+FROM "Tasks" AS t
+LEFT JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."Email", u."FullName", u."IsDeleted", u."PasswordHash", u."Role", u."UpdatedAt", u."UpdatedBy"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t0 ON t."AssigneeId" = t0."Id"
+LEFT JOIN "TaskAttachments" AS 2025-07-03 12:13:05.493 +05:30 [INF] Successfully fetched 4 assigned tasks for user ID: 4b27ea38-ffdf-49ae-8580-2e809344da4e
+2025-07-03 12:13:05.493 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=n2025-07-03 12:13:05.493 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List`1[[TaskManagement.API.DTOs.TaskDtos.TaskD2025-07-03 12:13:05.494 +05:30 [INF] Executed action TaskManagement.API.Controllers.TaskController.GetAssignedTasks (TaskManagement.API) in 23.844ms
+2025-07-03 12:13:05.494 +05:30 [INF] Executed endpoint 'TaskManagement.API.Controllers.TaskController.GetAssignedTasks (TaskManagement.API)'
+2025-07-03 12:13:05.495 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/api/v1/tasks/assigned - 200 null application/json; charset=utf-8 35.0078ms
+ement.API)'
+2025-07-03 12:13:05.495 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7120/api/v1/tasks/assigned - 200 null application/json; charset=utf-8 35.0078ms

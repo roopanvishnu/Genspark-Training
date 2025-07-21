@@ -1,0 +1,54 @@
+<nav *ngIf="isLoggedIn"
+     class="fixed top-0 left-0 h-full w-20 bg-[var(--primary)] text-white pt-16 shadow-lg
+            flex flex-col items-center gap-5 z-50">
+
+  <!-- Dashboard -->
+  <a routerLink="/dashboard" routerLinkActive="bg-[var(--background)] text-[var(--primary)]"
+     class="flex flex-col items-center text-xs hover:bg-[var(--background)] hover:text-[var(--primary)] transition rounded-md p-2 w-full text-center mt-16">
+    <i class="fa-solid fa-gauge text-lg sm:text-xl mb-1"></i>
+    <span class="text-[11px] leading-tight">Dashboard</span>
+  </a>
+
+  <!-- Apply Leave -->
+  <a routerLink="/apply-leave" routerLinkActive="bg-[var(--background)] text-[var(--primary)]"
+     class="flex flex-col items-center text-xs hover:bg-[var(--background)] hover:text-[var(--primary)] transition rounded-md p-2 w-full text-center">
+    <i class="fa-solid fa-paper-plane text-lg sm:text-xl mb-1"></i>
+    <span class="text-[11px] leading-tight">Apply</span>
+  </a>
+
+  <!-- Leave History -->
+  <a routerLink="/leave-history" routerLinkActive="bg-[var(--background)] text-[var(--primary)]"
+     class="flex flex-col items-center text-xs hover:bg-[var(--background)] hover:text-[var(--primary)] transition rounded-md p-2 w-full text-center">
+    <i class="fa-solid fa-clock-rotate-left text-lg sm:text-xl mb-1"></i>
+    <span class="text-[11px] leading-tight">History</span>
+  </a>
+
+  <!-- Leave Balance -->
+  <a routerLink="/leave-balance" routerLinkActive="bg-[var(--background)] text-[var(--primary)]"
+     class="flex flex-col items-center text-xs hover:bg-[var(--background)] hover:text-[var(--primary)] transition rounded-md p-2 w-full text-center">
+    <i class="fa-solid fa-scale-balanced text-lg sm:text-xl mb-1"></i>
+    <span class="text-[11px] leading-tight">Balance</span>
+  </a>
+
+  <!-- Leave Types -->
+  <a routerLink="/leave-types" routerLinkActive="bg-[var(--background)] text-[var(--primary)]"
+     class="flex flex-col items-center text-xs hover:bg-[var(--background)] hover:text-[var(--primary)] transition rounded-md p-2 w-full text-center">
+    <i class="fa-solid fa-list-check text-lg sm:text-xl mb-1"></i>
+    <span class="text-[11px] leading-tight">Types</span>
+  </a>
+
+  <!-- HR Only: Approvals -->
+  <a *ngIf="isHR" routerLink="/leave-approvals" routerLinkActive="bg-[var(--background)] text-[var(--primary)]"
+     class="flex flex-col items-center text-xs hover:bg-[var(--background)] hover:text-[var(--primary)] transition rounded-md p-2 w-full text-center">
+    <i class="fa-solid fa-check-to-slot text-lg sm:text-xl mb-1"></i>
+    <span class="text-[11px] leading-tight">Approvals</span>
+  </a>
+
+  <!-- HR Only: User Management -->
+  <a *ngIf="isHR" routerLink="/user-management" routerLinkActive="bg-[var(--background)] text-[var(--primary)]"
+     class="flex flex-col items-center text-xs hover:bg-[var(--background)] hover:text-[var(--primary)] transition rounded-md p-2 w-full text-center">
+    <i class="fa-solid fa-users-gear text-lg sm:text-xl mb-1"></i>
+    <span class="text-[11px] leading-tight">Employees</span>
+  </a>
+
+</nav>

@@ -1,0 +1,19 @@
+.cal-event {
+  background-color: #dbeafe !important;
+  border-left: 4px solid #3b82f6;
+  color: #1e293b;
+  padding: 2px 6px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 0;
+}
+
+.cal-event-start {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.cal-event-end {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

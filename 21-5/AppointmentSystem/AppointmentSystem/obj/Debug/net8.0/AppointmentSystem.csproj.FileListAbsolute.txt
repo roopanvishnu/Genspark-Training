@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\bin\Debug\net8.0\AppointmentSystem.exe
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\bin\Debug\net8.0\AppointmentSystem.deps.json
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\bin\Debug\net8.0\AppointmentSystem.runtimeconfig.json
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\bin\Debug\net8.0\AppointmentSystem.dll
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\bin\Debug\net8.0\AppointmentSystem.pdb
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\obj\Debug\net8.0\AppointmentSystem.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\obj\Debug\net8.0\AppointmentSystem.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\obj\Debug\net8.0\AppointmentSystem.AssemblyInfo.cs
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\obj\Debug\net8.0\AppointmentSystem.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\obj\Debug\net8.0\AppointmentSystem.sourcelink.json
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\obj\Debug\net8.0\AppointmentSystem.dll
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\obj\Debug\net8.0\refint\AppointmentSystem.dll
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\obj\Debug\net8.0\AppointmentSystem.pdb
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\obj\Debug\net8.0\AppointmentSystem.genruntimeconfig.cache
+D:\GensparkTraining\Training\21-5\AppointmentSystem\AppointmentSystem\obj\Debug\net8.0\ref\AppointmentSystem.dll

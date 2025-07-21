@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>🍽️ Online Recipes Task</h2>
+
+  <button (click)="clearAll()">Clear Recipes</button>
+
+  @if (recipes().length === 0) {
+    <p class="empty">No recipes found.</p>
+  } @else {
+    <div class="grid">
+      @for (recipe of recipes(); track recipe.id) {
+        <div class="card">
+          <img [src]="recipe.image" [alt]="recipe.name" />
+          <div class="card-body">
+            <h3>{{ recipe.name }}</h3>
+            <p><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
+            <p><strong>Difficulty:</strong> {{ recipe.difficulty }}</p>
+            <p><strong>Prep Time:</strong> {{ recipe.prepTimeMinutes }} min</p>
+            <p><strong>Cook Time:</strong> {{ recipe.cookTimeMinutes }} min</p>
+            <p><strong>Calories:</strong> {{ recipe.caloriesPerServing }} kcal</p>
+            <p><strong>Rating:</strong> {{ recipe.rating }} ⭐ ({{ recipe.reviewCount }} reviews)</p>
+            <p><strong>Meal Type:</strong> {{ recipe.mealType.join(', ') }}</p>
+            <p><strong>Ingredients:</strong> {{ recipe.ingredients.join(', ') }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,115 @@
+<div class="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-md w-full space-y-8">
+        <div class="text-center">
+          <div class="mx-auto h-16 w-16 bg-secondary-600 rounded-full flex items-center justify-center">
+            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+            </svg>
+          </div>
+          <h2 class="mt-6 text-3xl font-bold text-gray-900">Create Account</h2>
+          <p class="mt-2 text-sm text-gray-600">Join the task management system</p>
+        </div>
+        
+        <form class="mt-8 space-y-6" (ngSubmit)="onSubmit()">
+          <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label for="firstName" class="block text-sm font-medium text-gray-700">First Name</label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  required
+                  [(ngModel)]="registerRequest.firstName"
+                  class="form-input mt-1"
+                  placeholder="FirstName"
+                />
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name</label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  required
+                  [(ngModel)]="registerRequest.lastName"
+                  class="form-input mt-1"
+                  placeholder="LastName"
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                [(ngModel)]="registerRequest.email"
+                class="form-input mt-1"
+                placeholder="email@company.com"
+              />
+            </div>
+            
+            <div>
+              <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                required
+                [(ngModel)]="registerRequest.password"
+                class="form-input mt-1"
+                placeholder="Create a strong password"
+              />
+            </div>
+            
+            <div>
+              <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
+              <select
+                id="role"
+                name="role"
+                required
+                [(ngModel)]="registerRequest.role"
+                class="form-input mt-1"
+              >
+                <option [value]="UserRole.TeamMember">Team Member</option>
+                <option [value]="UserRole.Manager">Manager</option>
+              </select>
+            </div>
+          </div>
+
+          <div *ngIf="error" class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            {{ error }}
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              [disabled]="loading"
+              class="group relative w-full flex justify-center py-3 px-4 btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <span *ngIf="loading" class="absolute left-0 inset-y-0 flex items-center pl-3">
+                <svg class="animate-spin h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                </svg>
+              </span>
+              {{ loading ? 'Creating account...' : 'Create account' }}
+            </button>
+          </div>
+
+          <div class="text-center">
+            <button
+              type="button"
+              (click)="goToLogin()"
+              class="font-medium text-primary-600 hover:text-primary-500 transition-colors"
+            >
+              Already have an account? Sign in
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>

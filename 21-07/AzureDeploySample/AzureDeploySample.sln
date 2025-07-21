@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureDeploySample", "AzureDeploySample\AzureDeploySample.csproj", "{EFB5AD6F-35EA-40F8-A70E-BE988AA34587}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFB5AD6F-35EA-40F8-A70E-BE988AA34587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB5AD6F-35EA-40F8-A70E-BE988AA34587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB5AD6F-35EA-40F8-A70E-BE988AA34587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB5AD6F-35EA-40F8-A70E-BE988AA34587}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

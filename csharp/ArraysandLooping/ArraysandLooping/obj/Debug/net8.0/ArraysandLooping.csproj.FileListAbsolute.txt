@@ -1,0 +1,14 @@
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\bin\Debug\net8.0\ArraysandLooping.exe
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\bin\Debug\net8.0\ArraysandLooping.deps.json
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\bin\Debug\net8.0\ArraysandLooping.runtimeconfig.json
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\bin\Debug\net8.0\ArraysandLooping.dll
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\bin\Debug\net8.0\ArraysandLooping.pdb
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\obj\Debug\net8.0\ArraysandLooping.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\obj\Debug\net8.0\ArraysandLooping.AssemblyInfoInputs.cache
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\obj\Debug\net8.0\ArraysandLooping.AssemblyInfo.cs
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\obj\Debug\net8.0\ArraysandLooping.csproj.CoreCompileInputs.cache
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\obj\Debug\net8.0\ArraysandLooping.dll
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\obj\Debug\net8.0\refint\ArraysandLooping.dll
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\obj\Debug\net8.0\ArraysandLooping.pdb
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\obj\Debug\net8.0\ArraysandLooping.genruntimeconfig.cache
+D:\cSharp\Practice\ArraysandLooping\ArraysandLooping\obj\Debug\net8.0\ref\ArraysandLooping.dll

@@ -1,0 +1,9 @@
+<div *ngIf="error">
+  <p>Invalid product ID or not found.</p>
+</div>
+<div *ngIf="product">
+  <h2>{{ product.title }}</h2>
+  <img [src]="product.thumbnail" alt="product">
+  <p><strong>Price:</strong> ₹ {{ product.price }}</p>
+  <p>{{ product.description }}</p>
+</div>

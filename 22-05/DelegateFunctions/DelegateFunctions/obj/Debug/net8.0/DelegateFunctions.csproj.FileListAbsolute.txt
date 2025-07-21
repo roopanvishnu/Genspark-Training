@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\bin\Debug\net8.0\DelegateFunctions.exe
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\bin\Debug\net8.0\DelegateFunctions.deps.json
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\bin\Debug\net8.0\DelegateFunctions.runtimeconfig.json
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\bin\Debug\net8.0\DelegateFunctions.dll
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\bin\Debug\net8.0\DelegateFunctions.pdb
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\obj\Debug\net8.0\DelegateFunctions.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\obj\Debug\net8.0\DelegateFunctions.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\obj\Debug\net8.0\DelegateFunctions.AssemblyInfo.cs
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\obj\Debug\net8.0\DelegateFunctions.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\obj\Debug\net8.0\DelegateFunctions.sourcelink.json
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\obj\Debug\net8.0\DelegateFunctions.dll
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\obj\Debug\net8.0\refint\DelegateFunctions.dll
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\obj\Debug\net8.0\DelegateFunctions.pdb
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\obj\Debug\net8.0\DelegateFunctions.genruntimeconfig.cache
+D:\GensparkTraining\Training\22-05\DelegateFunctions\DelegateFunctions\obj\Debug\net8.0\ref\DelegateFunctions.dll

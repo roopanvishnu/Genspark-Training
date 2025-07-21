@@ -1,0 +1,39 @@
+<div class="form-container">
+  <h2>Create New User</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    
+    <label>Username</label>
+    <input formControlName="username" type="text" />
+    <div *ngIf="f['username'].touched && f['username'].errors">
+      <small *ngIf="f['username'].errors['required']">Username is required</small>
+      <small *ngIf="f['username'].errors['bannedWord']">Username cannot contain "admin" or "root"</small>
+    </div>
+
+    <label>Email</label>
+    <input formControlName="email" type="email" />
+    <div *ngIf="f['email'].touched && f['email'].errors">
+      <small *ngIf="f['email'].errors['required']">Email is required</small>
+      <small *ngIf="f['email'].errors['email']">Enter a valid email</small>
+    </div>
+
+    <label>Password</label>
+    <input formControlName="password" type="password" />
+    <div *ngIf="f['password'].touched && f['password'].errors">
+      <small *ngIf="f['password'].errors['required']">Password is required</small>
+      <small *ngIf="f['password'].errors['weakPassword']">Use at least 8 characters, a number, and a symbol</small>
+    </div>
+
+    <label>Confirm Password</label>
+    <input formControlName="confirmPassword" type="password" />
+    <div *ngIf="form.touched && form.errors?.['passwordsMismatch']">
+      <small>Passwords do not match</small>
+    </div>
+
+    <label>Role</label>
+    <select formControlName="role">
+      <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+    </select>
+
+    <button type="submit" [disabled]="form.invalid">Add User</button>
+  </form>
+</div>

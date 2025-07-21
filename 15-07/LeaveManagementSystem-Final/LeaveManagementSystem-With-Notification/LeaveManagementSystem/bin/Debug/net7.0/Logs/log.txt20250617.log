@@ -1,0 +1,749 @@
+2025-06-17 11:33:44,424 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-06-17 11:33:44,682 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-17 11:33:44,683 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-17 11:33:44,683 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-17 11:33:44,683 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem
+2025-06-17 11:33:44,795 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-06-17 11:34:03,604 [7] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T06:04:03.6041480Z, Method: POST, Path: /api/v1/auth/login, User: Anonymous
+2025-06-17 11:34:03,681 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-17 11:34:03,909 [7] INFO  LeaveManagementSystem.Services.AuthenticationService - User chandler@example.com logged in successfully
+2025-06-17 11:34:03,912 [7] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User chandler@example.com logged in successfully.
+2025-06-17 11:34:18,893 [9] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T06:04:18.8931570Z, Method: GET, Path: /api/v1/auth/me, User: Chandler
+2025-06-17 11:34:18,930 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-17 11:34:18,931 [9] INFO  LeaveManagementSystem.Controllers.AuthenticationController - Current user info retrieved successfully.
+2025-06-17 11:34:27,471 [13] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T06:04:27.4718410Z, Method: POST, Path: /api/v1/auth/logout, User: Chandler
+2025-06-17 11:34:27,480 [13] INFO  LeaveManagementSystem.Services.AuthenticationService - User chandler@example.com logged out
+2025-06-17 11:34:27,481 [13] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User chandler@example.com logged out successfully.
+2025-06-17 11:38:24,653 [16] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T06:08:24.6533850Z, Method: POST, Path: /api/v1/auth/login, User: Anonymous
+2025-06-17 11:38:24,666 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-17 11:38:24,828 [16] INFO  LeaveManagementSystem.Services.AuthenticationService - User joeytrib@example.com logged in successfully
+2025-06-17 11:38:24,828 [16] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User joeytrib@example.com logged in successfully.
+2025-06-17 11:39:00,058 [16] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T06:09:00.0581510Z, Method: DELETE, Path: /api/v1/users/%7B40522dd3-5a4f-4ebf-9621-25b4a21c2fc2%7D, User: Chandler
+2025-06-17 11:39:00,076 [16] INFO  LeaveManagementSystem.Controllers.UsersController - Deleting user with ID: 40522dd3-5a4f-4ebf-9621-25b4a21c2fc2
+2025-06-17 11:39:00,159 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (16ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 11:39:00,178 [3] ERROR LeaveManagementSystem.Controllers.UsersController - Error occurred while deleting user with ID: 40522dd3-5a4f-4ebf-9621-25b4a21c2fc2
+System.Collections.Generic.KeyNotFoundException: User not found.
+   at LeaveManagementSystem.Services.UserService.DeleteUser(Guid id) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/UserService.cs:line 183
+   at LeaveManagementSystem.Controllers.UsersController.DeleteUser(Guid id) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/UserController.cs:line 233
+2025-06-17 11:42:01,534 [18] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T06:12:01.5340830Z, Method: GET, Path: /api/v1/leave-requests, User: Joey
+2025-06-17 11:42:01,546 [18] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Fetching all leave requests.
+2025-06-17 11:42:01,577 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-06-17 14:18:39,387 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-06-17 14:18:39,640 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-17 14:18:39,641 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-17 14:18:39,641 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-17 14:18:39,641 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem
+2025-06-17 14:18:39,747 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-06-17 14:19:06,709 [14] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:49:06.7094670Z, Method: POST, Path: /api/v1/auth/login, User: Anonymous
+2025-06-17 14:19:06,791 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-17 14:19:07,037 [9] INFO  LeaveManagementSystem.Services.AuthenticationService - User aryastark@example.com logged in successfully
+2025-06-17 14:19:07,040 [9] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User aryastark@example.com logged in successfully.
+2025-06-17 14:20:22,344 [16] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:50:22.3446240Z, Method: POST, Path: /api/v1/auth/login, User: Anonymous
+2025-06-17 14:20:22,391 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-17 14:20:22,543 [16] INFO  LeaveManagementSystem.Services.AuthenticationService - User tony@example.com logged in successfully
+2025-06-17 14:20:22,543 [16] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User tony@example.com logged in successfully.
+2025-06-17 14:21:20,518 [17] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:51:20.5182540Z, Method: POST, Path: /api/v1/auth/refresh, User: Anonymous
+2025-06-17 14:21:20,534 [17] WARN  LeaveManagementSystem.Services.AuthenticationService - Invalid refresh token attempt
+2025-06-17 14:21:20,553 [17] WARN  LeaveManagementSystem.Controllers.AuthenticationController - Invalid refresh token attempt.
+Microsoft.IdentityModel.Tokens.SecurityTokenException: Invalid refresh token
+   at LeaveManagementSystem.Services.AuthenticationService.RefreshTokenAsync(String refreshToken) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/AuthenticationService.cs:line 66
+   at LeaveManagementSystem.Controllers.AuthenticationController.RefreshToken(RefreshRequest refreshRequest) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/AuthenticationController.cs:line 63
+2025-06-17 14:21:33,232 [14] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:51:33.2323160Z, Method: POST, Path: /api/v1/auth/login, User: Anonymous
+2025-06-17 14:21:33,240 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-17 14:21:33,407 [19] INFO  LeaveManagementSystem.Services.AuthenticationService - User joeytrib@example.com logged in successfully
+2025-06-17 14:21:33,407 [19] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User joeytrib@example.com logged in successfully.
+2025-06-17 14:21:44,107 [3] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:51:44.1073210Z, Method: POST, Path: /api/v1/auth/refresh, User: Anonymous
+2025-06-17 14:21:44,114 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-17 14:21:44,115 [3] INFO  LeaveManagementSystem.Services.AuthenticationService - Refresh token used to generate new access token for joeytrib@example.com
+2025-06-17 14:21:44,115 [3] INFO  LeaveManagementSystem.Controllers.AuthenticationController - Refresh token generated successfully.
+2025-06-17 14:21:54,366 [3] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:51:54.3662980Z, Method: GET, Path: /api/v1/auth/me, User: Chandler
+2025-06-17 14:21:54,373 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-17 14:21:54,374 [17] INFO  LeaveManagementSystem.Controllers.AuthenticationController - Current user info retrieved successfully.
+2025-06-17 14:21:59,151 [3] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:51:59.1517680Z, Method: GET, Path: /api/v1/auth/me, User: Joey
+2025-06-17 14:21:59,153 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-17 14:21:59,154 [17] INFO  LeaveManagementSystem.Controllers.AuthenticationController - Current user info retrieved successfully.
+2025-06-17 14:22:04,921 [19] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:52:04.9215720Z, Method: GET, Path: /api/v1/users, User: Anonymous
+2025-06-17 14:22:04,934 [19] INFO  LeaveManagementSystem.Controllers.UsersController - Fetching all users with pagination parameters.
+2025-06-17 14:22:04,939 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-17 14:22:22,193 [17] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:52:22.1937080Z, Method: GET, Path: /api/v2/users/%7Bf70b5ff5-4c85-439d-a148-d884d018175e%7D, User: Anonymous
+2025-06-17 14:22:22,200 [17] INFO  LeaveManagementSystem.Controllers.UsersController - Fetching V2 user with ID: f70b5ff5-4c85-439d-a148-d884d018175e
+2025-06-17 14:22:22,303 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (77ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 14:22:43,575 [3] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:52:43.5754310Z, Method: POST, Path: /api/v1/leave-requests, User: Joey
+2025-06-17 14:22:43,603 [3] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Creating new leave request.
+2025-06-17 14:22:43,610 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 14:22:43,624 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:22:43,627 [14] ERROR LeaveManagementSystem.Controllers.LeaveRequestController - Error creating leave request.
+System.Exception: Failed to create leave request Only female employees can apply for Maternity Leave.
+ ---> System.InvalidOperationException: Only female employees can apply for Maternity Leave.
+   at LeaveManagementSystem.Services.LeaveRequestService.ValidateGenderBasedLeaveAsync(Guid userId, Guid leaveTypeId) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 371
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 168
+   --- End of inner exception stack trace ---
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 195
+   at LeaveManagementSystem.Controllers.LeaveRequestController.Create(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/LeaveRequestController.cs:line 79
+2025-06-17 14:22:51,881 [14] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:52:51.8811250Z, Method: POST, Path: /api/v1/leave-requests, User: Arya
+2025-06-17 14:22:51,882 [14] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Creating new leave request.
+2025-06-17 14:22:51,885 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 14:22:51,889 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:22:51,890 [19] ERROR LeaveManagementSystem.Controllers.LeaveRequestController - Error creating leave request.
+System.Exception: Failed to create leave request Only male employees can apply for Paternity Leave.
+ ---> System.InvalidOperationException: Only male employees can apply for Paternity Leave.
+   at LeaveManagementSystem.Services.LeaveRequestService.ValidateGenderBasedLeaveAsync(Guid userId, Guid leaveTypeId) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 374
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 168
+   --- End of inner exception stack trace ---
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 195
+   at LeaveManagementSystem.Controllers.LeaveRequestController.Create(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/LeaveRequestController.cs:line 79
+2025-06-17 14:22:56,974 [3] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:52:56.9744000Z, Method: GET, Path: /api/v1/leave-requests/b26b65b2-35f2-4483-8c17-90d4be243245, User: Chandler
+2025-06-17 14:22:56,981 [3] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Fetching leave request with ID: b26b65b2-35f2-4483-8c17-90d4be243245
+2025-06-17 14:22:56,999 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id2", t2."CreatedAt2", t2."CreatedBy1", t2."DeletedAt2", t2."Email0", t2."Gender0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedBy", t."DeletedAt" AS "DeletedAt0", t."Email", t."Gender", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedBy" AS "CreatedBy0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedBy", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedBy" AS "CreatedBy1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."Gender" AS "Gender0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-06-17 14:23:04,655 [3] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:53:04.6559240Z, Method: POST, Path: /api/v1/leave-requests, User: Joey
+2025-06-17 14:23:04,657 [3] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Creating new leave request.
+2025-06-17 14:23:04,660 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 14:23:04,662 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:23:04,664 [3] ERROR LeaveManagementSystem.Controllers.LeaveRequestController - Error creating leave request.
+System.Exception: Failed to create leave request Leave start date cannot be in the past.
+ ---> System.InvalidOperationException: Leave start date cannot be in the past.
+   at LeaveManagementSystem.Services.LeaveRequestService.ValidateStartDate(DateTime startDate) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 203
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 169
+   --- End of inner exception stack trace ---
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 195
+   at LeaveManagementSystem.Controllers.LeaveRequestController.Create(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/LeaveRequestController.cs:line 79
+2025-06-17 14:23:11,296 [19] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:53:11.2964110Z, Method: POST, Path: /api/v1/leave-requests, User: Joey
+2025-06-17 14:23:11,298 [19] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Creating new leave request.
+2025-06-17 14:23:11,301 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 14:23:11,303 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:23:11,303 [19] ERROR LeaveManagementSystem.Controllers.LeaveRequestController - Error creating leave request.
+System.Exception: Failed to create leave request Leave start date cannot be in the past.
+ ---> System.InvalidOperationException: Leave start date cannot be in the past.
+   at LeaveManagementSystem.Services.LeaveRequestService.ValidateStartDate(DateTime startDate) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 203
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 169
+   --- End of inner exception stack trace ---
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 195
+   at LeaveManagementSystem.Controllers.LeaveRequestController.Create(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/LeaveRequestController.cs:line 79
+2025-06-17 14:23:27,251 [14] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:53:27.2511370Z, Method: POST, Path: /api/v1/leave-requests, User: Joey
+2025-06-17 14:23:27,255 [14] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Creating new leave request.
+2025-06-17 14:23:27,265 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 14:23:27,268 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:23:27,278 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-06-17 14:23:27,280 [3] ERROR LeaveManagementSystem.Controllers.LeaveRequestController - Error creating leave request.
+System.Exception: Failed to create leave request You have already applied for leave in this date range.
+ ---> System.InvalidOperationException: You have already applied for leave in this date range.
+   at LeaveManagementSystem.Services.LeaveRequestService.ValidateOverlappingLeaveAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 216
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 170
+   --- End of inner exception stack trace ---
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 195
+   at LeaveManagementSystem.Controllers.LeaveRequestController.Create(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/LeaveRequestController.cs:line 79
+2025-06-17 14:23:34,569 [14] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:53:34.5698260Z, Method: POST, Path: /api/v1/leave-requests, User: Joey
+2025-06-17 14:23:34,570 [14] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Creating new leave request.
+2025-06-17 14:23:34,572 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 14:23:34,574 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:23:34,577 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-06-17 14:23:34,578 [14] ERROR LeaveManagementSystem.Controllers.LeaveRequestController - Error creating leave request.
+System.Exception: Failed to create leave request You cannot apply for more than 15 consecutive leave days.
+ ---> System.InvalidOperationException: You cannot apply for more than 15 consecutive leave days.
+   at LeaveManagementSystem.Services.LeaveRequestService.GetAndValidateRequestedDays(DateTime startDate, DateTime endDate) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 223
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 171
+   --- End of inner exception stack trace ---
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 195
+   at LeaveManagementSystem.Controllers.LeaveRequestController.Create(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/LeaveRequestController.cs:line 79
+2025-06-17 14:23:39,743 [3] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:53:39.7432170Z, Method: POST, Path: /api/v1/leave-requests, User: Joey
+2025-06-17 14:23:39,743 [3] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Creating new leave request.
+2025-06-17 14:23:39,763 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 14:23:39,764 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:23:39,765 [3] ERROR LeaveManagementSystem.Controllers.LeaveRequestController - Error creating leave request.
+System.Exception: Failed to create leave request Leave start date cannot be in the past.
+ ---> System.InvalidOperationException: Leave start date cannot be in the past.
+   at LeaveManagementSystem.Services.LeaveRequestService.ValidateStartDate(DateTime startDate) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 203
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 169
+   --- End of inner exception stack trace ---
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 195
+   at LeaveManagementSystem.Controllers.LeaveRequestController.Create(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/LeaveRequestController.cs:line 79
+2025-06-17 14:23:50,586 [3] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:53:50.5864950Z, Method: POST, Path: /api/v1/leave-requests, User: Joey
+2025-06-17 14:23:50,589 [3] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Creating new leave request.
+2025-06-17 14:23:50,596 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 14:23:50,599 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:23:50,608 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-06-17 14:23:50,610 [3] ERROR LeaveManagementSystem.Controllers.LeaveRequestController - Error creating leave request.
+System.Exception: Failed to create leave request You have already applied for leave in this date range.
+ ---> System.InvalidOperationException: You have already applied for leave in this date range.
+   at LeaveManagementSystem.Services.LeaveRequestService.ValidateOverlappingLeaveAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 216
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 170
+   --- End of inner exception stack trace ---
+   at LeaveManagementSystem.Services.LeaveRequestService.CreateAsync(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveRequestService.cs:line 195
+   at LeaveManagementSystem.Controllers.LeaveRequestController.Create(LeaveRequestDto dto) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/LeaveRequestController.cs:line 79
+2025-06-17 14:24:50,171 [18] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:54:50.1705890Z, Method: GET, Path: /api/v1/Users/a236adc4-995f-4b67-b3fd-180cedd5f663, User: Anonymous
+2025-06-17 14:24:50,195 [18] INFO  LeaveManagementSystem.Controllers.UsersController - Fetching user with ID: a236adc4-995f-4b67-b3fd-180cedd5f663
+2025-06-17 14:24:50,224 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (24ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+ORDER BY t."Id", t0."Id"
+2025-06-17 14:26:40,849 [20] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:56:40.8492390Z, Method: POST, Path: /api/v1/leave-attachments, User: Chandler
+2025-06-17 14:26:40,893 [20] INFO  LeaveManagementSystem.Controllers.LeaveAttachmentController - Creating new leave attachment
+2025-06-17 14:26:40,983 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Binary), @p3='?', @p4='?' (DbType = Boolean), @p5='?' (DbType = Guid), @p6='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveAttachments" ("Id", "DeletedAt", "FileContent", "FileName", "IsDeleted", "LeaveRequestId", "UploadedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-06-17 14:26:41,039 [20] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (35ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-06-17 14:26:59,410 [14] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:56:59.4103960Z, Method: GET, Path: /api/v1/leave-attachments/bb52ff2d-c4e2-4dc8-b2ad-d39095122aab, User: Chandler
+2025-06-17 14:26:59,424 [14] INFO  LeaveManagementSystem.Controllers.LeaveAttachmentController - Fetching attachment with ID: bb52ff2d-c4e2-4dc8-b2ad-d39095122aab
+2025-06-17 14:26:59,468 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:27:19,684 [24] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:57:19.6841520Z, Method: GET, Path: /api/v1/leave-attachments/by-leave-request/b26b65b2-35f2-4483-8c17-90d4be243245, User: Anonymous
+2025-06-17 14:27:19,694 [24] INFO  LeaveManagementSystem.Controllers.LeaveAttachmentController - Fetching attachments for LeaveRequestId: b26b65b2-35f2-4483-8c17-90d4be243245
+2025-06-17 14:27:19,708 [24] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id2", t2."CreatedAt2", t2."CreatedBy1", t2."DeletedAt2", t2."Email0", t2."Gender0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedBy", t."DeletedAt" AS "DeletedAt0", t."Email", t."Gender", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedBy" AS "CreatedBy0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedBy", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedBy" AS "CreatedBy1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."Gender" AS "Gender0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-06-17 14:27:19,717 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted")
+2025-06-17 14:27:19,718 [20] WARN  LeaveManagementSystem.Controllers.LeaveAttachmentController - No attachments found for LeaveRequestId: b26b65b2-35f2-4483-8c17-90d4be243245
+2025-06-17 14:27:41,631 [20] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:57:41.6313590Z, Method: GET, Path: /api/v1/leave-attachments/by-leave-request/f137b974-0d82-42f4-abae-6660f7d0393c, User: Anonymous
+2025-06-17 14:27:41,633 [20] INFO  LeaveManagementSystem.Controllers.LeaveAttachmentController - Fetching attachments for LeaveRequestId: f137b974-0d82-42f4-abae-6660f7d0393c
+2025-06-17 14:27:41,639 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id2", t2."CreatedAt2", t2."CreatedBy1", t2."DeletedAt2", t2."Email0", t2."Gender0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedBy", t."DeletedAt" AS "DeletedAt0", t."Email", t."Gender", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedBy" AS "CreatedBy0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedBy", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedBy" AS "CreatedBy1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."Gender" AS "Gender0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-06-17 14:27:41,644 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted")
+2025-06-17 14:27:50,946 [20] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:57:50.9464350Z, Method: GET, Path: /api/v1/leave-attachments/bb52ff2d-c4e2-4dc8-b2ad-d39095122aab, User: Anonymous
+2025-06-17 14:27:50,949 [20] INFO  LeaveManagementSystem.Controllers.LeaveAttachmentController - Fetching attachment with ID: bb52ff2d-c4e2-4dc8-b2ad-d39095122aab
+2025-06-17 14:27:50,962 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:28:05,026 [20] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:58:05.0264800Z, Method: DELETE, Path: /api/v1/leave-attachments/ebb1552d-4fce-43c5-a202-5937ec83d408, User: Chandler
+2025-06-17 14:28:05,041 [20] INFO  LeaveManagementSystem.Controllers.LeaveAttachmentController - Deleting leave attachment with ID: ebb1552d-4fce-43c5-a202-5937ec83d408
+2025-06-17 14:28:05,046 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:28:05,054 [20] ERROR LeaveManagementSystem.Controllers.LeaveAttachmentController - Error deleting leave attachment with ID: ebb1552d-4fce-43c5-a202-5937ec83d408
+System.Exception: Error occurred while deleting the leave attachment.
+ ---> System.Exception: No such item found for deleting
+   at LeaveManagementSystem.Repositories.Repository`2.Delete(K key) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Repositories/Repository.cs:line 27
+   at LeaveManagementSystem.Services.LeaveAttachmentService.DeleteAsync(Guid id) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveAttachmentService.cs:line 112
+   --- End of inner exception stack trace ---
+   at LeaveManagementSystem.Services.LeaveAttachmentService.DeleteAsync(Guid id) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveAttachmentService.cs:line 128
+   at LeaveManagementSystem.Controllers.LeaveAttachmentController.Delete(Guid id) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/LeaveAttachmentController.cs:line 124
+2025-06-17 14:28:07,678 [14] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-06-17T08:58:07.6780340Z, Method: DELETE, Path: /api/v1/leave-attachments/ebb1552d-4fce-43c5-a202-5937ec83d408, User: Chandler
+2025-06-17 14:28:07,678 [14] INFO  LeaveManagementSystem.Controllers.LeaveAttachmentController - Deleting leave attachment with ID: ebb1552d-4fce-43c5-a202-5937ec83d408
+2025-06-17 14:28:07,680 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-17 14:28:07,680 [20] ERROR LeaveManagementSystem.Controllers.LeaveAttachmentController - Error deleting leave attachment with ID: ebb1552d-4fce-43c5-a202-5937ec83d408
+System.Exception: Error occurred while deleting the leave attachment.
+ ---> System.Exception: No such item found for deleting
+   at LeaveManagementSystem.Repositories.Repository`2.Delete(K key) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Repositories/Repository.cs:line 27
+   at LeaveManagementSystem.Services.LeaveAttachmentService.DeleteAsync(Guid id) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveAttachmentService.cs:line 112
+   --- End of inner exception stack trace ---
+   at LeaveManagementSystem.Services.LeaveAttachmentService.DeleteAsync(Guid id) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Services/LeaveAttachmentService.cs:line 128
+   at LeaveManagementSystem.Controllers.LeaveAttachmentController.Delete(Guid id) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem copy/LeaveManagementSystem/Controllers/LeaveAttachmentController.cs:line 124

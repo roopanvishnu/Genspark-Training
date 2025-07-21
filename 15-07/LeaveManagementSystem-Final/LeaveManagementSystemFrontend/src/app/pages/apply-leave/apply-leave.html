@@ -1,0 +1,109 @@
+<div class="min-h-screen bg-[var(--background)] flex items-center justify-center px-4 sm:px-6 py-8">
+  <form
+    [formGroup]="applyLeaveForm"
+    (ngSubmit)="onSubmit()"
+    class="w-full max-w-lg sm:max-w-xl md:max-w-2xl bg-white shadow-2xl rounded-2xl border border-[var(--accent)] p-5 sm:p-8 space-y-6"
+  >
+    <!-- Heading -->
+    <div class="text-center space-y-1">
+      <h2 class="text-2xl sm:text-3xl font-bold text-[var(--primary)]">Apply for Leave</h2>
+      <p class="text-sm text-[var(--accent)]">Fill the form below to request a leave</p>
+    </div>
+
+    <!-- Leave Type -->
+    <div class="space-y-1">
+      <label for="leaveTypeId" class="block font-semibold text-[var(--primary)]">Leave Type</label>
+      <select
+        id="leaveTypeId"
+        formControlName="leaveTypeId"
+        [ngClass]="{
+          'border-[var(--error)]': applyLeaveForm.get('leaveTypeId')?.invalid && applyLeaveForm.get('leaveTypeId')?.touched,
+          'border-[var(--border-light)]': applyLeaveForm.get('leaveTypeId')?.valid || !applyLeaveForm.get('leaveTypeId')?.touched
+        }"
+        class="w-full px-4 py-2 border rounded-md focus:outline-[var(--primary)] bg-white text-sm"
+      >
+        <option value="">-- Select Leave Type --</option>
+        <option *ngFor="let type of leaveTypes" [value]="type.id">{{ type.name }}</option>
+      </select>
+    </div>
+
+    <!-- Dates -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <!-- Start Date -->
+      <div class="space-y-1">
+        <label for="startDate" class="block font-semibold text-[var(--primary)]">Start Date</label>
+        <input
+          id="startDate"
+          type="date"
+          formControlName="startDate"
+          [ngClass]="{
+            'border-[var(--error)]': applyLeaveForm.get('startDate')?.invalid && applyLeaveForm.get('startDate')?.touched,
+            'border-[var(--border-light)]': applyLeaveForm.get('startDate')?.valid || !applyLeaveForm.get('startDate')?.touched
+          }"
+          class="w-full px-4 py-2 border rounded-md focus:outline-[var(--primary)] text-sm"
+        />
+      </div>
+
+      <!-- End Date -->
+      <div class="space-y-1">
+        <label for="endDate" class="block font-semibold text-[var(--primary)]">End Date</label>
+        <input
+          id="endDate"
+          type="date"
+          formControlName="endDate"
+          [min]="applyLeaveForm.get('startDate')?.value"
+          [ngClass]="{
+            'border-[var(--error)]': applyLeaveForm.get('endDate')?.invalid && applyLeaveForm.get('endDate')?.touched,
+            'border-[var(--border-light)]': applyLeaveForm.get('endDate')?.valid || !applyLeaveForm.get('endDate')?.touched
+          }"
+          class="w-full px-4 py-2 border rounded-md focus:outline-[var(--primary)] text-sm"
+        />
+        <small
+          class="text-[var(--error)] text-xs"
+          *ngIf="applyLeaveForm.get('endDate')?.errors?.['dateMismatch']"
+        >
+          End date must be after Start date
+        </small>
+      </div>
+    </div>
+
+    <!-- Reason -->
+    <div class="space-y-1">
+      <label for="reason" class="block font-semibold text-[var(--primary)]">Reason</label>
+      <textarea
+        id="reason"
+        formControlName="reason"
+        rows="4"
+        placeholder="Enter your reason here..."
+        [ngClass]="{
+          'border-[var(--error)]': applyLeaveForm.get('reason')?.invalid && applyLeaveForm.get('reason')?.touched,
+          'border-[var(--border-light)]': applyLeaveForm.get('reason')?.valid || !applyLeaveForm.get('reason')?.touched
+        }"
+        class="w-full px-4 py-2 border rounded-md resize-none focus:outline-[var(--primary)] text-sm"
+      ></textarea>
+    </div>
+
+    <!-- Attachments -->
+    <div class="space-y-1">
+      <label for="attachments" class="block font-semibold text-[var(--primary)]">Attachments (optional)</label>
+      <input
+        id="attachments"
+        type="file"
+        (change)="handleFileInput($event)"
+        multiple
+        class="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:border-0
+               file:rounded-md file:bg-[var(--primary)] file:text-white file:font-medium hover:file:bg-[var(--primary-hover)] transition"
+      />
+    </div>
+
+    <!-- Submit -->
+    <button
+      type="submit"
+      [disabled]="applyLeaveForm.invalid"
+      class="w-full py-2 bg-[var(--primary)] text-white font-semibold rounded-md
+             hover:bg-[var(--primary-hover)] transition disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      Apply Leave
+    </button>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<!-- video-list.component.html -->
+<div class="video-list-container">
+  <div class="video-grid">
+    <div class="video-card" *ngFor="let video of videos">
+      <div class="video-wrapper">
+        <video 
+          class="video-element" 
+          controls 
+          [src]="video.blobUrl"
+          preload="metadata">
+        </video>
+      </div>
+      <div class="video-content">
+        <h3 class="video-title">{{ video.title }}</h3>
+        <p class="video-description">{{ video.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

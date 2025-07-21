@@ -1,0 +1,2 @@
+# Ignore development secrets
+appsettings.Development.json

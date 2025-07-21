@@ -1,0 +1,66 @@
+<div class="min-h-screen bg-[#fef8f4] flex items-center justify-center px-4 py-8">
+  <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 bg-white rounded-2xl shadow-2xl overflow-hidden">
+
+    <!--  Left Image Section -->
+    <div class="w-full h-64 lg:h-auto">
+      <img 
+        src="https://www.artify360.com/wp-content/uploads/2022/12/Attendance-Management-Software-in-bahrain.jpg" 
+        alt="Attendance Management"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!--  Right Login Form Section -->
+    <div class="w-full p-8 md:p-12 flex flex-col justify-center">
+      <h2 class="text-3xl font-bold text-[#006f6d] text-center">Welcome Back 👋</h2>
+      <p class="text-sm text-[#338f89] text-center mb-6">Please login to continue</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- Email Field -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-[#006f6d]">Email</label>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Enter your email"
+            autofocus
+            class="mt-1 w-full px-4 py-2 border border-[#cbd5e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#006f6d]"
+          />
+          <div class="text-red-500 text-sm mt-1" *ngIf="email?.touched && email?.invalid">
+            <small *ngIf="email?.errors?.['required']">Email is required.</small>
+            <small *ngIf="email?.errors?.['email']">Enter a valid email.</small>
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-[#006f6d]">Password</label>
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Enter your password"
+            class="mt-1 w-full px-4 py-2 border border-[#cbd5e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#006f6d]"
+          />
+          <div class="text-red-500 text-sm mt-1" *ngIf="password?.touched && password?.invalid">
+            <small *ngIf="password?.errors?.['required']">Password is required.</small>
+          </div>
+        </div>
+
+        <!-- General Error -->
+        <p class="text-red-500 text-sm mb-4" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          [disabled]="loginForm.invalid || isLoading"
+          class="w-full bg-[#006f6d] text-white font-semibold py-2 rounded-md hover:bg-[#004f4d] transition disabled:opacity-50 flex items-center justify-center"
+        >
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading">
+            <i class="fas fa-spinner fa-spin mr-2"></i> Logging in...
+          </span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

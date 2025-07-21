@@ -1,0 +1,11 @@
+<div *ngIf="isHR">
+  <app-hr-dashboard></app-hr-dashboard>
+</div>
+
+<div *ngIf="isEmployee">
+  <app-employee-dashboard></app-employee-dashboard>
+</div>
+
+<div *ngIf="!isHR && !isEmployee">
+  <p class="text-red-600 p-4 text-center">Unknown role: {{ role }}</p>
+</div>

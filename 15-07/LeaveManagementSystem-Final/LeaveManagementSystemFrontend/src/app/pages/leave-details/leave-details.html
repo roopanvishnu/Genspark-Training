@@ -1,0 +1,69 @@
+<div class="leave-details-container">
+  <h2><i class="fa fa-file-alt"></i> Leave Request Summary</h2>
+
+  <div class="card summary-card" *ngIf="leaveRequest">
+    <p><strong>User:</strong> {{ leaveRequest.userName }}</p>
+    <p><strong>Leave Type:</strong> {{ leaveRequest.leaveTypeName }}</p>
+    <p><strong>Status:</strong> 
+      <span [ngClass]="{
+        'status-pending': leaveRequest.status === 'Pending',
+        'status-approved': leaveRequest.status === 'Approved',
+        'status-rejected': leaveRequest.status === 'Rejected' || leaveRequest.status === 'Auto-Rejected'
+      }">
+        {{ leaveRequest.status }}
+      </span>
+    </p>
+    <p><strong>Period:</strong> 
+      {{ leaveRequest.startDate | date: 'mediumDate' }} 
+      to 
+      {{ leaveRequest.endDate | date: 'mediumDate' }}
+    </p>
+    <p><strong>Reason:</strong> {{ leaveRequest.reason }}</p>
+    <p *ngIf="leaveRequest.status !== 'Pending'" class="reviewer-info">
+      <strong>Reviewed By:</strong> {{ leaveRequest.reviewedByName }} ({{ leaveRequest.reviewedById }})
+    </p>
+
+    <div class="action-buttons" *ngIf="leaveRequest.status === 'Pending'">
+      <button (click)="updateStatus('Approved')" class="approve-btn">Approve</button>
+      <button (click)="updateStatus('Rejected')" class="reject-btn">Reject</button>
+    </div>
+  </div>
+
+  <h3><i class="fa fa-paperclip"></i> Attachments</h3>
+  <div class="card attachments-card">
+    <ng-container *ngIf="attachments.length > 0; else noAttachments">
+      <ul>
+        <li *ngFor="let file of attachments">
+          <a [href]="file.downloadUrl" target="_blank">{{ file.fileName }}</a>
+          <span class="upload-date">(Uploaded: {{ file.uploadedAt | date: 'medium' }})</span>
+        </li>
+      </ul>
+    </ng-container>
+    <ng-template #noAttachments>
+      <p>No attachments uploaded.</p>
+    </ng-template>
+  </div>
+
+  <h3><i class="fa fa-balance-scale"></i> Leave Balance for this Type</h3>
+  <div class="card balance-card">
+    <ng-container *ngIf="leaveBalanceForType; else loadingBalance">
+      <div class="balance-row">
+        <div class="balance-item">
+          <p>Total</p>
+          <h4>{{ leaveBalanceForType.totalLeaves }}</h4>
+        </div>
+        <div class="balance-item">
+          <p>Used</p>
+          <h4>{{ leaveBalanceForType.usedLeaves }}</h4>
+        </div>
+        <div class="balance-item">
+          <p>Remaining</p>
+          <h4>{{ leaveBalanceForType.remainingLeaves }}</h4>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #loadingBalance>
+      <p>Loading leave balance...</p>
+    </ng-template>
+  </div>
+</div>

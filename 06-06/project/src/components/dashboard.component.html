@@ -1,0 +1,167 @@
+
+    <div class="p-6 max-w-7xl mx-auto">
+      <!-- Welcome Header -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">
+          Welcome back, {{ currentUser?.firstName }}! 👋
+        </h1>
+        <p class="text-gray-600">
+          {{ getRoleBasedWelcomeMessage() }}
+        </p>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="card p-6">
+          <div class="flex items-center">
+            <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+              </svg>
+            </div>
+            <div class="ml-5">
+              <p class="text-sm font-medium text-gray-500">Total Tasks</p>
+              <p class="text-2xl font-semibold text-gray-900">{{ taskStats.total }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <div class="flex items-center">
+            <div class="p-3 rounded-full bg-yellow-100 text-yellow-600">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="ml-5">
+              <p class="text-sm font-medium text-gray-500">In Progress</p>
+              <p class="text-2xl font-semibold text-gray-900">{{ taskStats.inProgress }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <div class="flex items-center">
+            <div class="p-3 rounded-full bg-green-100 text-green-600">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="ml-5">
+              <p class="text-sm font-medium text-gray-500">Completed</p>
+              <p class="text-2xl font-semibold text-gray-900">{{ taskStats.completed }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <div class="flex items-center">
+            <div class="p-3 rounded-full bg-red-100 text-red-600">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+              </svg>
+            </div>
+            <div class="ml-5">
+              <p class="text-sm font-medium text-gray-500">High Priority</p>
+              <p class="text-2xl font-semibold text-gray-900">{{ taskStats.highPriority }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Tasks and Activity -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Recent Tasks -->
+        <div class="card p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Recent Tasks</h2>
+          <div class="space-y-4">
+            <div *ngFor="let task of recentTasks; let i = index" 
+                 class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+              <div class="flex-shrink-0">
+                <div class="w-2 h-2 rounded-full" 
+                     [ngClass]="{
+                       'bg-red-500': task.priority === 'Critical',
+                       'bg-orange-500': task.priority === 'High',
+                       'bg-yellow-500': task.priority === 'Medium',
+                       'bg-green-500': task.priority === 'Low'
+                     }"></div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-gray-900 truncate">{{ task.title }}</p>
+                <p class="text-sm text-gray-500 truncate">{{ task.description }}</p>
+              </div>
+              <div class="flex-shrink-0">
+                <span class="badge" 
+                      [ngClass]="{
+                        'badge-info': task.status === 'ToDo',
+                        'badge-warning': task.status === 'InProgress',
+                        'badge-error': task.status === 'Review',
+                        'badge-success': task.status === 'Completed'
+                      }">
+                  {{ task.status }}
+                </span>
+              </div>
+            </div>
+            <div *ngIf="recentTasks.length === 0" class="text-center py-4 text-gray-500">
+              No recent tasks
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-time Activity -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-semibold text-gray-900">Activity Feed</h2>
+            <button (click)="clearNotifications()" class="text-sm text-gray-500 hover:text-gray-700">
+              Clear all
+            </button>
+          </div>
+          <div class="space-y-3">
+            <div *ngFor="let notification of notifications; let i = index" 
+                 class="flex items-start space-x-3 p-3 rounded-lg bg-blue-50 border border-blue-100">
+              <div class="flex-shrink-0">
+                <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 animate-pulse"></div>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm text-blue-800">{{ notification }}</p>
+                <p class="text-xs text-blue-600 mt-1">Just now</p>
+              </div>
+            </div>
+            <div *ngIf="notifications.length === 0" class="text-center py-4 text-gray-500">
+              No recent activity
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions (Manager Only) -->
+      <div *ngIf="authService.isManager()" class="mt-8 card p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <button class="btn-primary p-4 text-left">
+            <div class="flex items-center">
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+              Create New Task
+            </div>
+          </button>
+          <button class="btn-secondary p-4 text-left">
+            <div class="flex items-center">
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+              Manage Users
+            </div>
+          </button>
+          <button class="btn-accent p-4 text-left">
+            <div class="flex items-center">
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+              View Reports
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>

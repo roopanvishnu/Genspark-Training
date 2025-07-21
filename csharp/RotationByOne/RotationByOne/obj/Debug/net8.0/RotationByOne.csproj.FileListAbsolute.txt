@@ -1,0 +1,14 @@
+D:\cSharp\Practice\RotationByOne\RotationByOne\bin\Debug\net8.0\RotationByOne.exe
+D:\cSharp\Practice\RotationByOne\RotationByOne\bin\Debug\net8.0\RotationByOne.deps.json
+D:\cSharp\Practice\RotationByOne\RotationByOne\bin\Debug\net8.0\RotationByOne.runtimeconfig.json
+D:\cSharp\Practice\RotationByOne\RotationByOne\bin\Debug\net8.0\RotationByOne.dll
+D:\cSharp\Practice\RotationByOne\RotationByOne\bin\Debug\net8.0\RotationByOne.pdb
+D:\cSharp\Practice\RotationByOne\RotationByOne\obj\Debug\net8.0\RotationByOne.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\Practice\RotationByOne\RotationByOne\obj\Debug\net8.0\RotationByOne.AssemblyInfoInputs.cache
+D:\cSharp\Practice\RotationByOne\RotationByOne\obj\Debug\net8.0\RotationByOne.AssemblyInfo.cs
+D:\cSharp\Practice\RotationByOne\RotationByOne\obj\Debug\net8.0\RotationByOne.csproj.CoreCompileInputs.cache
+D:\cSharp\Practice\RotationByOne\RotationByOne\obj\Debug\net8.0\RotationByOne.dll
+D:\cSharp\Practice\RotationByOne\RotationByOne\obj\Debug\net8.0\refint\RotationByOne.dll
+D:\cSharp\Practice\RotationByOne\RotationByOne\obj\Debug\net8.0\RotationByOne.pdb
+D:\cSharp\Practice\RotationByOne\RotationByOne\obj\Debug\net8.0\RotationByOne.genruntimeconfig.cache
+D:\cSharp\Practice\RotationByOne\RotationByOne\obj\Debug\net8.0\ref\RotationByOne.dll

@@ -1,0 +1,128 @@
+<div class="leave-details-container">
+  <h2><i class="fa fa-file-alt"></i> Leave Request Summary</h2>
+
+  <div class="card summary-card" *ngIf="leaveRequest">
+    <p><strong>User:</strong> {{ leaveRequest.userName }}</p>
+    <p><strong>Leave Type:</strong> {{ leaveRequest.leaveTypeName }}</p>
+    <p><strong>Status:</strong> 
+      <span [ngClass]="{
+        'status-pending': leaveRequest.status === 'Pending',
+        'status-approved': leaveRequest.status === 'Approved',
+        'status-rejected': leaveRequest.status === 'Rejected' || leaveRequest.status === 'Auto-Rejected',
+        'status-cancelled': leaveRequest.status === 'Cancelled'
+      }">
+        {{ leaveRequest.status }}
+      </span>
+    </p>
+    <p><strong>Period:</strong> 
+      {{ leaveRequest.startDate | date: 'mediumDate' }} 
+      to 
+      {{ leaveRequest.endDate | date: 'mediumDate' }}
+    </p>
+    <p><strong>Reason:</strong> {{ leaveRequest.reason }}</p>
+    <p *ngIf="leaveRequest.status !== 'Pending'" class="reviewer-info">
+        <strong>Reviewed By: </strong>{{ leaveRequest.reviewedByName }} ({{ leaveRequest.reviewedById }})
+    </p>
+    <div *ngIf="leaveRequest.status === 'Pending'" class="mt-8 flex justify-end">
+      <button
+        (click)="cancelLeaveRequest()"
+        class="flex items-center gap-2 bg-red-50 border border-red-600 text-red-600 hover:bg-red-100 px-5 py-2 rounded-lg shadow-sm transition-all duration-200"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  <!-- Attachments -->
+  <h3><i class="fa fa-paperclip"></i> Attachments</h3>
+  <div class="card attachments-card">
+    <ng-container *ngIf="attachments && attachments.length > 0; else noAttachments">
+      <ul class="space-y-3">
+        <li *ngFor="let file of attachments" class="flex justify-between items-center">
+          <div>
+            <a [href]="file.downloadUrl" target="_blank" class="text-blue-600 hover:underline">
+              {{ file.fileName }}
+            </a>
+            <span class="upload-date text-sm text-gray-500 ml-2">
+              (Uploaded: {{ file.uploadedAt | date: 'medium' }})
+            </span>
+          </div>
+          <button
+            *ngIf="leaveRequest.status === 'Pending'"
+            (click)="deleteAttachment(file.id)"
+            class="text-red-600 hover:text-red-800"
+            title="Delete Attachment"
+          >
+            <i class="fas fa-trash-alt text-lg"></i>
+          </button>
+        </li>
+      </ul>
+
+      <!-- Upload Attachment -->
+      <div *ngIf="leaveRequest.status === 'Pending'" class="mt-4 space-y-2">
+        <label class="block text-sm font-medium text-gray-700">Upload New Attachment</label>
+        <input type="file" (change)="onFileSelected($event)" class="block w-full border rounded px-3 py-2 text-sm" />
+        <button
+          (click)="uploadAttachment()"
+          [disabled]="!selectedFile"
+          class="bg-[#006f6d] text-white px-4 py-2 rounded hover:bg-[#006f6d] transition"
+        >
+          Upload
+        </button>
+      </div>
+    </ng-container>
+
+    <!-- No Attachments Yet -->
+    <ng-template #noAttachments>
+      <p class="text-gray-500 italic">No attachments uploaded.</p>
+
+      <div *ngIf="leaveRequest?.status === 'Pending'" class="mt-4">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Upload New Attachment</label>
+        <div class="flex items-center gap-4">
+          <input
+            type="file"
+            (change)="onFileSelected($event)"
+            class="border rounded px-3 py-2 text-sm w-full md:w-auto"
+          />
+          <button
+            (click)="uploadAttachment()"
+            [disabled]="!selectedFile"
+            class="bg-[#006f6d] text-white px-4 py-2 rounded hover:bg-[#006f6d] transition whitespace-nowrap"
+          >
+            Upload
+          </button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Leave Balance -->
+  <h3><i class="fa fa-balance-scale"></i> Leave Balance for this Type</h3>
+  <div class="card balance-card">
+    <ng-container *ngIf="leaveBalanceForType; else loadingBalance">
+      <div class="balance-row">
+        <div class="balance-item">
+          <p>Total</p>
+          <h4>{{ leaveBalanceForType.totalLeaves }}</h4>
+        </div>
+        <div class="balance-item">
+          <p>Used</p>
+          <h4>{{ leaveBalanceForType.usedLeaves }}</h4>
+        </div>
+        <div class="balance-item">
+          <p>Remaining</p>
+          <h4>{{ leaveBalanceForType.remainingLeaves }}</h4>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #loadingBalance>
+      <p>Loading leave balance...</p>
+    </ng-template>
+  </div>
+
+</div>

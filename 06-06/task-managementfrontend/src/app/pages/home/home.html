@@ -1,0 +1,105 @@
+<nav class="navbar">
+  <div class="navbar-brand">Task Manager</div>
+
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="menu-icon">☰</label>
+
+  <div class="navbar-right">
+    <ul class="navbar-links">
+      <li *ngIf="user?.role === 'Manager'">
+        <a routerLink="/task-form">Create Task</a>
+      </li>
+      <li *ngIf="user?.role === 'Manager'">
+        <a routerLink="/manager/tasks">All Tasks</a>
+      </li>
+      <li *ngIf="user?.role === 'TeamMember'">
+        <a routerLink="/team/tasks">My Tasks</a>
+      </li>
+      <li>
+        <a routerLink="/notifications">My Notifications</a>
+      </li>
+      <li>
+        <a (click)="logout()" class="logout-link">Logout</a>
+      </li>
+    </ul>
+
+    <div class="user-profile" *ngIf="user?.fullName || user?.email">
+      <div class="avatar">{{ getInitials(user?.fullName || user?.email) }}</div>
+      <div class="user-info">
+        <div class="user-name">{{ user?.fullName || user?.email }}</div>
+        <div class="user-role">{{ user?.role || 'Unknown' }}</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h2 class="section-title">👥 User Management</h2>
+<div *ngIf="user?.role === 'TeamMember'">
+  <div class="task-column">
+    <h3>⚠️ Tasks with Upcoming Due Dates</h3>
+    <div *ngIf="urgentTasks.length > 0; else noUrgent">
+      <div *ngFor="let task of urgentTasks" class="task-card">
+        <strong>{{ task.title }}</strong>
+        <div>Status: {{ task.status }}</div>
+        <small>Due: {{ task.dueDate | date: 'mediumDate' }}</small>
+      </div>
+    </div>
+    <ng-template #noUrgent><p>No tasks with upcoming due dates found.</p></ng-template>
+  </div>
+</div>
+
+
+  <div class="user-list">
+  <div class="user-card" *ngFor="let u of users">
+    <ng-container *ngIf="editingUser?.id === u.id; else displayMode">
+      <form class="edit-form-inline" (ngSubmit)="submitEdit()">
+        <input
+          type="text"
+          [(ngModel)]="editingUser.fullName"
+          name="fullName-{{u.id}}"
+          placeholder="Full Name"
+          required
+        />
+        <select [(ngModel)]="editingUser.role" name="role-{{u.id}}" required>
+          <option value="Manager">Manager</option>
+          <option value="TeamMember">TeamMember</option>
+        </select>
+
+        <div class="edit-actions">
+          <button type="submit" class="save-btn">💾 Save</button>
+          <button type="button" (click)="cancelEdit()" class="cancel-btn">❌ Cancel</button>
+        </div>
+      </form>
+    </ng-container>
+
+    
+    <ng-template #displayMode>
+      <div class="user-info-block">
+        <div class="avatar-small">{{ getInitials(u.fullName || u.email) }}</div>
+        <div class="details">
+          <div class="user-name">{{ u.fullName }}</div>
+          <div class="user-email">{{ u.email }}</div>
+          <div class="user-role">Role: {{ u.role }}</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="edit-btn" (click)="startEditing(u)">✏️ Edit</button>
+        <button class="delete-btn" (click)="deleteUser(u.id)">🗑️ Delete</button>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+
+  <div class="pagination" *ngIf="totalPages > 1">
+    <button
+      *ngFor="let page of getPages()"
+      [class.active]="page === currentPage"
+      (click)="goToPage(page)"
+    >
+      {{ page }}
+    </button>
+  </div>
+</div>

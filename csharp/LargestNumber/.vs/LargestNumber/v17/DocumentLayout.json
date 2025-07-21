@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\cSharp\\Practice\\LargestNumber\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5DA2EB78-60C5-4B16-A77F-FB12412F163C}|LargestNumber\\LargestNumber.csproj|d:\\csharp\\practice\\largestnumber\\largestnumber\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DA2EB78-60C5-4B16-A77F-FB12412F163C}|LargestNumber\\LargestNumber.csproj|solutionrelative:largestnumber\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\cSharp\\Practice\\LargestNumber\\LargestNumber\\Program.cs",
+              "RelativeDocumentMoniker": "LargestNumber\\Program.cs",
+              "ToolTip": "D:\\cSharp\\Practice\\LargestNumber\\LargestNumber\\Program.cs",
+              "RelativeToolTip": "LargestNumber\\Program.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAmwAYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T04:47:02.501Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

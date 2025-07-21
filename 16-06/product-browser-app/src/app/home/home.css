@@ -1,0 +1,8 @@
+.searchinput{
+  border: none;
+  border-radius: 5px;
+  padding: 4px;
+  background-color: rgb(240, 239, 239);
+  margin-right: 5px;
+  width: 40%;
+}

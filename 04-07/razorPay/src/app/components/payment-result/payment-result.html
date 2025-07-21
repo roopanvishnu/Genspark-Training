@@ -1,0 +1,17 @@
+<div class="result-container">
+  <h2>Payment History</h2>
+
+  <div *ngIf="paymentHistory.length === 0" class="empty">
+    No payment history found.
+  </div>
+
+  <ul *ngIf="paymentHistory.length > 0">
+    <li *ngFor="let payment of paymentHistory">
+      <span [class]="payment.status">{{ payment.status.toUpperCase() }}</span>
+      <span *ngIf="payment.paymentId">ID: {{ payment.paymentId }}</span>
+      <span>{{ payment.date | date:'short' }}</span>
+    </li>
+  </ul>
+
+  <button (click)="clearHistory()">🧹 Clear History</button>
+</div>

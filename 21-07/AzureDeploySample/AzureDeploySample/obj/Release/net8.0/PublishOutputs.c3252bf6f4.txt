@@ -1,0 +1,17 @@
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/AzureDeploySample
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/publish/web.config
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/appsettings.Development.json
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/appsettings.json
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/publish/appsettings.Development.json
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/publish/appsettings.json
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/publish/AzureDeploySample.deps.json
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/publish/AzureDeploySample.runtimeconfig.json
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/AzureDeploySample.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/AzureDeploySample.deps.json
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/AzureDeploySample.runtimeconfig.json
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/AzureDeploySample.pdb
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/Microsoft.AspNetCore.OpenApi.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/Microsoft.OpenApi.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/Swashbuckle.AspNetCore.Swagger.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/21-07/AzureDeploySample/AzureDeploySample/publish/Swashbuckle.AspNetCore.SwaggerUI.dll

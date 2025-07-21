@@ -1,0 +1,107 @@
+<div class="min-h-screen bg-[var(--background)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+    
+    <!-- Heading -->
+    <div class="text-center space-y-1">
+      <h2 class="text-2xl sm:text-3xl font-bold text-[var(--primary)]">Employee Dashboard</h2>
+      <p class="text-[var(--text-muted)] text-sm sm:text-base">Track your leave stats and apply quickly</p>
+    </div>
+
+    <!-- Leave Summary -->
+    <section>
+      <h3 class="text-xl sm:text-2xl font-semibold text-[var(--primary)] mb-4 flex items-center gap-2 justify-center sm:justify-start">
+        <i class="fas fa-clipboard-list"></i>
+        <span>Leave Summary</span>
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        <div *ngFor="let item of [
+            { label: 'Applied', value: stats.totalLeaves, color: 'blue' },
+            { label: 'Approved', value: stats.approved, color: 'green' },
+            { label: 'Pending', value: stats.pending, color: 'yellow' },
+            { label: 'Rejected', value: stats.rejected, color: 'red' },
+            { label: 'Auto-Rejected', value: stats.autoRejected, color: 'orange' }
+          ]"
+          class="p-4 rounded-xl border shadow-sm transition hover:shadow-md hover:-translate-y-1"
+          [ngClass]="'bg-' + item.color + '-50 text-' + item.color + '-800 border-' + item.color + '-100'">
+          <p class="text-xs uppercase tracking-wide font-semibold">{{ item.label }}</p>
+          <p class="text-2xl font-bold mt-1">{{ item.value }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leave History -->
+    <section>
+      <h3 class="text-xl sm:text-2xl font-semibold text-[var(--primary)] mb-4 flex items-center gap-2 justify-center sm:justify-start">
+        <i class="fas fa-history"></i>
+        <span>Your Recent Leaves</span>
+      </h3>
+      <div class="overflow-x-auto rounded-lg border border-[var(--border-light)] shadow-sm">
+        <table class="min-w-full bg-white text-sm text-left text-[var(--text-dark)]">
+          <thead class="bg-[#e6f5f5] text-[var(--primary)] text-xs uppercase">
+            <tr>
+              <th class="px-4 py-3">Leave Type</th>
+              <th class="px-4 py-3">From</th>
+              <th class="px-4 py-3">To</th>
+              <th class="px-4 py-3">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border-light)]">
+            <tr *ngFor="let leave of recentLeaves" class="hover:bg-[#f9f9f9]">
+              <td class="px-4 py-3">{{ leave.leaveTypeName || '—' }}</td>
+              <td class="px-4 py-3">{{ leave.startDate | date: 'MMM d, y' }}</td>
+              <td class="px-4 py-3">{{ leave.endDate | date: 'MMM d, y' }}</td>
+              <td class="px-4 py-3">
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold"
+                  [ngClass]="{
+                    'bg-[var(--success)]/20 text-[var(--success)] border border-[var(--success)]/30': leave.status === 'Approved',
+                    'bg-[var(--warning)]/20 text-[var(--warning)] border border-[var(--warning)]/30': leave.status === 'Pending',
+                    'bg-[var(--error)]/20 text-[var(--error)] border border-[var(--error)]/30': leave.status === 'Rejected',
+                    'bg-[#ffedd5] text-[#9a3412] border border-[#fdba74]': leave.status === 'Auto-Rejected'
+                  }">
+                  <i class="fas"
+                    [ngClass]="{
+                      'fa-check-circle': leave.status === 'Approved',
+                      'fa-hourglass-half': leave.status === 'Pending',
+                      'fa-times-circle': leave.status === 'Rejected',
+                      'fa-ban': leave.status === 'Auto-Rejected'
+                    }"></i>
+                  {{ leave.status }}
+                </span>
+              </td>
+            </tr>
+            <tr *ngIf="recentLeaves.length === 0">
+              <td colspan="4" class="px-4 py-6 text-center text-[var(--text-muted)]">No recent leave requests found.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Leave Calendar -->
+    <section>
+      <h3 class="text-lg sm:text-xl font-semibold text-[var(--primary)] mb-4 flex items-center gap-2">
+        <i class="fas fa-calendar-alt text-[#d6336c]"></i>
+        <span>Leave Calendar View</span>
+      </h3>
+      <div class="bg-white rounded-lg border border-[var(--border-light)] shadow-sm p-4 w-full overflow-auto">
+        <div class="min-w-[320px] sm:min-w-full min-h-[350px] sm:min-h-[450px]">
+          <app-leave-calendar></app-leave-calendar>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Action -->
+    <section>
+      <h3 class="text-xl sm:text-2xl font-semibold text-[var(--primary)] mb-4 flex items-center gap-2 justify-center sm:justify-start">
+        <i class="fas fa-bolt text-[var(--warning)]"></i>
+        <span>Quick Action</span>
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <a routerLink="/apply-leave"
+          class="flex items-center justify-center gap-2 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-medium px-4 py-3 rounded-lg transition duration-200">
+          <i class="fas fa-calendar-plus"></i> Apply for Leave
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

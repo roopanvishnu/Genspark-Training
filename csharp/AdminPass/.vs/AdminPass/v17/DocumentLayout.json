@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\cSharp\\Practice\\AdminPass\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6E95027F-08D0-46A5-8D85-EFA3A3813A58}|AdminPass\\AdminPass.csproj|d:\\csharp\\practice\\adminpass\\adminpass\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E95027F-08D0-46A5-8D85-EFA3A3813A58}|AdminPass\\AdminPass.csproj|solutionrelative:adminpass\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\cSharp\\Practice\\AdminPass\\AdminPass\\Program.cs",
+              "RelativeDocumentMoniker": "AdminPass\\Program.cs",
+              "ToolTip": "D:\\cSharp\\Practice\\AdminPass\\AdminPass\\Program.cs",
+              "RelativeToolTip": "AdminPass\\Program.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAswCYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T05:02:09.363Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

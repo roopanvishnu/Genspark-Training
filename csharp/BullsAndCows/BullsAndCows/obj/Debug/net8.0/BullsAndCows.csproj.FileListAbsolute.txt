@@ -1,0 +1,14 @@
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\bin\Debug\net8.0\BullsAndCows.exe
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\bin\Debug\net8.0\BullsAndCows.deps.json
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\bin\Debug\net8.0\BullsAndCows.runtimeconfig.json
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\bin\Debug\net8.0\BullsAndCows.dll
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\bin\Debug\net8.0\BullsAndCows.pdb
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\obj\Debug\net8.0\BullsAndCows.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\obj\Debug\net8.0\BullsAndCows.AssemblyInfoInputs.cache
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\obj\Debug\net8.0\BullsAndCows.AssemblyInfo.cs
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\obj\Debug\net8.0\BullsAndCows.csproj.CoreCompileInputs.cache
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\obj\Debug\net8.0\BullsAndCows.dll
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\obj\Debug\net8.0\refint\BullsAndCows.dll
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\obj\Debug\net8.0\BullsAndCows.pdb
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\obj\Debug\net8.0\BullsAndCows.genruntimeconfig.cache
+D:\cSharp\Practice\BullsAndCows\BullsAndCows\obj\Debug\net8.0\ref\BullsAndCows.dll

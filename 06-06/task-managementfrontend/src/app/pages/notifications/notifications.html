@@ -1,0 +1,15 @@
+<h2 class="notif-title">Notifications</h2>
+
+<div *ngIf="messages.length === 0" class="empty-state">
+  <p>No real-time notifications yet.</p>
+</div>
+
+<div *ngFor="let msg of messages" class="notification-card" [ngClass]="msg.type">
+  <div class="icon">
+    <span *ngIf="msg.type === 'info'">ℹ️</span>
+    <span *ngIf="msg.type === 'success'">✅</span>
+    <span *ngIf="msg.type === 'warning'">⚠️</span>
+    <span *ngIf="msg.type === 'error'">❌</span>
+  </div>
+  <div class="message-text">{{ msg.message }}</div>
+</div>

@@ -1,0 +1,50 @@
+.notification-panel {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 400px;
+  max-height: 500px;
+  background: #fff;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  background: #eee;
+  border-radius: 4px;
+}
+
+.tabs button.active {
+  background: #007bff;
+  color: white;
+}
+
+.notification-list {
+  overflow-y: auto;
+  max-height: 350px;
+  padding: 5px;
+}
+
+.notification-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.notification-item.unread {
+  background-color: #f3f7ff;
+  font-weight: bold;
+}

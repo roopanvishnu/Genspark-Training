@@ -1,0 +1,23 @@
+<div class="notification-panel">
+  <h3>🔔 Notifications ({{ unreadCount }} unread)</h3>
+
+  <div class="tabs">
+    <button (click)="switchTab('unread')" [class.active]="currentTab === 'unread'">Unread</button>
+    <button (click)="switchTab('read')" [class.active]="currentTab === 'read'">Read</button>
+  </div>
+
+  <div class="notification-list" (scroll)="onScroll($event)">
+    <div *ngFor="let n of currentTab === 'unread' ? unreadNotifications : readNotifications"
+         [class.unread]="!n.isRead"
+         class="notification-item"
+         (click)="markAsRead(n)">
+      <strong>{{ n.message }}</strong><br>
+      <small>{{ n.createdAt | date: 'short' }}</small>
+    </div>
+    <div *ngIf="loading">Loading more...</div>
+  </div>
+
+  <div *ngIf="!loading && (currentTab === 'unread' ? unreadNotifications.length === 0 : readNotifications.length === 0)">
+    <p>No {{ currentTab }} notifications.</p>
+  </div>
+</div>

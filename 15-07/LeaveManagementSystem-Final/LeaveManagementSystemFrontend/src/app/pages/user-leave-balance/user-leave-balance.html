@@ -1,0 +1,36 @@
+<div class="p-6 bg-[#fef8f4] min-h-screen">
+  <div *ngIf="isLoading" class="text-center text-gray-500">Loading leave balances...</div>
+  <div *ngIf="errorMsg" class="text-center text-red-500">{{ errorMsg }}</div>
+
+  <div *ngIf="userBalance" class="max-w-5xl mx-auto">
+    <h2 class="text-2xl font-bold text-[#1e3a8a] mb-6 text-center">
+      Leave Balances for {{ userBalance.userName }}
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        *ngFor="let balance of userBalance.leaveBalances"
+        class="bg-white shadow-lg rounded-xl p-5 border-t-4"
+        [ngClass]="{
+          'border-blue-600': balance.remainingLeaves > 0,
+          'border-red-500': balance.remainingLeaves === 0
+        }"
+      >
+        <h3 class="text-xl font-semibold text-[#1e3a8a] mb-2">{{ balance.leaveTypeName }}</h3>
+
+        <div class="text-sm text-gray-700 space-y-1">
+          <p><strong>Total:</strong> {{ balance.totalLeaves }}</p>
+          <p><strong>Used:</strong> {{ balance.usedLeaves }}</p>
+          <p><strong>Remaining:</strong>
+            <span [ngClass]="{
+              'text-green-600 font-bold': balance.remainingLeaves > 0,
+              'text-red-500 font-bold': balance.remainingLeaves === 0
+            }">
+              {{ balance.remainingLeaves }}
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

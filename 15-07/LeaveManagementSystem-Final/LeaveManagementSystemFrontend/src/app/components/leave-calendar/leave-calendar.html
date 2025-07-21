@@ -1,0 +1,50 @@
+<!-- Toolbar -->
+<div class="flex justify-between items-center mb-4 flex-wrap gap-3">
+  <!-- Previous -->
+  <button class="btn btn-primary" (click)="prevMonth()">
+    &larr; Previous
+  </button>
+
+  <!-- Current Month -->
+  <h2 class="text-lg font-semibold text-[var(--primary)]">
+    {{ viewDate | date: 'MMMM yyyy' }}
+  </h2>
+
+  <!-- Today + Next -->
+  <div class="flex gap-2">
+    <button class="btn bg-white text-[var(--primary)] border border-[var(--primary)] hover:bg-[var(--background)]" (click)="goToToday()">
+      Today
+    </button>
+    <button class="btn btn-primary" (click)="nextMonth()">
+      Next &rarr;
+    </button>
+  </div>
+</div>
+
+<!-- Calendar View -->
+<div class="calendar-container">
+  <mwl-calendar-month-view
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh">
+  </mwl-calendar-month-view>
+</div>
+
+<!-- Legend -->
+<div class="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm text-[var(--gray-dark)]">
+  <div class="flex items-center gap-2">
+    <span class="inline-block w-4 h-4 rounded-full" style="background: var(--success)"></span> Approved
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="inline-block w-4 h-4 rounded-full" style="background: var(--warning)"></span> Pending
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="inline-block w-4 h-4 rounded-full" style="background: var(--error)"></span> Rejected
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="inline-block w-4 h-4 rounded-full" style="background: var(--gray-dark)"></span> Auto-Rejected
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="inline-block w-4 h-4 rounded-full bg-gray-400"></span> Cancelled
+  </div>
+</div>

@@ -1,0 +1,1435 @@
+2025-06-10 07:57:50,770 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 07:57:50,774 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 07:57:50,774 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 07:57:50,774 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 07:58:17,396 [14] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."DeletedAt", t."Email", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."UpdatedAt", t1."Id", t1."CreatedAt", t1."DeletedAt", t1."Email", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."UpdatedAt"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."DeletedAt", u0."Email", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-06-10 07:58:17,411 [14] ERROR Microsoft.EntityFrameworkCore.Query - An exception occurred while iterating over the results of a query for context type 'LeaveManagementSystem.Contexts.ApplicationDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column l1.FileContent does not exist
+
+POSITION: 1470
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column l1.FileContent does not exist
+    Position: 1470
+    File: parse_relation.c
+    Line: 3721
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column l1.FileContent does not exist
+
+POSITION: 1470
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column l1.FileContent does not exist
+    Position: 1470
+    File: parse_relation.c
+    Line: 3721
+    Routine: errorMissingColumn
+2025-06-10 07:58:41,146 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 08:13:29,214 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (269ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE DATABASE "EmpLeaveManagementSystem";
+2025-06-10 08:13:29,298 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-06-10 08:13:29,315 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-06-10 08:13:29,318 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-10 08:13:29,326 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Applying migration '20250607075455_init'.
+2025-06-10 08:13:29,355 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveTypes" (
+    "Id" uuid NOT NULL,
+    "Name" text NOT NULL,
+    "Description" text NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "UpdatedAt" timestamp with time zone NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_LeaveTypes" PRIMARY KEY ("Id")
+);
+2025-06-10 08:13:29,359 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "Id" uuid NOT NULL,
+    "Username" text NOT NULL,
+    "Email" text NOT NULL,
+    "PasswordHash" text NOT NULL,
+    "Role" text NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "LastLoginAt" timestamp with time zone NULL,
+    "IsActive" boolean NOT NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_Users" PRIMARY KEY ("Id")
+);
+2025-06-10 08:13:29,383 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "AuditLogs" (
+    "Id" uuid NOT NULL,
+    "UserId" uuid NOT NULL,
+    "Action" text NOT NULL,
+    "EntityType" text NOT NULL,
+    "EntityId" uuid NOT NULL,
+    "Timestamp" timestamp with time zone NOT NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_AuditLogs" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_AuditLogs_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("Id") ON DELETE RESTRICT
+);
+2025-06-10 08:13:29,391 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveRequests" (
+    "Id" uuid NOT NULL,
+    "UserId" uuid NOT NULL,
+    "LeaveTypeId" uuid NOT NULL,
+    "StartDate" timestamp with time zone NOT NULL,
+    "EndDate" timestamp with time zone NOT NULL,
+    "Reason" text NOT NULL,
+    "Status" text NOT NULL,
+    "ReviewedById" uuid NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "UpdatedAt" timestamp with time zone NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_LeaveRequests" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_LeaveRequests_LeaveTypes_LeaveTypeId" FOREIGN KEY ("LeaveTypeId") REFERENCES "LeaveTypes" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_LeaveRequests_Users_ReviewedById" FOREIGN KEY ("ReviewedById") REFERENCES "Users" ("Id") ON DELETE RESTRICT,
+    CONSTRAINT "FK_LeaveRequests_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+);
+2025-06-10 08:13:29,396 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Notifications" (
+    "Id" uuid NOT NULL,
+    "RecipientId" uuid NOT NULL,
+    "Message" text NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "ApprovedOrRejectedById" uuid NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_Notifications" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_Notifications_Users_ApprovedOrRejectedById" FOREIGN KEY ("ApprovedOrRejectedById") REFERENCES "Users" ("Id") ON DELETE RESTRICT,
+    CONSTRAINT "FK_Notifications_Users_RecipientId" FOREIGN KEY ("RecipientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+);
+2025-06-10 08:13:29,399 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveAttachments" (
+    "Id" uuid NOT NULL,
+    "LeaveRequestId" uuid NOT NULL,
+    "FileName" text NOT NULL,
+    "FilePath" text NOT NULL,
+    "UploadedAt" timestamp with time zone NOT NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_LeaveAttachments" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_LeaveAttachments_LeaveRequests_LeaveRequestId" FOREIGN KEY ("LeaveRequestId") REFERENCES "LeaveRequests" ("Id") ON DELETE CASCADE
+);
+2025-06-10 08:13:29,400 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_AuditLogs_UserId" ON "AuditLogs" ("UserId");
+2025-06-10 08:13:29,402 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveAttachments_LeaveRequestId" ON "LeaveAttachments" ("LeaveRequestId");
+2025-06-10 08:13:29,403 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequests_LeaveTypeId" ON "LeaveRequests" ("LeaveTypeId");
+2025-06-10 08:13:29,405 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequests_ReviewedById" ON "LeaveRequests" ("ReviewedById");
+2025-06-10 08:13:29,406 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequests_UserId" ON "LeaveRequests" ("UserId");
+2025-06-10 08:13:29,406 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_Notifications_ApprovedOrRejectedById" ON "Notifications" ("ApprovedOrRejectedById");
+2025-06-10 08:13:29,407 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_Notifications_RecipientId" ON "Notifications" ("RecipientId");
+2025-06-10 08:13:29,408 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Users_Email" ON "Users" ("Email");
+2025-06-10 08:13:29,409 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Users_Username" ON "Users" ("Username");
+2025-06-10 08:13:29,409 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250607075455_init', '7.0.11');
+2025-06-10 08:13:29,413 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Applying migration '20250610024308_initial'.
+2025-06-10 08:13:29,422 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "Notifications" DROP CONSTRAINT "FK_Notifications_Users_ApprovedOrRejectedById";
+2025-06-10 08:13:29,422 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "LeaveAttachments" DROP COLUMN "FilePath";
+2025-06-10 08:13:29,423 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "Notifications" RENAME COLUMN "ApprovedOrRejectedById" TO "ReviewedById";
+2025-06-10 08:13:29,423 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER INDEX "IX_Notifications_ApprovedOrRejectedById" RENAME TO "IX_Notifications_ReviewedById";
+2025-06-10 08:13:29,423 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "Users" ADD "CreatedById" uuid NULL;
+2025-06-10 08:13:29,423 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "LeaveTypes" ADD "CreatedById" uuid NULL;
+2025-06-10 08:13:29,424 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "LeaveTypes" ADD "UpdatedById" uuid NULL;
+2025-06-10 08:13:29,425 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "LeaveAttachments" ADD "FileContent" bytea NOT NULL DEFAULT BYTEA E'\\x';
+2025-06-10 08:13:29,426 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_Users_CreatedById" ON "Users" ("CreatedById");
+2025-06-10 08:13:29,428 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveTypes_CreatedById" ON "LeaveTypes" ("CreatedById");
+2025-06-10 08:13:29,429 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveTypes_UpdatedById" ON "LeaveTypes" ("UpdatedById");
+2025-06-10 08:13:29,432 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "LeaveTypes" ADD CONSTRAINT "FK_LeaveTypes_Users_CreatedById" FOREIGN KEY ("CreatedById") REFERENCES "Users" ("Id");
+2025-06-10 08:13:29,433 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "LeaveTypes" ADD CONSTRAINT "FK_LeaveTypes_Users_UpdatedById" FOREIGN KEY ("UpdatedById") REFERENCES "Users" ("Id");
+2025-06-10 08:13:29,434 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "Notifications" ADD CONSTRAINT "FK_Notifications_Users_ReviewedById" FOREIGN KEY ("ReviewedById") REFERENCES "Users" ("Id") ON DELETE RESTRICT;
+2025-06-10 08:13:29,435 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "Users" ADD CONSTRAINT "FK_Users_Users_CreatedById" FOREIGN KEY ("CreatedById") REFERENCES "Users" ("Id");
+2025-06-10 08:13:29,435 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250610024308_initial', '7.0.11');
+2025-06-10 08:13:35,640 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 08:13:35,643 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 08:13:35,643 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 08:13:35,643 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 08:13:51,825 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (19ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Email", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-06-10 08:14:10,154 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 08:14:10,333 [7] INFO  LeaveManagementSystem.Services.AuthenticationService - User user@example.com logged in successfully
+2025-06-10 08:14:55,175 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveTypes" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Description", "IsDeleted", "Name", "UpdatedAt", "UpdatedById")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-06-10 08:16:49,729 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Email", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-06-10 08:17:01,690 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 08:17:01,863 [15] INFO  LeaveManagementSystem.Services.AuthenticationService - User userr@example.com logged in successfully
+2025-06-10 08:18:27,176 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = Boolean), @p5='?' (DbType = Guid), @p6='?', @p7='?' (DbType = Guid), @p8='?' (DbType = DateTime), @p9='?', @p10='?' (DbType = DateTime), @p11='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveRequests" ("Id", "CreatedAt", "DeletedAt", "EndDate", "IsDeleted", "LeaveTypeId", "Reason", "ReviewedById", "StartDate", "Status", "UpdatedAt", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2025-06-10 08:18:27,247 [22] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@__entity_Id_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedById", t."DeletedAt", t."Email", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedById", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."UpdatedAt", t0."UpdatedById", t1."Id", t1."CreatedAt", t1."CreatedById", t1."DeletedAt", t1."Email", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedById", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."UpdatedAt", l0."UpdatedById"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedById", u0."DeletedAt", u0."Email", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__entity_Id_0
+LIMIT 1
+2025-06-10 08:20:13,707 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (59ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Binary), @p3='?', @p4='?' (DbType = Boolean), @p5='?' (DbType = Guid), @p6='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveAttachments" ("Id", "DeletedAt", "FileContent", "FileName", "IsDeleted", "LeaveRequestId", "UploadedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-06-10 08:20:56,601 [25] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-10 08:21:05,117 [27] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-10 08:25:03,539 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 08:25:07,972 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 08:25:07,975 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 08:25:07,976 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 08:25:07,976 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 08:25:13,742 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (21ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-10 08:26:41,523 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (16ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Binary), @p3='?', @p4='?' (DbType = Boolean), @p5='?' (DbType = Guid), @p6='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveAttachments" ("Id", "DeletedAt", "FileContent", "FileName", "IsDeleted", "LeaveRequestId", "UploadedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-06-10 08:27:05,581 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-10 08:27:22,196 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedById", t2."DeletedAt0", t2."Email", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedById0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."UpdatedAt0", t2."UpdatedById", t2."Id2", t2."CreatedAt2", t2."CreatedById1", t2."DeletedAt2", t2."Email0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedById", t."DeletedAt" AS "DeletedAt0", t."Email", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedById" AS "CreatedById0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedById", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedById" AS "CreatedById1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedById", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."UpdatedAt", l0."UpdatedById"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedById", u0."DeletedAt", u0."Email", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__id_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-06-10 08:27:22,246 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted")
+2025-06-10 08:27:22,263 [14] ERROR LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - An unhandled exception occurred.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Data.LeaveRequest.User.LeaveRequests.User.LeaveRequests.User.LeaveRequests.User.LeaveRequests.User.LeaveRequests.User.LeaveRequests.User.LeaveRequests.User.LeaveRequests.User.LeaveRequests.User.Id.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWriteAsObject(Utf8JsonWriter writer, Object value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCoreAsObject(Utf8JsonWriter writer, Object value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.JsonSerializer.WriteCore[TValue](Utf8JsonWriter writer, TValue& value, JsonTypeInfo jsonTypeInfo, WriteStack& state)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/presidio/Desktop/AllApi/LeaveManagementSystem/Middlewares/ExceptionHandlingMiddleware.cs:line 24
+2025-06-10 09:19:25,395 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 09:26:20,832 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 09:26:20,836 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 09:26:20,836 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 09:26:20,836 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 09:26:35,310 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (26ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedById", t2."DeletedAt0", t2."Email", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedById0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."UpdatedAt0", t2."UpdatedById", t2."Id2", t2."CreatedAt2", t2."CreatedById1", t2."DeletedAt2", t2."Email0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedById", t."DeletedAt" AS "DeletedAt0", t."Email", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedById" AS "CreatedById0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedById", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedById" AS "CreatedById1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedById", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."UpdatedAt", l0."UpdatedById"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedById", u0."DeletedAt", u0."Email", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__id_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-06-10 09:26:35,394 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted")
+2025-06-10 11:23:51,900 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 11:23:51,903 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 11:23:51,903 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 11:23:51,903 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 11:26:07,064 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (37ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedById", t2."DeletedAt0", t2."Email", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedById0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."UpdatedAt0", t2."UpdatedById", t2."Id2", t2."CreatedAt2", t2."CreatedById1", t2."DeletedAt2", t2."Email0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedById", t."DeletedAt" AS "DeletedAt0", t."Email", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedById" AS "CreatedById0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedById", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedById" AS "CreatedById1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedById", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."UpdatedAt", l0."UpdatedById"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedById", u0."DeletedAt", u0."Email", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__id_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-06-10 11:26:07,159 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted")
+2025-06-10 11:31:48,674 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 11:31:52,935 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 11:31:52,939 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 11:31:52,939 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 11:31:52,939 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 11:32:03,060 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (27ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedById", t2."DeletedAt0", t2."Email", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedById0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."UpdatedAt0", t2."UpdatedById", t2."Id2", t2."CreatedAt2", t2."CreatedById1", t2."DeletedAt2", t2."Email0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedById", t."DeletedAt" AS "DeletedAt0", t."Email", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedById" AS "CreatedById0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedById", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedById" AS "CreatedById1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedById", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."UpdatedAt", l0."UpdatedById"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedById", u0."DeletedAt", u0."Email", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__id_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-06-10 11:32:03,148 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted")
+2025-06-10 11:32:24,209 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-10 11:32:34,770 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."DeletedAt", l."FileContent", l."FileName", l."IsDeleted", l."LeaveRequestId", l."UploadedAt", t."Id", t."CreatedAt", t."DeletedAt", t."EndDate", t."IsDeleted", t."LeaveTypeId", t."Reason", t."ReviewedById", t."StartDate", t."Status", t."UpdatedAt", t."UserId"
+FROM "LeaveAttachments" AS l
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."DeletedAt", l0."EndDate", l0."IsDeleted", l0."LeaveTypeId", l0."Reason", l0."ReviewedById", l0."StartDate", l0."Status", l0."UpdatedAt", l0."UserId"
+    FROM "LeaveRequests" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t ON l."LeaveRequestId" = t."Id"
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-06-10 15:30:45,486 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 15:30:45,490 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 15:30:45,490 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 15:30:45,490 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 15:32:00,582 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 15:32:00,871 [3] INFO  LeaveManagementSystem.Services.AuthenticationService - User user@example.com logged in successfully
+2025-06-10 15:32:13,856 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 15:32:13,857 [17] INFO  LeaveManagementSystem.Services.AuthenticationService - Refresh token used to generate new access token for user@example.com
+2025-06-10 15:32:33,353 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 15:32:40,341 [3] INFO  LeaveManagementSystem.Services.AuthenticationService - User user@example.com logged out
+2025-06-10 15:32:55,967 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 15:32:58,362 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 15:33:22,433 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Email", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-06-10 15:33:31,174 [21] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Email", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-06-10 15:33:31,187 [21] ERROR Microsoft.EntityFrameworkCore.Update - An exception occurred in the database while saving changes for context type 'LeaveManagementSystem.Contexts.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Users_Email"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Users_Email"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Users
+    ConstraintName: IX_Users_Email
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Users_Email"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Users_Email"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Users
+    ConstraintName: IX_Users_Email
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-06-10 15:34:16,615 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Email", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-06-10 15:34:29,515 [22] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 15:35:35,379 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedById", t."DeletedAt", t."Email", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedById", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."UpdatedAt", t0."UpdatedById", t1."Id", t1."CreatedAt", t1."CreatedById", t1."DeletedAt", t1."Email", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedById", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."UpdatedAt", l0."UpdatedById"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedById", u0."DeletedAt", u0."Email", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-06-10 16:20:21,939 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 16:44:57,725 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 16:44:57,728 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 16:44:57,728 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 16:44:57,728 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 16:51:48,646 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 16:56:57,941 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 16:56:57,945 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 16:56:57,945 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 16:56:57,945 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 16:57:31,606 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Email", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-06-10 16:57:31,634 [13] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-06-10 16:57:31,645 [13] ERROR Microsoft.EntityFrameworkCore.Update - An exception occurred in the database while saving changes for context type 'LeaveManagementSystem.Contexts.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "UserId" of relation "AuditLogs" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "UserId" of relation "AuditLogs" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: AuditLogs
+    ColumnName: UserId
+    File: execMain.c
+    Line: 1988
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "UserId" of relation "AuditLogs" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "UserId" of relation "AuditLogs" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: AuditLogs
+    ColumnName: UserId
+    File: execMain.c
+    Line: 1988
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-06-10 17:07:24,130 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 17:08:14,135 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-06-10 17:08:14,149 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-06-10 17:08:14,158 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-10 17:08:14,166 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Applying migration '20250610113802_init'.
+2025-06-10 17:08:14,200 [1] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "Id" uuid NOT NULL,
+    "Username" text NOT NULL,
+    "Email" text NOT NULL,
+    "PasswordHash" text NOT NULL,
+    "Role" text NOT NULL,
+    "LastLoginAt" timestamp with time zone NULL,
+    "IsActive" boolean NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "CreatedById" uuid NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_Users" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_Users_Users_CreatedById" FOREIGN KEY ("CreatedById") REFERENCES "Users" ("Id")
+);
+2025-06-10 17:12:14,205 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-06-10 17:12:14,218 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-06-10 17:12:14,227 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-10 17:12:14,234 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Applying migration '20250610113802_init'.
+2025-06-10 17:12:14,267 [1] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "Id" uuid NOT NULL,
+    "Username" text NOT NULL,
+    "Email" text NOT NULL,
+    "PasswordHash" text NOT NULL,
+    "Role" text NOT NULL,
+    "LastLoginAt" timestamp with time zone NULL,
+    "IsActive" boolean NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "CreatedById" uuid NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_Users" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_Users_Users_CreatedById" FOREIGN KEY ("CreatedById") REFERENCES "Users" ("Id")
+);
+2025-06-10 17:12:33,903 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (525ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE DATABASE "EmpLeaveManagementSystem";
+2025-06-10 17:12:34,006 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-06-10 17:12:34,021 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-06-10 17:12:34,024 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-10 17:12:34,030 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Applying migration '20250610113802_init'.
+2025-06-10 17:12:34,058 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "Id" uuid NOT NULL,
+    "Username" text NOT NULL,
+    "Email" text NOT NULL,
+    "PasswordHash" text NOT NULL,
+    "Role" text NOT NULL,
+    "LastLoginAt" timestamp with time zone NULL,
+    "IsActive" boolean NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "CreatedById" uuid NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_Users" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_Users_Users_CreatedById" FOREIGN KEY ("CreatedById") REFERENCES "Users" ("Id")
+);
+2025-06-10 17:12:34,063 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "AuditLogs" (
+    "Id" uuid NOT NULL,
+    "UserId" uuid NULL,
+    "Action" text NOT NULL,
+    "EntityType" text NOT NULL,
+    "EntityId" uuid NOT NULL,
+    "Timestamp" timestamp with time zone NOT NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_AuditLogs" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_AuditLogs_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("Id") ON DELETE RESTRICT
+);
+2025-06-10 17:12:34,071 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveTypes" (
+    "Id" uuid NOT NULL,
+    "Name" text NOT NULL,
+    "Description" text NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "CreatedById" uuid NULL,
+    "UpdatedAt" timestamp with time zone NULL,
+    "UpdatedById" uuid NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_LeaveTypes" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_LeaveTypes_Users_CreatedById" FOREIGN KEY ("CreatedById") REFERENCES "Users" ("Id"),
+    CONSTRAINT "FK_LeaveTypes_Users_UpdatedById" FOREIGN KEY ("UpdatedById") REFERENCES "Users" ("Id")
+);
+2025-06-10 17:12:34,076 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Notifications" (
+    "Id" uuid NOT NULL,
+    "RecipientId" uuid NOT NULL,
+    "Message" text NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "ReviewedById" uuid NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_Notifications" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_Notifications_Users_RecipientId" FOREIGN KEY ("RecipientId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_Notifications_Users_ReviewedById" FOREIGN KEY ("ReviewedById") REFERENCES "Users" ("Id") ON DELETE RESTRICT
+);
+2025-06-10 17:12:34,082 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveRequests" (
+    "Id" uuid NOT NULL,
+    "UserId" uuid NOT NULL,
+    "LeaveTypeId" uuid NOT NULL,
+    "StartDate" timestamp with time zone NOT NULL,
+    "EndDate" timestamp with time zone NOT NULL,
+    "Reason" text NOT NULL,
+    "Status" text NOT NULL,
+    "ReviewedById" uuid NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "UpdatedAt" timestamp with time zone NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_LeaveRequests" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_LeaveRequests_LeaveTypes_LeaveTypeId" FOREIGN KEY ("LeaveTypeId") REFERENCES "LeaveTypes" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_LeaveRequests_Users_ReviewedById" FOREIGN KEY ("ReviewedById") REFERENCES "Users" ("Id") ON DELETE RESTRICT,
+    CONSTRAINT "FK_LeaveRequests_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+);
+2025-06-10 17:12:34,087 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveAttachments" (
+    "Id" uuid NOT NULL,
+    "LeaveRequestId" uuid NOT NULL,
+    "FileName" text NOT NULL,
+    "FileContent" bytea NOT NULL,
+    "UploadedAt" timestamp with time zone NOT NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_LeaveAttachments" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_LeaveAttachments_LeaveRequests_LeaveRequestId" FOREIGN KEY ("LeaveRequestId") REFERENCES "LeaveRequests" ("Id") ON DELETE CASCADE
+);
+2025-06-10 17:12:34,089 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_AuditLogs_UserId" ON "AuditLogs" ("UserId");
+2025-06-10 17:12:34,090 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveAttachments_LeaveRequestId" ON "LeaveAttachments" ("LeaveRequestId");
+2025-06-10 17:12:34,092 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequests_LeaveTypeId" ON "LeaveRequests" ("LeaveTypeId");
+2025-06-10 17:12:34,094 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequests_ReviewedById" ON "LeaveRequests" ("ReviewedById");
+2025-06-10 17:12:34,095 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequests_UserId" ON "LeaveRequests" ("UserId");
+2025-06-10 17:12:34,097 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveTypes_CreatedById" ON "LeaveTypes" ("CreatedById");
+2025-06-10 17:12:34,099 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveTypes_UpdatedById" ON "LeaveTypes" ("UpdatedById");
+2025-06-10 17:12:34,101 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_Notifications_RecipientId" ON "Notifications" ("RecipientId");
+2025-06-10 17:12:34,102 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_Notifications_ReviewedById" ON "Notifications" ("ReviewedById");
+2025-06-10 17:12:34,104 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_Users_CreatedById" ON "Users" ("CreatedById");
+2025-06-10 17:12:34,105 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Users_Email" ON "Users" ("Email");
+2025-06-10 17:12:34,106 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Users_Username" ON "Users" ("Username");
+2025-06-10 17:12:34,107 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250610113802_init', '7.0.11');
+2025-06-10 17:13:11,201 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-06-10 17:13:11,214 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-06-10 17:13:11,222 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-10 17:13:11,229 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - No migrations were applied. The database is already up to date.
+2025-06-10 17:13:14,607 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 17:13:14,611 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 17:13:14,611 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 17:13:14,611 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 17:13:21,070 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (24ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Email", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-06-10 17:13:21,097 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-06-10 17:13:42,989 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 17:13:43,168 [15] INFO  LeaveManagementSystem.Services.AuthenticationService - User vasumathi@example.com logged in successfully
+2025-06-10 17:14:06,736 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 17:18:09,744 [3] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Email", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-06-10 17:18:09,794 [15] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (36ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-06-10 17:19:29,786 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 17:20:14,895 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 17:20:14,899 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 17:20:14,899 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 17:20:14,899 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 17:21:37,037 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (15ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+LIMIT 1
+2025-06-10 17:21:37,088 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+LIMIT 1
+2025-06-10 17:21:37,123 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?'], CommandType='Text', CommandTimeout='30']
+UPDATE "Users" SET "Username" = @p0
+WHERE "Id" = @p1;
+2025-06-10 17:30:55,659 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 17:32:42,028 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 17:32:42,032 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 17:32:42,032 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 17:32:42,032 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 17:33:35,386 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 17:33:37,875 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 17:33:37,879 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 17:33:37,879 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 17:33:37,879 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 17:35:18,115 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 17:35:21,635 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 17:35:21,638 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 17:35:21,638 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 17:35:21,638 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 17:36:05,184 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 17:36:05,188 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 17:36:05,188 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 17:36:05,188 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 17:38:42,897 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 17:38:50,507 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 17:38:50,510 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 17:38:50,511 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 17:38:50,511 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 17:39:49,682 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 17:39:49,983 [20] INFO  LeaveManagementSystem.Services.AuthenticationService - User vasumathi@example.com logged in successfully
+2025-06-10 17:40:12,607 [23] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 17:40:58,099 [31] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (12ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Email", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-06-10 17:40:58,116 [31] ERROR Microsoft.EntityFrameworkCore.Update - An exception occurred in the database while saving changes for context type 'LeaveManagementSystem.Contexts.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Users_Email"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Users_Email"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Users
+    ConstraintName: IX_Users_Email
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Users_Email"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Users_Email"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Users
+    ConstraintName: IX_Users_Email
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-06-10 17:41:56,060 [33] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+LIMIT 1
+2025-06-10 17:41:56,067 [31] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+LIMIT 1
+2025-06-10 17:41:56,085 [33] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?'], CommandType='Text', CommandTimeout='30']
+UPDATE "Users" SET "Email" = @p0
+WHERE "Id" = @p1;
+2025-06-10 17:41:56,113 [35] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (6ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-06-10 17:43:18,353 [37] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+LIMIT 1
+2025-06-10 17:43:18,357 [37] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+LIMIT 1
+2025-06-10 17:43:18,363 [33] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@p10='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = Guid), @p2='?' (DbType = DateTime), @p3='?', @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?', @p8='?', @p9='?'], CommandType='Text', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "CreatedById" = @p1, "DeletedAt" = @p2, "Email" = @p3, "IsActive" = @p4, "IsDeleted" = @p5, "LastLoginAt" = @p6, "PasswordHash" = @p7, "Role" = @p8, "Username" = @p9
+WHERE "Id" = @p10;
+2025-06-10 17:43:18,369 [39] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-06-10 18:14:23,030 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 18:24:54,496 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 18:24:54,499 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 18:24:54,499 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 18:24:54,499 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 18:33:09,077 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (22ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveTypes" ("Id", "CreatedAt", "CreatedById", "DeletedAt", "Description", "IsDeleted", "Name", "UpdatedAt", "UpdatedById")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-06-10 18:33:09,107 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-06-10 18:37:47,688 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 18:37:52,022 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 18:37:52,026 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 18:37:52,026 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 18:37:52,026 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 18:59:31,137 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 18:59:35,470 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 18:59:35,474 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 18:59:35,474 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 18:59:35,474 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 19:07:21,661 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 19:12:29,495 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 19:12:29,499 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 19:12:29,499 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 19:12:29,499 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 19:12:42,523 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:12:54,930 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:12:55,946 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:13:03,313 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:13:11,544 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:13:12,384 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:14:02,160 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 19:14:05,090 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 19:14:05,093 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 19:14:05,093 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 19:14:05,093 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 19:14:07,834 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:14:13,508 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:18:01,770 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:18:06,699 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:18:13,925 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 19:23:47,810 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 19:25:25,217 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 19:25:25,220 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 19:25:25,220 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 19:25:25,220 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 19:25:38,253 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedById", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."UpdatedAt", l."UpdatedById"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted")
+2025-06-10 19:26:14,561 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedById", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."UpdatedAt", l."UpdatedById"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted")
+2025-06-10 19:28:33,130 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 19:28:35,736 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 19:28:35,739 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 19:28:35,739 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 19:28:35,739 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 19:54:59,167 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 19:59:10,470 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 19:59:10,473 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 19:59:10,474 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 19:59:10,474 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 20:05:28,018 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 20:05:28,063 [21] WARN  LeaveManagementSystem.Services.AuthenticationService - Failed login attempt for user@example.com
+2025-06-10 20:05:34,202 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 20:05:34,203 [16] WARN  LeaveManagementSystem.Services.AuthenticationService - Failed login attempt for user@example.com
+2025-06-10 20:05:49,308 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 20:05:49,310 [21] WARN  LeaveManagementSystem.Services.AuthenticationService - Failed login attempt for vasumathi@example.com
+2025-06-10 20:07:15,350 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 20:07:15,351 [16] WARN  LeaveManagementSystem.Services.AuthenticationService - Failed login attempt for vasumathi@gmail.com
+2025-06-10 20:08:16,717 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 20:08:19,841 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 20:08:19,844 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 20:08:19,845 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 20:08:19,845 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 20:08:27,781 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 20:08:51,816 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 20:08:51,817 [15] WARN  LeaveManagementSystem.Services.AuthenticationService - Failed login attempt for vasu@EXAMPLE.com
+2025-06-10 20:09:00,509 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 20:09:00,756 [11] INFO  LeaveManagementSystem.Services.AuthenticationService - User vasu@example.com logged in successfully
+2025-06-10 20:46:46,502 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 20:46:49,328 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 20:46:49,331 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 20:46:49,332 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 20:46:49,332 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 20:47:43,318 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 20:47:43,361 [20] WARN  LeaveManagementSystem.Services.AuthenticationService - Failed login attempt for vasuu@example.com
+2025-06-10 20:47:53,104 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 20:48:05,216 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-06-10 20:48:05,460 [20] INFO  LeaveManagementSystem.Services.AuthenticationService - User vasu@example.com logged in successfully
+2025-06-10 20:49:50,803 [23] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+LIMIT 1
+2025-06-10 20:49:50,808 [23] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedById", u."DeletedAt", u."Email", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0
+LIMIT 1
+2025-06-10 20:49:50,856 [23] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?', @p1='?'], CommandType='Text', CommandTimeout='30']
+UPDATE "Users" SET "Email" = @p0, "Username" = @p1
+WHERE "Id" = @p2;
+2025-06-10 20:49:50,885 [24] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-06-10 20:52:25,213 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 20:53:56,954 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 20:53:56,958 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 20:53:56,958 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 20:53:56,958 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem
+2025-06-10 21:08:37,190 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-10 23:05:36,553 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2025-06-10 23:05:36,557 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-10 23:05:36,557 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-10 23:05:36,557 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/AllApi/LeaveManagementSystem/LeaveManagementSystem
+2025-06-10 23:05:40,430 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...

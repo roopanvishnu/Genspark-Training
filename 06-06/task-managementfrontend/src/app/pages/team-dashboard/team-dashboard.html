@@ -1,0 +1,30 @@
+<h2 class="my-tasks-title">📋 My Tasks</h2>
+
+<div *ngIf="assignedTasks.length === 0" class="empty-message">
+  <p>No tasks assigned yet.</p>
+</div>
+
+<div *ngFor="let task of assignedTasks" class="task-card">
+  <h3>{{ task.title }}</h3>
+  <p><strong>Status:</strong> {{ task.status }}</p>
+  <p><strong>Deadline:</strong> {{ task.dueDate | date: 'short' }}</p>
+  <p><strong>Description: </strong>{{ task.description }}</p>
+
+  <div class="update-box">
+    <label>Update Status:</label>
+    <select [(ngModel)]="task.newStatus">
+      <option [ngValue]="'Open'">Open</option>
+      <option [ngValue]="'InProgress'">In Progress</option>
+      <option [ngValue]="'Completed'">Completed</option>
+    </select>
+
+    <label>Comment (optional):</label>
+    <textarea [(ngModel)]="task.newComment" rows="2"></textarea>
+
+    <button (click)="updateTask(task)">✅ Submit Update</button>
+  </div>
+
+  <button class="attachment-button" (click)="downloadAttachment(task.id)">
+    📥 Download Attachment
+  </button>
+</div>

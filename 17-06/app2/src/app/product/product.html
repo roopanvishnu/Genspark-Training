@@ -1,0 +1,11 @@
+<div class="card h-100 d-flex flex-column" style="width: 100%;">
+  <img class="card-img-top" [src]="product?.thumbnail" alt="Card image cap" style="height: 200px; object-fit: cover;">
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title">{{ product?.title }}</h5>
+    <p class="card-text flex-grow-1">{{ product?.description }}</p>
+    <button class="btn btn-primary mt-auto">
+      Buy for {{ product?.price | currency: 'INR' }}
+    </button>
+  </div>
+</div>
+

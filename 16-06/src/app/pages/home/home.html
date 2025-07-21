@@ -1,0 +1,28 @@
+<div class="top-bar">
+  <button (click)="logout()">Logout</button>
+</div>
+
+<div class="search-box">
+  <input
+    type="text"
+    placeholder="Search products..."
+    (input)="onSearchInput($event)"
+  >
+</div>
+
+<app-loading-spinner *ngIf="isLoading && products.length === 0"></app-loading-spinner>
+
+<div class="product-grid">
+  <app-product-card
+    *ngFor="let product of products"
+    [product]="product"
+    [search]="query"
+  ></app-product-card>
+</div>
+
+<app-loading-spinner *ngIf="isLoading && products.length > 0"></app-loading-spinner>
+
+<app-back-to-top
+  *ngIf="showBackToTop"
+  (click)="scrollToTop()"
+></app-back-to-top>

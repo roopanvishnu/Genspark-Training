@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\bin\Debug\net8.0\SecureFileAccessApp.exe
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\bin\Debug\net8.0\SecureFileAccessApp.deps.json
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\bin\Debug\net8.0\SecureFileAccessApp.runtimeconfig.json
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\bin\Debug\net8.0\SecureFileAccessApp.dll
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\bin\Debug\net8.0\SecureFileAccessApp.pdb
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\obj\Debug\net8.0\SecureFileAccessApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\obj\Debug\net8.0\SecureFileAccessApp.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\obj\Debug\net8.0\SecureFileAccessApp.AssemblyInfo.cs
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\obj\Debug\net8.0\SecureFileAccessApp.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\obj\Debug\net8.0\SecureFileAccessApp.sourcelink.json
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\obj\Debug\net8.0\SecureFileAccessApp.dll
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\obj\Debug\net8.0\refint\SecureFileAccessApp.dll
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\obj\Debug\net8.0\SecureFileAccessApp.pdb
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\obj\Debug\net8.0\SecureFileAccessApp.genruntimeconfig.cache
+D:\GensparkTraining\Training\23-05\Proxy\SecureFileAccessApp\SecureFileAccessApp\obj\Debug\net8.0\ref\SecureFileAccessApp.dll

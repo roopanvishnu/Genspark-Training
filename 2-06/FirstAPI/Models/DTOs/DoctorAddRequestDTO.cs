@@ -1,0 +1,13 @@
+using System;
+
+namespace FirstAPI.Models.DTOs;
+
+public class DoctorAddRequestDTO
+{
+    public string Name { get; set; } = string.Empty;
+    public ICollection<SpecialityAddRequestDTO>? Specialities { get; set; }
+    public float YearsOfExperience { get; set; }
+    public string Email { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+
+}

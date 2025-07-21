@@ -1,0 +1,89 @@
+<!-- video-upload.component.html -->
+<div class="upload-container">
+  <div class="upload-form-wrapper">
+    <h2 class="upload-title">Upload Video Content</h2>
+    
+    <form class="upload-form" (ngSubmit)="onUpload($event)" #uploadForm="ngForm">
+      
+      <!-- Title Input -->
+      <div class="form-group">
+        <input 
+          type="text" 
+          class="form-input" 
+          [(ngModel)]="title" 
+          placeholder="Enter video title" 
+          name="title" 
+          required 
+          #titleInput="ngModel"
+          [class.invalid]="titleInput.invalid && titleInput.touched"
+        />
+      </div>
+
+      <!-- Description Input -->
+      <div class="form-group">
+        <input 
+          type="text" 
+          class="form-input" 
+          [(ngModel)]="description" 
+          placeholder="Enter video description" 
+          name="description" 
+          required 
+          #descInput="ngModel"
+          [class.invalid]="descInput.invalid && descInput.touched"
+        />
+      </div>
+
+      <!-- File Upload -->
+      <div class="form-group" [class.file-selected]="selectedFileName">
+        <div class="file-input-wrapper">
+          <input 
+            type="file" 
+            class="file-input" 
+            id="video-file" 
+            (change)="onFileChange($event)" 
+            accept="video/*" 
+            required 
+          />
+          <label for="video-file" class="file-input-label">
+            <span *ngIf="!selectedFileName">
+              Choose Video File<br>
+              <small>MP4, AVI, MOV, WebM supported</small>
+            </span>
+            <span *ngIf="selectedFileName">
+              Video Selected<br>
+              <small>Ready to upload</small>
+            </span>
+          </label>
+        </div>
+        <div class="file-info" *ngIf="selectedFileName">
+          <div class="file-name">📹 {{ selectedFileName }}</div>
+          <div class="file-size" *ngIf="fileSizeFormatted">
+            Size: {{ fileSizeFormatted }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        class="submit-btn" 
+        [class.loading]="isUploading"
+        [disabled]="isUploading || !isFormValid"
+      >
+        <span *ngIf="!isUploading">Upload Video</span>
+        <span *ngIf="isUploading">Uploading...</span>
+      </button>
+
+      <!-- Success Message -->
+      <div class="success-message" *ngIf="uploadSuccess">
+        ✅ Video uploaded successfully! Form will reset in 3 seconds.
+      </div>
+
+      <!-- Error Message -->
+      <div class="error-message" *ngIf="uploadError">
+        ❌ {{ uploadError }}
+      </div>
+
+    </form>
+  </div>
+</div>

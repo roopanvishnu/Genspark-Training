@@ -1,0 +1,41 @@
+<div class="task-form-container">
+  <h2 class="form-title">{{ taskId ? '✏️ Edit Task' : '🆕 Create Task' }}</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" formControlName="title" required />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" formControlName="status" required>
+        <option value="Open">Open</option>
+        <option value="InProgress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="dueDate">Due Date</label>
+      <input id="dueDate" type="datetime-local" formControlName="dueDate" />
+    </div>
+
+    <div class="form-group">
+      <label for="file">Attachment (optional)</label>
+      <input id="file" type="file" (change)="onFileSelected($event)" />
+      <div *ngIf="selectedFile" class="file-preview">
+        📄 {{ selectedFile.name }}
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="taskForm.invalid">
+      💾 {{ taskId ? 'Update' : 'Create' }}
+    </button>
+  </form>
+</div>

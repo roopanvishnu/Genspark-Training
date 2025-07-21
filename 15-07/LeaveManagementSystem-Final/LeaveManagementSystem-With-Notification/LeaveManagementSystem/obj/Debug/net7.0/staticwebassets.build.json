@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "RbjC63n27G4GGrQzY3PqQwtV1ga5mnp3PF5x9opLoac=",
+  "Source": "LeaveManagementSystem",
+  "BasePath": "_content/LeaveManagementSystem",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LeaveManagementSystem/wwwroot",
+      "Source": "LeaveManagementSystem",
+      "ContentRoot": "/Users/presidio/Downloads/Genspark_Training 2/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/wwwroot/",
+      "BasePath": "_content/LeaveManagementSystem",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

@@ -1,0 +1,36 @@
+<h1>DASHBOARD</h1>
+
+<div class="dashboard-grid">
+  <div class="card">
+    <h2>Gender</h2>
+    <ngx-charts-pie-chart
+  [results]="genderData"
+  [legend]="true"
+  [doughnut]="true"
+  [labels]="true"
+  [legendPosition]="legendPosition">
+</ngx-charts-pie-chart>
+
+  </div>
+
+  <div class="card">
+    <h2>Role</h2>
+    <ngx-charts-bar-vertical
+      [results]="roleData"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="false"
+      [roundEdges]="true">
+    </ngx-charts-bar-vertical>
+  </div>
+
+  <div class="card full-width">
+    <h2>State</h2>
+    <ngx-charts-bar-vertical
+      [results]="stateData"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="false">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>

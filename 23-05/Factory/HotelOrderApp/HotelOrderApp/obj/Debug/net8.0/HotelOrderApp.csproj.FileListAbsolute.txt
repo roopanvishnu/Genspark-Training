@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\bin\Debug\net8.0\HotelOrderApp.exe
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\bin\Debug\net8.0\HotelOrderApp.deps.json
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\bin\Debug\net8.0\HotelOrderApp.runtimeconfig.json
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\bin\Debug\net8.0\HotelOrderApp.dll
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\bin\Debug\net8.0\HotelOrderApp.pdb
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\obj\Debug\net8.0\HotelOrderApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\obj\Debug\net8.0\HotelOrderApp.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\obj\Debug\net8.0\HotelOrderApp.AssemblyInfo.cs
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\obj\Debug\net8.0\HotelOrderApp.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\obj\Debug\net8.0\HotelOrderApp.sourcelink.json
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\obj\Debug\net8.0\HotelOrderApp.dll
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\obj\Debug\net8.0\refint\HotelOrderApp.dll
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\obj\Debug\net8.0\HotelOrderApp.pdb
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\obj\Debug\net8.0\HotelOrderApp.genruntimeconfig.cache
+D:\GensparkTraining\Training\23-05\Factory\HotelOrderApp\HotelOrderApp\obj\Debug\net8.0\ref\HotelOrderApp.dll

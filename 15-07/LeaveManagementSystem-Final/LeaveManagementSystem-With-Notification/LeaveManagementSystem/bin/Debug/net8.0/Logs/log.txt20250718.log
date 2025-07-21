@@ -1,0 +1,1149 @@
+2025-07-18 10:11:57,346 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:11:57,353 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'LeaveRequestComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:11:57,354 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:11:57,567 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:11:57,576 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'LeaveRequestComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:11:57,576 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:12:05,260 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:12:05,267 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'LeaveRequestComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:12:05,267 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:12:05,575 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:12:05,584 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'LeaveRequestComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:12:05,585 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:12:06,543 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (782ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE DATABASE "EmpLeaveManagementSystem";
+2025-07-18 10:12:06,677 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-07-18 10:12:06,699 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:12:06,703 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 10:12:06,720 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Applying migration '20250718044157_FirstMigration'.
+2025-07-18 10:12:06,785 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveTypes" (
+    "Id" uuid NOT NULL,
+    "Name" text NOT NULL,
+    "Description" text NOT NULL,
+    "StandardLeaveCount" integer NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "CreatedBy" uuid NULL,
+    "UpdatedAt" timestamp with time zone NULL,
+    "UpdatedBy" uuid NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_LeaveTypes" PRIMARY KEY ("Id")
+);
+2025-07-18 10:12:06,787 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "Id" uuid NOT NULL,
+    "Username" text NOT NULL,
+    "Email" text NOT NULL,
+    "PasswordHash" text NOT NULL,
+    "Role" text NOT NULL,
+    "Gender" text NOT NULL,
+    "LastLoginAt" timestamp with time zone NULL,
+    "IsActive" boolean NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "CreatedBy" uuid NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_Users" PRIMARY KEY ("Id")
+);
+2025-07-18 10:12:06,797 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "AuditLogs" (
+    "Id" uuid NOT NULL,
+    "UserId" uuid NULL,
+    "Action" text NOT NULL,
+    "EntityType" text NOT NULL,
+    "EntityId" uuid NOT NULL,
+    "Timestamp" timestamp with time zone NOT NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_AuditLogs" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_AuditLogs_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("Id") ON DELETE RESTRICT
+);
+2025-07-18 10:12:06,812 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveBalances" (
+    "Id" uuid NOT NULL,
+    "UserId" uuid NOT NULL,
+    "LeaveTypeId" uuid NOT NULL,
+    "TotalLeaves" integer NOT NULL,
+    "UsedLeaves" integer NOT NULL,
+    CONSTRAINT "PK_LeaveBalances" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_LeaveBalances_LeaveTypes_LeaveTypeId" FOREIGN KEY ("LeaveTypeId") REFERENCES "LeaveTypes" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_LeaveBalances_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+);
+2025-07-18 10:12:06,822 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveRequests" (
+    "Id" uuid NOT NULL,
+    "UserId" uuid NOT NULL,
+    "LeaveTypeId" uuid NOT NULL,
+    "StartDate" timestamp with time zone NOT NULL,
+    "EndDate" timestamp with time zone NOT NULL,
+    "Reason" text NOT NULL,
+    "Status" text NOT NULL,
+    "ReviewedById" uuid NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "UpdatedAt" timestamp with time zone NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_LeaveRequests" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_LeaveRequests_LeaveTypes_LeaveTypeId" FOREIGN KEY ("LeaveTypeId") REFERENCES "LeaveTypes" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_LeaveRequests_Users_ReviewedById" FOREIGN KEY ("ReviewedById") REFERENCES "Users" ("Id") ON DELETE RESTRICT,
+    CONSTRAINT "FK_LeaveRequests_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+);
+2025-07-18 10:12:06,825 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Notifications" (
+    "Id" uuid NOT NULL,
+    "RecipientId" uuid NOT NULL,
+    "Message" text NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "IsRead" boolean NOT NULL,
+    "ReadAt" timestamp with time zone NULL,
+    "ReviewedById" uuid NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_Notifications" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_Notifications_Users_RecipientId" FOREIGN KEY ("RecipientId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_Notifications_Users_ReviewedById" FOREIGN KEY ("ReviewedById") REFERENCES "Users" ("Id") ON DELETE RESTRICT
+);
+2025-07-18 10:12:06,828 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "RefreshTokens" (
+    "Id" uuid NOT NULL,
+    "Token" text NOT NULL,
+    "ExpiresAt" timestamp with time zone NOT NULL,
+    "IsRevoked" boolean NOT NULL,
+    "UserId" uuid NOT NULL,
+    CONSTRAINT "PK_RefreshTokens" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_RefreshTokens_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+);
+2025-07-18 10:12:06,837 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveAttachments" (
+    "Id" uuid NOT NULL,
+    "LeaveRequestId" uuid NOT NULL,
+    "FileName" text NOT NULL,
+    "FileContent" bytea NOT NULL,
+    "UploadedAt" timestamp with time zone NOT NULL,
+    "IsDeleted" boolean NOT NULL,
+    "DeletedAt" timestamp with time zone NULL,
+    CONSTRAINT "PK_LeaveAttachments" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_LeaveAttachments_LeaveRequests_LeaveRequestId" FOREIGN KEY ("LeaveRequestId") REFERENCES "LeaveRequests" ("Id") ON DELETE CASCADE
+);
+2025-07-18 10:12:06,840 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "LeaveRequestComments" (
+    "Id" uuid NOT NULL,
+    "LeaveRequestId" uuid NOT NULL,
+    "AdminId" uuid NOT NULL,
+    "Comment" text NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    CONSTRAINT "PK_LeaveRequestComments" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_LeaveRequestComments_LeaveRequests_LeaveRequestId" FOREIGN KEY ("LeaveRequestId") REFERENCES "LeaveRequests" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_LeaveRequestComments_Users_AdminId" FOREIGN KEY ("AdminId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+);
+2025-07-18 10:12:06,842 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_AuditLogs_UserId" ON "AuditLogs" ("UserId");
+2025-07-18 10:12:06,844 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveAttachments_LeaveRequestId" ON "LeaveAttachments" ("LeaveRequestId");
+2025-07-18 10:12:06,845 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveBalances_LeaveTypeId" ON "LeaveBalances" ("LeaveTypeId");
+2025-07-18 10:12:06,856 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveBalances_UserId" ON "LeaveBalances" ("UserId");
+2025-07-18 10:12:06,857 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequestComments_AdminId" ON "LeaveRequestComments" ("AdminId");
+2025-07-18 10:12:06,858 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequestComments_LeaveRequestId" ON "LeaveRequestComments" ("LeaveRequestId");
+2025-07-18 10:12:06,859 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequests_LeaveTypeId" ON "LeaveRequests" ("LeaveTypeId");
+2025-07-18 10:12:06,860 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequests_ReviewedById" ON "LeaveRequests" ("ReviewedById");
+2025-07-18 10:12:06,862 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_LeaveRequests_UserId" ON "LeaveRequests" ("UserId");
+2025-07-18 10:12:06,864 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_Notifications_RecipientId" ON "Notifications" ("RecipientId");
+2025-07-18 10:12:06,865 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_Notifications_ReviewedById" ON "Notifications" ("ReviewedById");
+2025-07-18 10:12:06,876 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_RefreshTokens_UserId" ON "RefreshTokens" ("UserId");
+2025-07-18 10:12:06,877 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Users_Email" ON "Users" ("Email");
+2025-07-18 10:12:06,878 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Users_Username" ON "Users" ("Username");
+2025-07-18 10:12:06,879 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250718044157_FirstMigration', '7.0.11');
+2025-07-18 10:14:00,151 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:14:00,166 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'LeaveRequestComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:14:00,166 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:14:00,522 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:14:00,531 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:14:00,548 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 10:14:00,565 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - No migrations were applied. The database is already up to date.
+2025-07-18 10:14:00,902 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-07-18 10:14:00,964 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5050
+2025-07-18 10:14:00,966 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-07-18 10:14:00,966 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-07-18 10:14:00,966 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem
+2025-07-18 10:16:34,277 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-07-18 10:16:41,330 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:16:41,339 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'LeaveRequestComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:16:41,339 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:16:42,077 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (45ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:16:42,104 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:16:42,121 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 10:16:42,140 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - No migrations were applied. The database is already up to date.
+2025-07-18 10:16:42,570 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-07-18 10:16:42,632 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5050
+2025-07-18 10:16:42,634 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-07-18 10:16:42,634 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-07-18 10:16:42,635 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem
+2025-07-18 10:18:39,349 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-07-18 10:18:45,851 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:18:45,857 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'LeaveRequestComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:18:45,857 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:18:46,311 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (40ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:18:46,345 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:18:46,366 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 10:18:46,388 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - No migrations were applied. The database is already up to date.
+2025-07-18 10:18:46,805 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-07-18 10:18:46,851 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5050
+2025-07-18 10:18:46,853 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-07-18 10:18:46,853 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-07-18 10:18:46,853 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem
+2025-07-18 10:18:59,237 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:48:59.2353120Z, Method: POST, Path: /api/v1/Users, User: Anonymous
+2025-07-18 10:18:59,373 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.UsersController - Creating new user.
+2025-07-18 10:18:59,998 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "Email", "Gender", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2025-07-18 10:19:00,362 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM "LeaveBalances" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+2025-07-18 10:19:00,378 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted")
+2025-07-18 10:19:33,825 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:49:33.8253580Z, Method: POST, Path: /api/v1/auth/login, User: Anonymous
+2025-07-18 10:19:33,859 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-07-18 10:19:34,316 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (19ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "RefreshTokens" ("Id", "ExpiresAt", "IsRevoked", "Token", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 10:19:34,317 [.NET TP Worker] INFO  LeaveManagementSystem.Services.AuthenticationService - User roovis2003@gmail.com logged in successfully
+2025-07-18 10:19:34,319 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User roovis2003@gmail.com logged in successfully.
+2025-07-18 10:20:12,831 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:50:12.8313330Z, Method: POST, Path: /api/v1/leavetypes, User: Roopan
+2025-07-18 10:20:12,842 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.LeaveTypeController - Creating new leave type.
+2025-07-18 10:20:12,882 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?', @p7='?' (DbType = Int32), @p8='?' (DbType = DateTime), @p9='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveTypes" ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "Description", "IsDeleted", "Name", "StandardLeaveCount", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2025-07-18 10:20:12,935 [.NET TP Worker] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (29ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-07-18 10:22:14,542 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:52:14.5425190Z, Method: POST, Path: /api/v1/auth/login, User: Anonymous
+2025-07-18 10:22:14,571 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-07-18 10:22:14,728 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "RefreshTokens" ("Id", "ExpiresAt", "IsRevoked", "Token", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 10:22:14,729 [.NET TP Worker] INFO  LeaveManagementSystem.Services.AuthenticationService - User roovis2003@gmail.com logged in successfully
+2025-07-18 10:22:14,729 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User roovis2003@gmail.com logged in successfully.
+2025-07-18 10:22:32,145 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-07-18 10:23:10,771 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:23:10,786 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'LeaveRequestComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:23:10,787 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:23:11,279 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:23:11,289 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:23:11,305 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 10:23:11,322 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - No migrations were applied. The database is already up to date.
+2025-07-18 10:23:11,708 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-07-18 10:23:11,766 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5050
+2025-07-18 10:23:11,769 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-07-18 10:23:11,769 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-07-18 10:23:11,769 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem
+2025-07-18 10:23:19,141 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:53:19.1398170Z, Method: POST, Path: /api/v1/auth/login, User: Anonymous
+2025-07-18 10:23:19,341 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-07-18 10:23:20,043 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "RefreshTokens" ("Id", "ExpiresAt", "IsRevoked", "Token", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 10:23:20,053 [.NET TP Worker] INFO  LeaveManagementSystem.Services.AuthenticationService - User roovis2003@gmail.com logged in successfully
+2025-07-18 10:23:20,060 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User roovis2003@gmail.com logged in successfully.
+2025-07-18 10:23:38,462 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:53:38.4623580Z, Method: GET, Path: /api/v1/Users, User: Roopan
+2025-07-18 10:23:38,472 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.UsersController - Fetching all users with pagination parameters.
+2025-07-18 10:23:38,477 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-07-18 10:24:13,593 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:54:13.5939770Z, Method: POST, Path: /api/v1/Users, User: Roopan
+2025-07-18 10:24:13,607 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.UsersController - Creating new user.
+2025-07-18 10:24:13,913 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "Email", "Gender", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2025-07-18 10:24:13,930 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM "LeaveBalances" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+2025-07-18 10:24:13,952 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted")
+2025-07-18 10:24:14,005 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveBalances" ("Id", "LeaveTypeId", "TotalLeaves", "UsedLeaves", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 10:24:14,052 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (24ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-07-18 10:24:34,768 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:54:34.7687930Z, Method: POST, Path: /api/v1/auth/login, User: Roopan
+2025-07-18 10:24:34,772 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-07-18 10:24:34,922 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "RefreshTokens" ("Id", "ExpiresAt", "IsRevoked", "Token", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 10:24:34,923 [.NET TP Worker] INFO  LeaveManagementSystem.Services.AuthenticationService - User empone@gmail.com logged in successfully
+2025-07-18 10:24:34,923 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User empone@gmail.com logged in successfully.
+2025-07-18 10:25:01,025 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:55:01.0250230Z, Method: GET, Path: /api/v1/leavetypes, User: Vishnu
+2025-07-18 10:25:01,033 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.LeaveTypeController - Fetching all leave types with pagination.
+2025-07-18 10:25:01,036 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted")
+2025-07-18 10:25:27,766 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:55:27.7662050Z, Method: POST, Path: /api/v1/leave-requests, User: Vishnu
+2025-07-18 10:25:27,777 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Creating new leave request.
+2025-07-18 10:25:27,820 [.NET TP Worker] WARN  Microsoft.EntityFrameworkCore.Query - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-18 10:25:27,834 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Description", t2."IsDeleted0", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted1", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0 AND NOT (u."IsDeleted")
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+LEFT JOIN (
+    SELECT l1."Id", l1."CreatedAt", l1."DeletedAt", l1."EndDate", l1."IsDeleted", l1."LeaveTypeId", l1."Reason", l1."ReviewedById", l1."StartDate", l1."Status", l1."UpdatedAt", l1."UserId", t3."Id" AS "Id0", t3."CreatedAt" AS "CreatedAt0", t3."CreatedBy", t3."DeletedAt" AS "DeletedAt0", t3."Description", t3."IsDeleted" AS "IsDeleted0", t3."Name", t3."StandardLeaveCount", t3."UpdatedAt" AS "UpdatedAt0", t3."UpdatedBy", t4."Id" AS "Id1", t4."CreatedAt" AS "CreatedAt1", t4."CreatedBy" AS "CreatedBy0", t4."DeletedAt" AS "DeletedAt1", t4."Email", t4."Gender", t4."IsActive", t4."IsDeleted" AS "IsDeleted1", t4."LastLoginAt", t4."PasswordHash", t4."Role", t4."Username"
+    FROM "LeaveRequests" AS l1
+    INNER JOIN (
+        SELECT l2."Id", l2."CreatedAt", l2."CreatedBy", l2."DeletedAt", l2."Description", l2."IsDeleted", l2."Name", l2."StandardLeaveCount", l2."UpdatedAt", l2."UpdatedBy"
+        FROM "LeaveTypes" AS l2
+        WHERE NOT (l2."IsDeleted")
+    ) AS t3 ON l1."LeaveTypeId" = t3."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t4 ON l1."ReviewedById" = t4."Id"
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON t."Id" = t2."UserId"
+ORDER BY t."Id", t0."Id", t0."Id0", t2."Id", t2."Id0"
+2025-07-18 10:25:27,848 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-07-18 10:25:27,852 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+LIMIT 1
+2025-07-18 10:25:27,855 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-07-18 10:25:27,895 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = Boolean), @p5='?' (DbType = Guid), @p6='?', @p7='?' (DbType = Guid), @p8='?' (DbType = DateTime), @p9='?', @p10='?' (DbType = DateTime), @p11='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveRequests" ("Id", "CreatedAt", "DeletedAt", "EndDate", "IsDeleted", "LeaveTypeId", "Reason", "ReviewedById", "StartDate", "Status", "UpdatedAt", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2025-07-18 10:25:27,915 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id2", t2."CreatedAt2", t2."CreatedBy1", t2."DeletedAt2", t2."Email0", t2."Gender0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedBy", t."DeletedAt" AS "DeletedAt0", t."Email", t."Gender", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedBy" AS "CreatedBy0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedBy", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedBy" AS "CreatedBy1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."Gender" AS "Gender0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-07-18 10:25:27,917 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-07-18 10:25:27,923 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-07-18 10:25:27,928 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Description", t2."IsDeleted0", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted1", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0 AND NOT (u."IsDeleted")
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+LEFT JOIN (
+    SELECT l1."Id", l1."CreatedAt", l1."DeletedAt", l1."EndDate", l1."IsDeleted", l1."LeaveTypeId", l1."Reason", l1."ReviewedById", l1."StartDate", l1."Status", l1."UpdatedAt", l1."UserId", t3."Id" AS "Id0", t3."CreatedAt" AS "CreatedAt0", t3."CreatedBy", t3."DeletedAt" AS "DeletedAt0", t3."Description", t3."IsDeleted" AS "IsDeleted0", t3."Name", t3."StandardLeaveCount", t3."UpdatedAt" AS "UpdatedAt0", t3."UpdatedBy", t4."Id" AS "Id1", t4."CreatedAt" AS "CreatedAt1", t4."CreatedBy" AS "CreatedBy0", t4."DeletedAt" AS "DeletedAt1", t4."Email", t4."Gender", t4."IsActive", t4."IsDeleted" AS "IsDeleted1", t4."LastLoginAt", t4."PasswordHash", t4."Role", t4."Username"
+    FROM "LeaveRequests" AS l1
+    INNER JOIN (
+        SELECT l2."Id", l2."CreatedAt", l2."CreatedBy", l2."DeletedAt", l2."Description", l2."IsDeleted", l2."Name", l2."StandardLeaveCount", l2."UpdatedAt", l2."UpdatedBy"
+        FROM "LeaveTypes" AS l2
+        WHERE NOT (l2."IsDeleted")
+    ) AS t3 ON l1."LeaveTypeId" = t3."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t4 ON l1."ReviewedById" = t4."Id"
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON t."Id" = t2."UserId"
+ORDER BY t."Id", t0."Id", t0."Id0", t2."Id", t2."Id0"
+2025-07-18 10:25:27,957 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Notifications" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsRead", "Message", "ReadAt", "RecipientId", "ReviewedById")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-07-18 10:25:45,841 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:55:45.8413950Z, Method: POST, Path: /api/v1/auth/login, User: Vishnu
+2025-07-18 10:25:45,845 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-07-18 10:25:45,990 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "RefreshTokens" ("Id", "ExpiresAt", "IsRevoked", "Token", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 10:25:45,990 [.NET TP Worker] INFO  LeaveManagementSystem.Services.AuthenticationService - User roovis2003@gmail.com logged in successfully
+2025-07-18 10:25:45,990 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User roovis2003@gmail.com logged in successfully.
+2025-07-18 10:26:12,874 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:56:12.8743490Z, Method: GET, Path: /api/v1/leave-requests, User: Roopan
+2025-07-18 10:26:12,892 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Fetching all leave requests with pagination, search, filter, sort parameters.
+2025-07-18 10:26:12,908 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-07-18 10:29:46,184 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T04:59:46.1842420Z, Method: PUT, Path: /api/v1/leave-requests/044d05c2-84f7-4808-bd1c-dde320081d53/status, User: Roopan
+2025-07-18 10:29:46,198 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Updating leave request status for ID: 044d05c2-84f7-4808-bd1c-dde320081d53 by approver ID: 0d1f064b-6d80-4978-a3db-f097e55ab15b
+2025-07-18 10:29:46,226 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id2", t2."CreatedAt2", t2."CreatedBy1", t2."DeletedAt2", t2."Email0", t2."Gender0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedBy", t."DeletedAt" AS "DeletedAt0", t."Email", t."Gender", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedBy" AS "CreatedBy0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedBy", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedBy" AS "CreatedBy1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."Gender" AS "Gender0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-07-18 10:29:46,233 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id2", t2."CreatedAt2", t2."CreatedBy1", t2."DeletedAt2", t2."Email0", t2."Gender0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedBy", t."DeletedAt" AS "DeletedAt0", t."Email", t."Gender", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedBy" AS "CreatedBy0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedBy", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedBy" AS "CreatedBy1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."Gender" AS "Gender0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-07-18 10:29:46,257 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+UPDATE "LeaveRequests" SET "ReviewedById" = @p0, "Status" = @p1, "UpdatedAt" = @p2
+WHERE "Id" = @p3;
+2025-07-18 10:29:46,260 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-07-18 10:29:46,264 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Description", t2."IsDeleted0", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted1", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0 AND NOT (u."IsDeleted")
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+LEFT JOIN (
+    SELECT l1."Id", l1."CreatedAt", l1."DeletedAt", l1."EndDate", l1."IsDeleted", l1."LeaveTypeId", l1."Reason", l1."ReviewedById", l1."StartDate", l1."Status", l1."UpdatedAt", l1."UserId", t3."Id" AS "Id0", t3."CreatedAt" AS "CreatedAt0", t3."CreatedBy", t3."DeletedAt" AS "DeletedAt0", t3."Description", t3."IsDeleted" AS "IsDeleted0", t3."Name", t3."StandardLeaveCount", t3."UpdatedAt" AS "UpdatedAt0", t3."UpdatedBy", t4."Id" AS "Id1", t4."CreatedAt" AS "CreatedAt1", t4."CreatedBy" AS "CreatedBy0", t4."DeletedAt" AS "DeletedAt1", t4."Email", t4."Gender", t4."IsActive", t4."IsDeleted" AS "IsDeleted1", t4."LastLoginAt", t4."PasswordHash", t4."Role", t4."Username"
+    FROM "LeaveRequests" AS l1
+    INNER JOIN (
+        SELECT l2."Id", l2."CreatedAt", l2."CreatedBy", l2."DeletedAt", l2."Description", l2."IsDeleted", l2."Name", l2."StandardLeaveCount", l2."UpdatedAt", l2."UpdatedBy"
+        FROM "LeaveTypes" AS l2
+        WHERE NOT (l2."IsDeleted")
+    ) AS t3 ON l1."LeaveTypeId" = t3."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t4 ON l1."ReviewedById" = t4."Id"
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON t."Id" = t2."UserId"
+ORDER BY t."Id", t0."Id", t0."Id0", t2."Id", t2."Id0"
+2025-07-18 10:29:46,269 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Notifications" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsRead", "Message", "ReadAt", "RecipientId", "ReviewedById")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-07-18 10:29:46,273 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-07-18 10:29:46,277 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Description", t2."IsDeleted0", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted1", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0 AND NOT (u."IsDeleted")
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+LEFT JOIN (
+    SELECT l1."Id", l1."CreatedAt", l1."DeletedAt", l1."EndDate", l1."IsDeleted", l1."LeaveTypeId", l1."Reason", l1."ReviewedById", l1."StartDate", l1."Status", l1."UpdatedAt", l1."UserId", t3."Id" AS "Id0", t3."CreatedAt" AS "CreatedAt0", t3."CreatedBy", t3."DeletedAt" AS "DeletedAt0", t3."Description", t3."IsDeleted" AS "IsDeleted0", t3."Name", t3."StandardLeaveCount", t3."UpdatedAt" AS "UpdatedAt0", t3."UpdatedBy", t4."Id" AS "Id1", t4."CreatedAt" AS "CreatedAt1", t4."CreatedBy" AS "CreatedBy0", t4."DeletedAt" AS "DeletedAt1", t4."Email", t4."Gender", t4."IsActive", t4."IsDeleted" AS "IsDeleted1", t4."LastLoginAt", t4."PasswordHash", t4."Role", t4."Username"
+    FROM "LeaveRequests" AS l1
+    INNER JOIN (
+        SELECT l2."Id", l2."CreatedAt", l2."CreatedBy", l2."DeletedAt", l2."Description", l2."IsDeleted", l2."Name", l2."StandardLeaveCount", l2."UpdatedAt", l2."UpdatedBy"
+        FROM "LeaveTypes" AS l2
+        WHERE NOT (l2."IsDeleted")
+    ) AS t3 ON l1."LeaveTypeId" = t3."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t4 ON l1."ReviewedById" = t4."Id"
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON t."Id" = t2."UserId"
+ORDER BY t."Id", t0."Id", t0."Id0", t2."Id", t2."Id0"
+2025-07-18 10:29:46,281 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Description", t2."IsDeleted0", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted1", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0 AND NOT (u."IsDeleted")
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+LEFT JOIN (
+    SELECT l1."Id", l1."CreatedAt", l1."DeletedAt", l1."EndDate", l1."IsDeleted", l1."LeaveTypeId", l1."Reason", l1."ReviewedById", l1."StartDate", l1."Status", l1."UpdatedAt", l1."UserId", t3."Id" AS "Id0", t3."CreatedAt" AS "CreatedAt0", t3."CreatedBy", t3."DeletedAt" AS "DeletedAt0", t3."Description", t3."IsDeleted" AS "IsDeleted0", t3."Name", t3."StandardLeaveCount", t3."UpdatedAt" AS "UpdatedAt0", t3."UpdatedBy", t4."Id" AS "Id1", t4."CreatedAt" AS "CreatedAt1", t4."CreatedBy" AS "CreatedBy0", t4."DeletedAt" AS "DeletedAt1", t4."Email", t4."Gender", t4."IsActive", t4."IsDeleted" AS "IsDeleted1", t4."LastLoginAt", t4."PasswordHash", t4."Role", t4."Username"
+    FROM "LeaveRequests" AS l1
+    INNER JOIN (
+        SELECT l2."Id", l2."CreatedAt", l2."CreatedBy", l2."DeletedAt", l2."Description", l2."IsDeleted", l2."Name", l2."StandardLeaveCount", l2."UpdatedAt", l2."UpdatedBy"
+        FROM "LeaveTypes" AS l2
+        WHERE NOT (l2."IsDeleted")
+    ) AS t3 ON l1."LeaveTypeId" = t3."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t4 ON l1."ReviewedById" = t4."Id"
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON t."Id" = t2."UserId"
+ORDER BY t."Id", t0."Id", t0."Id0", t2."Id", t2."Id0"
+2025-07-18 10:29:46,283 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Notifications" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsRead", "Message", "ReadAt", "RecipientId", "ReviewedById")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-07-18 10:30:44,347 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-07-18 10:30:52,633 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'LeaveType' has a global query filter defined and is the required end of a relationship with the entity 'LeaveBalance'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:30:52,642 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'LeaveRequestComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:30:52,642 [1] WARN  Microsoft.EntityFrameworkCore.Model.Validation - Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-07-18 10:30:53,071 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (35ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:30:53,085 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-07-18 10:30:53,119 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 10:30:53,151 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - No migrations were applied. The database is already up to date.
+2025-07-18 10:30:53,683 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-07-18 10:30:53,737 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5050
+2025-07-18 10:30:53,739 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-07-18 10:30:53,739 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-07-18 10:30:53,739 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem
+2025-07-18 10:31:35,061 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T05:01:35.0601400Z, Method: POST, Path: /api/v1/auth/login, User: Anonymous
+2025-07-18 10:31:35,258 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-07-18 10:31:35,857 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "RefreshTokens" ("Id", "ExpiresAt", "IsRevoked", "Token", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 10:31:35,867 [.NET TP Worker] INFO  LeaveManagementSystem.Services.AuthenticationService - User roovis2003@gmail.com logged in successfully
+2025-07-18 10:31:35,876 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User roovis2003@gmail.com logged in successfully.
+2025-07-18 10:32:13,803 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T05:02:13.8032680Z, Method: POST, Path: /api/v1/Users, User: Roopan
+2025-07-18 10:32:13,818 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.UsersController - Creating new user.
+2025-07-18 10:32:14,108 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime), @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "Email", "Gender", "IsActive", "IsDeleted", "LastLoginAt", "PasswordHash", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2025-07-18 10:32:14,129 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM "LeaveBalances" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+2025-07-18 10:32:14,148 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."CreatedBy", l."DeletedAt", l."Description", l."IsDeleted", l."Name", l."StandardLeaveCount", l."UpdatedAt", l."UpdatedBy"
+FROM "LeaveTypes" AS l
+WHERE NOT (l."IsDeleted")
+2025-07-18 10:32:14,166 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveBalances" ("Id", "LeaveTypeId", "TotalLeaves", "UsedLeaves", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 10:32:14,214 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-07-18 10:32:30,907 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T05:02:30.9073560Z, Method: POST, Path: /api/v1/auth/login, User: Roopan
+2025-07-18 10:32:30,921 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+FROM "Users" AS u
+WHERE NOT (u."IsDeleted")
+2025-07-18 10:32:31,076 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "RefreshTokens" ("Id", "ExpiresAt", "IsRevoked", "Token", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 10:32:31,077 [.NET TP Worker] INFO  LeaveManagementSystem.Services.AuthenticationService - User admin@gmail.com logged in successfully
+2025-07-18 10:32:31,077 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.AuthenticationController - User admin@gmail.com logged in successfully.
+2025-07-18 10:32:53,147 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T05:02:53.1470100Z, Method: GET, Path: /api/v1/leave-requests, User: Admin
+2025-07-18 10:32:53,156 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Fetching all leave requests with pagination, search, filter, sort parameters.
+2025-07-18 10:32:53,166 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-07-18 10:33:29,082 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T05:03:29.0824230Z, Method: PUT, Path: /api/v1/leave-requests/044d05c2-84f7-4808-bd1c-dde320081d53/admin-override, User: Admin
+2025-07-18 10:33:29,157 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (19ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id2", t2."CreatedAt2", t2."CreatedBy1", t2."DeletedAt2", t2."Email0", t2."Gender0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedBy", t."DeletedAt" AS "DeletedAt0", t."Email", t."Gender", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedBy" AS "CreatedBy0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedBy", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedBy" AS "CreatedBy1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."Gender" AS "Gender0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-07-18 10:33:29,161 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM "LeaveBalances" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+2025-07-18 10:33:29,175 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy"
+FROM "LeaveBalances" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+WHERE l."Id" = @__key_0
+LIMIT 1
+2025-07-18 10:33:29,209 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?' (DbType = Int32), @p5='?' (DbType = Guid), @p2='?' (DbType = Guid), @p3='?', @p4='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+UPDATE "LeaveBalances" SET "UsedLeaves" = @p0
+WHERE "Id" = @p1;
+UPDATE "LeaveRequests" SET "ReviewedById" = @p2, "Status" = @p3, "UpdatedAt" = @p4
+WHERE "Id" = @p5;
+2025-07-18 10:33:29,225 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted0", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Description", t2."IsDeleted1", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id2", t2."CreatedAt2", t2."CreatedBy1", t2."DeletedAt2", t2."Email0", t2."Gender0", t2."IsActive0", t2."IsDeleted2", t2."LastLoginAt0", t2."PasswordHash0", t2."Role0", t2."Username0", t3."Id", t3."DeletedAt", t3."FileContent", t3."FileName", t3."IsDeleted", t3."LeaveRequestId", t3."UploadedAt"
+FROM (
+    SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id" AS "Id0", t."CreatedAt" AS "CreatedAt0", t."CreatedBy", t."DeletedAt" AS "DeletedAt0", t."Email", t."Gender", t."IsActive", t."IsDeleted" AS "IsDeleted0", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id" AS "Id1", t0."CreatedAt" AS "CreatedAt1", t0."CreatedBy" AS "CreatedBy0", t0."DeletedAt" AS "DeletedAt1", t0."Description", t0."IsDeleted" AS "IsDeleted1", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt" AS "UpdatedAt0", t0."UpdatedBy", t1."Id" AS "Id2", t1."CreatedAt" AS "CreatedAt2", t1."CreatedBy" AS "CreatedBy1", t1."DeletedAt" AS "DeletedAt2", t1."Email" AS "Email0", t1."Gender" AS "Gender0", t1."IsActive" AS "IsActive0", t1."IsDeleted" AS "IsDeleted2", t1."LastLoginAt" AS "LastLoginAt0", t1."PasswordHash" AS "PasswordHash0", t1."Role" AS "Role0", t1."Username" AS "Username0"
+    FROM "LeaveRequests" AS l
+    INNER JOIN (
+        SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+        FROM "Users" AS u
+        WHERE NOT (u."IsDeleted")
+    ) AS t ON l."UserId" = t."Id"
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t0 ON l."LeaveTypeId" = t0."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t1 ON l."ReviewedById" = t1."Id"
+    WHERE NOT (l."IsDeleted") AND l."Id" = @__key_0
+    LIMIT 1
+) AS t2
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t3 ON t2."Id" = t3."LeaveRequestId"
+ORDER BY t2."Id", t2."Id0", t2."Id1", t2."Id2"
+2025-07-18 10:33:29,258 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (18ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "LeaveRequestComments" ("Id", "AdminId", "Comment", "CreatedAt", "LeaveRequestId")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 10:33:29,263 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Id", "Action", "DeletedAt", "EntityId", "EntityType", "IsDeleted", "Timestamp", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-07-18 10:33:29,288 [.NET TP Worker] WARN  Microsoft.EntityFrameworkCore.Query - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-18 10:33:29,305 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (12ms) [Parameters=[@__key_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."LeaveTypeId", t0."TotalLeaves", t0."UsedLeaves", t0."UserId", t0."Id0", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t2."Id", t2."CreatedAt", t2."DeletedAt", t2."EndDate", t2."IsDeleted", t2."LeaveTypeId", t2."Reason", t2."ReviewedById", t2."StartDate", t2."Status", t2."UpdatedAt", t2."UserId", t2."Id0", t2."CreatedAt0", t2."CreatedBy", t2."DeletedAt0", t2."Description", t2."IsDeleted0", t2."Name", t2."StandardLeaveCount", t2."UpdatedAt0", t2."UpdatedBy", t2."Id1", t2."CreatedAt1", t2."CreatedBy0", t2."DeletedAt1", t2."Email", t2."Gender", t2."IsActive", t2."IsDeleted1", t2."LastLoginAt", t2."PasswordHash", t2."Role", t2."Username"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted") AND u."Id" = @__key_0 AND NOT (u."IsDeleted")
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l."Id", l."LeaveTypeId", l."TotalLeaves", l."UsedLeaves", l."UserId", t1."Id" AS "Id0", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Description", t1."IsDeleted", t1."Name", t1."StandardLeaveCount", t1."UpdatedAt", t1."UpdatedBy"
+    FROM "LeaveBalances" AS l
+    INNER JOIN (
+        SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+        FROM "LeaveTypes" AS l0
+        WHERE NOT (l0."IsDeleted")
+    ) AS t1 ON l."LeaveTypeId" = t1."Id"
+) AS t0 ON t."Id" = t0."UserId"
+LEFT JOIN (
+    SELECT l1."Id", l1."CreatedAt", l1."DeletedAt", l1."EndDate", l1."IsDeleted", l1."LeaveTypeId", l1."Reason", l1."ReviewedById", l1."StartDate", l1."Status", l1."UpdatedAt", l1."UserId", t3."Id" AS "Id0", t3."CreatedAt" AS "CreatedAt0", t3."CreatedBy", t3."DeletedAt" AS "DeletedAt0", t3."Description", t3."IsDeleted" AS "IsDeleted0", t3."Name", t3."StandardLeaveCount", t3."UpdatedAt" AS "UpdatedAt0", t3."UpdatedBy", t4."Id" AS "Id1", t4."CreatedAt" AS "CreatedAt1", t4."CreatedBy" AS "CreatedBy0", t4."DeletedAt" AS "DeletedAt1", t4."Email", t4."Gender", t4."IsActive", t4."IsDeleted" AS "IsDeleted1", t4."LastLoginAt", t4."PasswordHash", t4."Role", t4."Username"
+    FROM "LeaveRequests" AS l1
+    INNER JOIN (
+        SELECT l2."Id", l2."CreatedAt", l2."CreatedBy", l2."DeletedAt", l2."Description", l2."IsDeleted", l2."Name", l2."StandardLeaveCount", l2."UpdatedAt", l2."UpdatedBy"
+        FROM "LeaveTypes" AS l2
+        WHERE NOT (l2."IsDeleted")
+    ) AS t3 ON l1."LeaveTypeId" = t3."Id"
+    LEFT JOIN (
+        SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+        FROM "Users" AS u0
+        WHERE NOT (u0."IsDeleted")
+    ) AS t4 ON l1."ReviewedById" = t4."Id"
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON t."Id" = t2."UserId"
+ORDER BY t."Id", t0."Id", t0."Id0", t2."Id", t2."Id0"
+2025-07-18 10:33:29,332 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Notifications" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsRead", "Message", "ReadAt", "RecipientId", "ReviewedById")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-07-18 10:34:02,000 [.NET TP Worker] INFO  LeaveManagementSystem.Middlewares.ExceptionHandlingMiddleware - [Incoming Request] Timestamp: 2025-07-18T05:04:02.0007250Z, Method: GET, Path: /api/v1/leave-requests, User: Admin
+2025-07-18 10:34:02,009 [.NET TP Worker] INFO  LeaveManagementSystem.Controllers.LeaveRequestController - Fetching all leave requests with pagination, search, filter, sort parameters.
+2025-07-18 10:34:02,011 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT l."Id", l."CreatedAt", l."DeletedAt", l."EndDate", l."IsDeleted", l."LeaveTypeId", l."Reason", l."ReviewedById", l."StartDate", l."Status", l."UpdatedAt", l."UserId", t."Id", t."CreatedAt", t."CreatedBy", t."DeletedAt", t."Email", t."Gender", t."IsActive", t."IsDeleted", t."LastLoginAt", t."PasswordHash", t."Role", t."Username", t0."Id", t0."CreatedAt", t0."CreatedBy", t0."DeletedAt", t0."Description", t0."IsDeleted", t0."Name", t0."StandardLeaveCount", t0."UpdatedAt", t0."UpdatedBy", t1."Id", t1."CreatedAt", t1."CreatedBy", t1."DeletedAt", t1."Email", t1."Gender", t1."IsActive", t1."IsDeleted", t1."LastLoginAt", t1."PasswordHash", t1."Role", t1."Username", t2."Id", t2."DeletedAt", t2."FileContent", t2."FileName", t2."IsDeleted", t2."LeaveRequestId", t2."UploadedAt"
+FROM "LeaveRequests" AS l
+INNER JOIN (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."Email", u."Gender", u."IsActive", u."IsDeleted", u."LastLoginAt", u."PasswordHash", u."Role", u."Username"
+    FROM "Users" AS u
+    WHERE NOT (u."IsDeleted")
+) AS t ON l."UserId" = t."Id"
+INNER JOIN (
+    SELECT l0."Id", l0."CreatedAt", l0."CreatedBy", l0."DeletedAt", l0."Description", l0."IsDeleted", l0."Name", l0."StandardLeaveCount", l0."UpdatedAt", l0."UpdatedBy"
+    FROM "LeaveTypes" AS l0
+    WHERE NOT (l0."IsDeleted")
+) AS t0 ON l."LeaveTypeId" = t0."Id"
+LEFT JOIN (
+    SELECT u0."Id", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."Email", u0."Gender", u0."IsActive", u0."IsDeleted", u0."LastLoginAt", u0."PasswordHash", u0."Role", u0."Username"
+    FROM "Users" AS u0
+    WHERE NOT (u0."IsDeleted")
+) AS t1 ON l."ReviewedById" = t1."Id"
+LEFT JOIN (
+    SELECT l1."Id", l1."DeletedAt", l1."FileContent", l1."FileName", l1."IsDeleted", l1."LeaveRequestId", l1."UploadedAt"
+    FROM "LeaveAttachments" AS l1
+    WHERE NOT (l1."IsDeleted")
+) AS t2 ON l."Id" = t2."LeaveRequestId"
+WHERE NOT (l."IsDeleted")
+ORDER BY l."Id", t."Id", t0."Id", t1."Id"
+2025-07-18 14:44:22,670 [.NET Signal Handler] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...

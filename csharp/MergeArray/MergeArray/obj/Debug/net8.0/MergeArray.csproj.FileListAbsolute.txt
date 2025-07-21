@@ -1,0 +1,14 @@
+D:\cSharp\Practice\MergeArray\MergeArray\bin\Debug\net8.0\MergeArray.exe
+D:\cSharp\Practice\MergeArray\MergeArray\bin\Debug\net8.0\MergeArray.deps.json
+D:\cSharp\Practice\MergeArray\MergeArray\bin\Debug\net8.0\MergeArray.runtimeconfig.json
+D:\cSharp\Practice\MergeArray\MergeArray\bin\Debug\net8.0\MergeArray.dll
+D:\cSharp\Practice\MergeArray\MergeArray\bin\Debug\net8.0\MergeArray.pdb
+D:\cSharp\Practice\MergeArray\MergeArray\obj\Debug\net8.0\MergeArray.GeneratedMSBuildEditorConfig.editorconfig
+D:\cSharp\Practice\MergeArray\MergeArray\obj\Debug\net8.0\MergeArray.AssemblyInfoInputs.cache
+D:\cSharp\Practice\MergeArray\MergeArray\obj\Debug\net8.0\MergeArray.AssemblyInfo.cs
+D:\cSharp\Practice\MergeArray\MergeArray\obj\Debug\net8.0\MergeArray.csproj.CoreCompileInputs.cache
+D:\cSharp\Practice\MergeArray\MergeArray\obj\Debug\net8.0\MergeArray.dll
+D:\cSharp\Practice\MergeArray\MergeArray\obj\Debug\net8.0\refint\MergeArray.dll
+D:\cSharp\Practice\MergeArray\MergeArray\obj\Debug\net8.0\MergeArray.pdb
+D:\cSharp\Practice\MergeArray\MergeArray\obj\Debug\net8.0\MergeArray.genruntimeconfig.cache
+D:\cSharp\Practice\MergeArray\MergeArray\obj\Debug\net8.0\ref\MergeArray.dll

@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\bin\Debug\net8.0\DependencyInversionPrinciple.exe
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\bin\Debug\net8.0\DependencyInversionPrinciple.deps.json
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\bin\Debug\net8.0\DependencyInversionPrinciple.runtimeconfig.json
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\bin\Debug\net8.0\DependencyInversionPrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\bin\Debug\net8.0\DependencyInversionPrinciple.pdb
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\obj\Debug\net8.0\DependencyInversionPrinciple.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\obj\Debug\net8.0\DependencyInversionPrinciple.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\obj\Debug\net8.0\DependencyInversionPrinciple.AssemblyInfo.cs
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\obj\Debug\net8.0\DependencyInversionPrinciple.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\obj\Debug\net8.0\DependencyInversionPrinciple.sourcelink.json
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\obj\Debug\net8.0\DependencyInversionPrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\obj\Debug\net8.0\refint\DependencyInversionPrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\obj\Debug\net8.0\DependencyInversionPrinciple.pdb
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\obj\Debug\net8.0\DependencyInversionPrinciple.genruntimeconfig.cache
+D:\GensparkTraining\Training\22-05\SOLID\DependencyInversionPrinciple\DependencyInversionPrinciple\obj\Debug\net8.0\ref\DependencyInversionPrinciple.dll

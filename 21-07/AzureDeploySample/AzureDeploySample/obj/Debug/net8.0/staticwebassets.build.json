@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "JOQYXvo/AXbzx159H/8xXbQUQgdO+7kRfGpbJu8yTPQ=",
+  "Source": "AzureDeploySample",
+  "BasePath": "_content/AzureDeploySample",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,133 @@
+<div class="p-4 md:p-6 bg-[#fef8f4] min-h-screen space-y-12 text-gray-800">
+
+  <!--  YOUR LEAVE BALANCE -->
+  <section>
+    <h2 class="text-2xl font-bold text-[#006f6d] mb-4 border-b pb-2 text-center">
+      <i class="fas fa-user-circle mr-2 text-[#006f6d]"></i>Your Leave Balance
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div *ngFor="let item of balances" class="bg-white shadow-sm p-4 rounded-lg border border-[#cce5e4]">
+        <h3 class="text-lg font-semibold text-[#006f6d]">
+          <i class="fas fa-calendar-alt mr-2 text-[#006f6d]"></i>{{ item.leaveTypeName }}
+        </h3>
+        <p class="text-sm text-gray-700 mt-2">Remaining: <strong>{{ item.remainingLeaves }}</strong></p>
+        <p class="text-sm text-gray-500">Total Allowed: {{ item.totalLeaves }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!--  HR VIEW & CONTROLS -->
+  <section *ngIf="isAdminOrHR()" class="space-y-8">
+    <h2 class="text-2xl font-bold text-[#006f6d] border-b pb-2 text-center">
+      <i class="fas fa-tools mr-2"></i>HR View & Controls
+    </h2>
+
+    <!--  View User Balance -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#cce5e4] p-5">
+      <h3 class="text-lg font-semibold text-[#006f6d] mb-3">
+        <i class="fas fa-user-friends mr-2"></i>View User Leave Balance
+      </h3>
+      <div class="flex flex-wrap gap-3 items-center">
+        <select [(ngModel)]="selectedUserIdForView" class="border px-4 py-2 rounded shadow-sm bg-white">
+          <option value="">-- Select User --</option>
+          <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
+        </select>
+        <button (click)="viewOtherUserBalance()" class="bg-[#cce5e4] text-[#006f6d] px-4 py-2 rounded hover:bg-[#b3dcd8]">
+          <i class="fas fa-eye mr-1"></i>View
+        </button>
+      </div>
+      <div *ngIf="selectedUserBalance" class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div *ngFor="let item of selectedUserBalance" class="border border-[#cce5e4] p-4 rounded bg-gray-50">
+          <h4 class="text-[#006f6d] font-semibold">
+            <i class="fas fa-calendar-check mr-2"></i>{{ item.leaveTypeName }}
+          </h4>
+          <p>Remaining: {{ item.remainingLeaves }}</p>
+          <p>Total: {{ item.totalLeaves }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Initialize All -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#cce5e4] p-5">
+      <h3 class="text-lg font-semibold text-[#006f6d] mb-3">
+        <i class="fas fa-cogs mr-2"></i>Initialize All Leave Types
+      </h3>
+      <div class="flex flex-wrap gap-3 items-center">
+        <select [(ngModel)]="selectedUserIdForInit" class="border px-4 py-2 rounded shadow-sm bg-white">
+          <option value="">-- Select User --</option>
+          <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
+        </select>
+        <button (click)="initializeBalance()" class="bg-[#d1f7e3] text-[#006f6d] px-4 py-2 rounded hover:bg-[#bff0d6]">
+          <i class="fas fa-sync-alt mr-1"></i>Initialize All
+        </button>
+      </div>
+    </div>
+
+    <!-- Initialize Specific Type -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#cce5e4] p-5">
+      <h3 class="text-lg font-semibold text-[#006f6d] mb-3">
+        <i class="fas fa-plus-circle mr-2"></i>Initialize Specific Leave Type
+      </h3>
+      <div class="flex flex-wrap gap-3 items-center">
+        <select [(ngModel)]="selectedUserIdForTypeInit" class="border px-4 py-2 rounded shadow-sm bg-white">
+          <option value="">-- User --</option>
+          <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
+        </select>
+
+        <select [(ngModel)]="selectedLeaveTypeIdForTypeInit" class="border px-4 py-2 rounded shadow-sm bg-white">
+          <option value="">-- Leave Type --</option>
+          <option *ngFor="let lt of leaveTypes" [value]="lt.id">{{ lt.name }}</option>
+        </select>
+
+        <input type="number" [(ngModel)]="standardLeaveCountForTypeInit" placeholder="Standard Count"
+          class="border px-4 py-2 w-36 rounded shadow-sm bg-white" />
+
+        <button (click)="initializeTypeBalance()" class="bg-[#e0e7ff] text-[#006f6d] px-4 py-2 rounded hover:bg-[#cdd7fb]">
+          <i class="fas fa-plus mr-1"></i>Initialize
+        </button>
+      </div>
+    </div>
+
+    <!--  Reset -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#cce5e4] p-5">
+      <h3 class="text-lg font-semibold text-[#006f6d] mb-3">
+        <i class="fas fa-redo-alt mr-2"></i>Reset Leave Balances
+      </h3>
+      <div class="flex flex-wrap gap-3 items-center">
+        <select [(ngModel)]="selectedUserIdForReset" class="border px-4 py-2 rounded shadow-sm bg-white">
+          <option value="">-- Select User --</option>
+          <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
+        </select>
+        <button (click)="resetBalance()" class="bg-[#fcdede] text-[#006f6d] px-4 py-2 rounded hover:bg-[#f8cfcf]">
+          <i class="fas fa-undo mr-1"></i>Reset
+        </button>
+      </div>
+    </div>
+
+    <!--  Deduct -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#cce5e4] p-5">
+      <h3 class="text-lg font-semibold text-[#006f6d] mb-3">
+        <i class="fas fa-minus-circle mr-2"></i>Deduct Leave
+      </h3>
+      <div class="flex flex-wrap gap-3 items-center">
+        <select [(ngModel)]="selectedUserIdForDeduct" class="border px-4 py-2 rounded shadow-sm bg-white">
+          <option value="">-- User --</option>
+          <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
+        </select>
+
+        <select [(ngModel)]="deductLeaveTypeId" class="border px-4 py-2 rounded shadow-sm bg-white">
+          <option value="">-- Leave Type --</option>
+          <option *ngFor="let lt of leaveTypes" [value]="lt.id">{{ lt.name }}</option>
+        </select>
+
+        <input type="number" [(ngModel)]="deductDays" min="1"
+          class="border px-4 py-2 w-20 rounded shadow-sm bg-white" />
+
+        <button (click)="deductLeave()" class="bg-[#fef9c3] text-[#006f6d] px-4 py-2 rounded hover:bg-[#fef08a]">
+          <i class="fas fa-minus mr-1"></i>Deduct
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div>

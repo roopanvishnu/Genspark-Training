@@ -1,0 +1,43 @@
+:host {
+  padding : 1rem;
+  background : #f0f4f8;
+  font-family: Arial , sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #333;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow-x: auto;
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 29px rgba(15, 15, 15, 0.2);
+  }
+}
+

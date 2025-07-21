@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TaskHub Realtime Dashboard</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      background: #f9fafb;
+    }
+    h1 {
+      color: #333;
+    }
+    #log {
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      max-width: 600px;
+    }
+    .event {
+      margin-bottom: 10px;
+      padding: 8px;
+      background: #eef;
+      border-left: 4px solid #3366cc;
+    }
+    .event.task-updated { border-left-color: #33cc66; }
+    .event.task-assigned { border-left-color: #cc6633; }
+  </style>
+</head>
+<body>
+
+  <h1>📡 TaskHub Realtime Updates</h1>
+  <div id="log">Connecting to TaskHub...</div>
+
+  <script>
+    const logDiv = document.getElementById("log");
+
+    function logEvent(content, type = "") {
+      const div = document.createElement("div");
+      div.className = `event ${type}`;
+      div.innerHTML = content;
+      logDiv.appendChild(div);
+    }
+
+    const connection = new signalR.HubConnectionBuilder()
+      .withUrl("https://localhost:7120/hubs/tasks", { withCredentials: true })
+      //.withAutomaticReconnect() // Optional: enable only if needed
+      .build();
+
+    connection.on("taskCreated", data => {
+      logEvent(`🆕 <strong>Task Created:</strong> <br>📝 Title: ${data.title}<br>🆔 ID: ${data.taskId}`);
+    });
+
+    connection.on("taskUpdated", data => {
+      logEvent(`🔄 <strong>Task Updated:</strong> <br>🆔 ID: ${data.taskId}<br>📌 Status: ${data.status}`, "task-updated");
+    });
+
+    connection.on("taskAssigned", data => {
+      logEvent(`👤 <strong>Task Assigned:</strong><br>📛 Assignee: ${data.assignee}<br>🆔 Task ID: ${data.taskId}`, "task-assigned");
+    });
+
+    // Optional: if you're using bulk broadcast
+    connection.on("tasksBroadcast", data => {
+      logEvent(`📢 <strong>Bulk Task Broadcasted:</strong><br>🆔 Original ID: ${data.originalTaskId}<br>📝 Title: ${data.title}<br>📦 Assigned to ${data.assignedCount} users`);
+    });
+
+    connection.onreconnecting(error => {
+      logEvent(`⚠️ Reconnecting...`, "reconnecting");
+      console.warn("Reconnecting...", error);
+    });
+
+    connection.onreconnected(connectionId => {
+      logEvent(`✅ Reconnected! Connection ID: ${connectionId}`, "reconnected");
+      console.log("Reconnected:", connectionId);
+    });
+
+    connection.onclose(error => {
+      logEvent(`❌ Connection closed.`, "closed");
+      console.error("Connection closed:", error);
+    });
+
+    connection.start()
+      .then(() => {
+        logEvent("✅ Connected to TaskHub", "connected");
+        console.log("Connected to TaskHub");
+      })
+      .catch(err => {
+        logEvent(`❌ Connection failed: ${err}`, "error");
+        console.error("Connection failed:", err);
+      });
+  </script>
+</body>
+</html>

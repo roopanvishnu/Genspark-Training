@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Async JS Examples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    h1 {
+      color: #333;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Async JavaScript Demo</h1>
+  <button onclick="getUsersCallback()">Callback</button>
+  <button onclick="getUsersPromise()">Promise</button>
+  <button onclick="getUsersAsync()">Async/Await</button>
+
+  <div class="output" id="output"></div>
+
+  <script>
+    const usersDB = [
+      { id: 1, name: "Roopan" },
+      { id: 2, name: "Vishnu" },
+      { id: 3, name: "Tarun" },
+      { id: 4, name: "Vijaay"}
+    ];
+
+    // Callback version
+    function fetchUsersCallback(cb) {
+      setTimeout(() => {
+        cb(usersDB);
+      }, 5000);
+    }
+
+    function getUsersCallback() {
+      fetchUsersCallback((users) => {
+        document.getElementById("output").innerText = "Callback: " + JSON.stringify(users, null, 2);
+      });
+    } 
+
+    function fetchUsersPromise() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(usersDB);
+        }, 5000);
+      });
+    }
+
+    function getUsersPromise() {
+      fetchUsersPromise().then(users => {
+        document.getElementById("output").innerText = "Promise: " + JSON.stringify(users, null, 2);
+      });
+    }
+
+    // Async/Await version
+    async function fetchUsersAsync() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(usersDB);
+        }, 5000);
+      });
+    }
+
+    async function getUsersAsync() {
+      const users = await fetchUsersAsync();
+      document.getElementById("output").innerText = "Async/Await: " + JSON.stringify(users, null, 2);
+    }
+  </script>
+</body>
+</html>

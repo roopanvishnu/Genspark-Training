@@ -1,0 +1,15 @@
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\bin\Debug\net8.0\OpenClosePrinciple.exe
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\bin\Debug\net8.0\OpenClosePrinciple.deps.json
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\bin\Debug\net8.0\OpenClosePrinciple.runtimeconfig.json
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\bin\Debug\net8.0\OpenClosePrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\bin\Debug\net8.0\OpenClosePrinciple.pdb
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\obj\Debug\net8.0\OpenClosePrinciple.GeneratedMSBuildEditorConfig.editorconfig
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\obj\Debug\net8.0\OpenClosePrinciple.AssemblyInfoInputs.cache
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\obj\Debug\net8.0\OpenClosePrinciple.AssemblyInfo.cs
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\obj\Debug\net8.0\OpenClosePrinciple.csproj.CoreCompileInputs.cache
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\obj\Debug\net8.0\OpenClosePrinciple.sourcelink.json
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\obj\Debug\net8.0\OpenClosePrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\obj\Debug\net8.0\refint\OpenClosePrinciple.dll
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\obj\Debug\net8.0\OpenClosePrinciple.pdb
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\obj\Debug\net8.0\OpenClosePrinciple.genruntimeconfig.cache
+D:\GensparkTraining\Training\22-05\SOLID\OpenClosePrinciple\OpenClosePrinciple\obj\Debug\net8.0\ref\OpenClosePrinciple.dll

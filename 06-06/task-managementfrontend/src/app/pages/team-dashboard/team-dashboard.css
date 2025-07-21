@@ -1,0 +1,99 @@
+.my-tasks-title {
+  text-align: center;
+  color: #007acc;
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.empty-message {
+  text-align: center;
+  color: #777;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+.task-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  border-radius: 12px;
+  max-width: 700px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #007acc;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.task-card h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.task-card p {
+  margin: 0.3rem 0;
+  color: #444;
+}
+
+.update-box {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  background-color: #f4f8fc;
+  border: 1px solid #cce4f7;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.update-box label {
+  font-weight: 500;
+  color: #333;
+}
+
+.update-box select,
+.update-box textarea {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.update-box select:focus,
+.update-box textarea:focus {
+  border-color: #007acc;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.15);
+}
+
+.update-box button {
+  align-self: flex-start;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-box button:hover {
+  background-color: #005fa3;
+}
+
+.attachment-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.attachment-button:hover {
+  background-color: #5148d8;
+}

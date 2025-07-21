@@ -1,0 +1,11 @@
+<h2 class="task-list-header">🗑️ Deleted Tasks</h2>
+
+<div *ngIf="deletedTasks.length === 0">No deleted tasks found.</div>
+
+<div *ngFor="let task of deletedTasks" class="task-card deleted">
+  <h3>{{ task.title }}</h3>
+  <p><strong>Status:</strong> {{ task.status }}</p>
+  <p><strong>Due Date:</strong> {{ task.dueDate | date: 'short' }}</p>
+  <p><b>Description:</b></p>
+  <p>{{ task.description }}</p>
+</div>

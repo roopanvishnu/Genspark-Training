@@ -1,0 +1,94 @@
+<div class="p-8 max-w-xl mx-auto bg-white shadow-xl rounded-xl mt-10">
+  <h2 class="text-2xl font-semibold text-[#006f6d] mb-6 text-center">Update User</h2>
+
+  <form #f="ngForm" (ngSubmit)="saveUser(f)" novalidate class="space-y-5">
+
+    <!-- Username -->
+    <div>
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="userForm.username"
+        placeholder="Username"
+        required
+        minlength="3"
+        #username="ngModel"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#006f6d] outline-none"
+      />
+      <div class="text-sm text-red-500 mt-1" *ngIf="username.invalid && username.touched">
+        <small *ngIf="username.errors?.['required']">Username is required.</small>
+        <small *ngIf="username.errors?.['minlength']">Minimum 3 characters required.</small>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="userForm.email"
+        placeholder="Email"
+        required
+        email
+        #email="ngModel"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#006f6d] outline-none"
+      />
+      <div class="text-sm text-red-500 mt-1" *ngIf="email.invalid && email.touched">
+        <small *ngIf="email.errors?.['required']">Email is required.</small>
+        <small *ngIf="email.errors?.['email']">Enter a valid email.</small>
+      </div>
+    </div>
+
+    <!-- Role -->
+    <div>
+      <select
+        name="role"
+        [(ngModel)]="userForm.role"
+        required
+        class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#006f6d] outline-none"
+      >
+        <option value="Employee">Employee</option>
+        <option value="HR">HR</option>
+      </select>
+    </div>
+
+    <!-- Gender -->
+    <div>
+      <select
+        name="gender"
+        [(ngModel)]="userForm.gender"
+        required
+        class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#006f6d] outline-none"
+      >
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <!-- Active Checkbox -->
+    <div class="flex items-center space-x-2">
+      <input
+        type="checkbox"
+        name="isActive"
+        [(ngModel)]="userForm.isActive"
+        class="accent-[#006f6d] h-4 w-4"
+      />
+      <label class="text-gray-700 text-sm">Active</label>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="pt-4">
+      <button
+        type="submit"
+        [disabled]="f.invalid || isLoading"
+        class="w-full bg-[#006f6d] text-white font-semibold py-2 rounded-md hover:bg-[#0d7f7d] transition disabled:opacity-50 flex justify-center items-center"
+      >
+        <span *ngIf="!isLoading">Update User</span>
+        <span *ngIf="isLoading">
+          <i class="fas fa-spinner fa-spin mr-2"></i> Updating...
+        </span>
+      </button>
+    </div>
+  </form>
+</div>

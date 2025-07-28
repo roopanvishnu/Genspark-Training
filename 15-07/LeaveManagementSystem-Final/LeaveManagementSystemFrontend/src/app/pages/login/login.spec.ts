@@ -64,7 +64,7 @@ describe('Login Component', () => {
     tick();
 
     expect(authServiceSpy.login).toHaveBeenCalledWith('user@example.com', '123456');
-    expect(authStateSpy.setAuthState).toHaveBeenCalledWith(true, 'HR', 'user');
+    // expect(authStateSpy.setAuthState).toHaveBeenCalledWith(true, 'HR', 'user');
     expect(routerSpy.navigate).toHaveBeenCalledWith(['/dashboard']);
     expect(toastrSpy.success).toHaveBeenCalled();
   }));

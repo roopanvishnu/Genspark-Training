@@ -1,4 +1,6 @@
 export interface LeaveRequestResponse {
+reviewedAt: string|number|Date;
+reviewComments: any;
   id: string;
   userId: string;
   userName: string;

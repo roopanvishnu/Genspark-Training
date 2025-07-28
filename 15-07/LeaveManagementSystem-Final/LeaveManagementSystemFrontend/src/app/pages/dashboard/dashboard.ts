@@ -5,24 +5,27 @@ import { AuthStateService } from '../../services/auth-state.service';
 
 import { HrDashboardComponent } from '../hr-dashboard/hr-dashboard';
 import { EmployeeDashboardComponent } from '../employee-dashboard/employee-dashboard';
+import { AdminDashboardComponent } from "../admin-dashboard/admin-dashboard";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
-  imports: [CommonModule, HrDashboardComponent, EmployeeDashboardComponent],
+  imports: [CommonModule, HrDashboardComponent, EmployeeDashboardComponent, AdminDashboardComponent],
 })
 export class Dashboard implements OnInit {
   private authState = inject(AuthStateService);
   role: string | null = null;
   isHR = false;
+  isAdmin = false;
   isEmployee = false;
 
   ngOnInit(): void {
     this.authState.role$.subscribe((role) => {
       this.role = role;
       this.isHR = role === 'HR';
+      this.isAdmin = role === 'Admin',
       this.isEmployee = role === 'Employee';
     });
   }

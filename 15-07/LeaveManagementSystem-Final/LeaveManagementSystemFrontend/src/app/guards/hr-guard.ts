@@ -5,7 +5,7 @@ export const hrGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const role = localStorage.getItem('role');
 
-  if (role === 'HR') {
+  if (role === 'HR' || role === 'Admin') {
     return true; 
   } else {
     router.navigate(['/dashboard']); 

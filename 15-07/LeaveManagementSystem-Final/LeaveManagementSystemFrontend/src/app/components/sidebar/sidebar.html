@@ -43,6 +43,12 @@
     <i class="fa-solid fa-check-to-slot text-lg sm:text-xl mb-1"></i>
     <span class="text-[11px] leading-tight">Approvals</span>
   </a>
+  <!-- Admin things -->
+  <a *ngIf="isAdmin" routerLink="/leave-approvals" routerLinkActive="bg-[var(--background)] text-[var(--primary)]"
+     class="flex flex-col items-center text-xs hover:bg-[var(--background)] hover:text-[var(--primary)] transition rounded-md p-2 w-full text-center">
+    <i class="fa-solid fa-check-to-slot text-lg sm:text-xl mb-1"></i>
+    <span class="text-[11px] leading-tight">Approvals</span>
+  </a>
 
   <!-- HR Only: User Management -->
   <a *ngIf="isHR" routerLink="/user-management" routerLinkActive="bg-[var(--background)] text-[var(--primary)]"
@@ -50,5 +56,5 @@
     <i class="fa-solid fa-users-gear text-lg sm:text-xl mb-1"></i>
     <span class="text-[11px] leading-tight">Employees</span>
   </a>
-
+  
 </nav>

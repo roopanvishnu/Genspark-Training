@@ -6,6 +6,7 @@ import { ApiResponse } from '../models/api-response.model';
 import { UserDetailDto } from '../models/user-detail-dto.model';
 import { environment } from '../../environments/environment';
 import { PaginationResponse } from '../models/pagination-response.model';
+import { User } from '../models/user.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -60,4 +61,8 @@ export class UserService {
   deleteUser(id: string): Observable<ApiResponse<null>> {
     return this.http.delete<ApiResponse<null>>(`${this.apiUrl}/${id}`);
   }
+  getCurrentUser(): Observable<User> {
+  return this.http.get<User>(`${this.apiUrl}/me`);
+}
+
 }

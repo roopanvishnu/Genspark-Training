@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class Sidebar implements OnInit {
   isHR: boolean = false;
+  isAdmin : boolean = false;
   isLoggedIn: boolean = false;
   private sub: Subscription = new Subscription();
 
@@ -25,6 +26,7 @@ export class Sidebar implements OnInit {
   ngOnInit(): void {
     this.sub.add(this.authState.isLoggedIn$.subscribe(status => this.isLoggedIn = status));
     this.sub.add(this.authState.role$.subscribe(role => this.isHR = (role === 'HR')));
+    this.sub.add(this.authState.role$.subscribe(role => this.isAdmin = (role === 'Admin')));
   }
 
   ngOnDestroy(): void {

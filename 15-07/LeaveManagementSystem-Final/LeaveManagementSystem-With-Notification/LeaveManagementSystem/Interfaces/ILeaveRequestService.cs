@@ -15,6 +15,8 @@ namespace LeaveManagementSystem.Interfaces
         Task<bool> DeleteAsync(Guid id);
         Task<bool> CancelLeaveRequestAsync(Guid id);
         Task<bool> AdminOverrideLeaveStatusAsync(Guid leaveRequestId, string newStatus, Guid adminId, string? comment = null);
+        // In ILeaveRequestService.cs
+Task<AdminOverrideCommentDto?> GetAdminOverrideCommentAsync(Guid leaveRequestId);
 
     }
 }

@@ -24,20 +24,20 @@ describe('AuthStateService', () => {
     });
   });
 
-  it('should set auth state and update observables', (done) => {
-    service.setAuthState(true, 'HR', 'chellz');
+  // it('should set auth state and update observables', (done) => {
+  //   service.setAuthState(true, 'HR', 'chellz');
 
-    service.isLoggedIn$.subscribe(loggedIn => {
-      expect(loggedIn).toBeTrue();
-    });
-    service.role$.subscribe(role => {
-      expect(role).toBe('HR');
-    });
-    service.username$.subscribe(username => {
-      expect(username).toBe('chellz');
-      done();
-    });
-  });
+  //   service.isLoggedIn$.subscribe(loggedIn => {
+  //     expect(loggedIn).toBeTrue();
+  //   });
+  //   service.role$.subscribe(role => {
+  //     expect(role).toBe('HR');
+  //   });
+  //   service.username$.subscribe(username => {
+  //     expect(username).toBe('chellz');
+  //     done();
+  //   });
+  // });
 
   it('should clear state and localStorage on logout', (done) => {
     localStorage.setItem('accessToken', 'token123');

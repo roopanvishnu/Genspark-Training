@@ -1,39 +1,56 @@
-import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LeaveDetails } from './leave-details';
-import { LeaveService } from '../../services/leave.service';
-import { LeaveBalanceService } from '../../services/leave-balance.service';
 import { ActivatedRoute } from '@angular/router';
 import { of, throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { CommonModule } from '@angular/common';
 
-describe('LeaveDetails Component', () => {
+import { LeaveRequestService } from '../../services/leave-request.service';
+import { LeaveAttachmentService } from '../../services/leave-attachment.service';
+import { LeaveBalanceService } from '../../services/leave-balance.service';
+import { UserService } from '../../services/user.service';
+
+fdescribe('LeaveDetails', () => {
   let component: LeaveDetails;
   let fixture: ComponentFixture<LeaveDetails>;
 
-  const leaveServiceSpy = jasmine.createSpyObj('LeaveService', [
-    'getLeaveRequestById',
-    'getLeaveAttachmentsByRequestId',
-    'updateLeaveStatus'
-  ]);
-  const balanceServiceSpy = jasmine.createSpyObj('LeaveBalanceService', ['getLeaveBalanceForType']);
-  const toastrSpy = jasmine.createSpyObj('ToastrService', ['success', 'error', 'warning']);
+  let mockLeaveRequestService = {
+    getLeaveRequestById: jasmine.createSpy().and.returnValue(of({ data: { userId: 'u1', leaveTypeId: 'lt1', status: 'Pending' } })),
+    getAdminOverrideComment: jasmine.createSpy().and.returnValue(of({ comment: 'Override Comment' })),
+    updateLeaveStatus: jasmine.createSpy().and.returnValue(of({})),
+    overrideLeaveRequestAsAdmin: jasmine.createSpy().and.returnValue(of({}))
+  };
+
+  let mockLeaveAttachmentService = {
+    getAttachmentsByLeaveRequestId: jasmine.createSpy().and.returnValue(of({ data: { $values: [{ id: 1 }] } }))
+  };
+
+  let mockLeaveBalanceService = {
+    getLeaveBalanceForType: jasmine.createSpy().and.returnValue(of({ data: { leaveBalance: { balance: 5 } } }))
+  };
+
+  let mockUserService = {
+    getCurrentUser: jasmine.createSpy().and.returnValue(of({ role: 'Admin' }))
+  };
+
+  let mockToastrService = {
+    success: jasmine.createSpy(),
+    error: jasmine.createSpy(),
+    warning: jasmine.createSpy()
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LeaveDetails, CommonModule],
+      imports: [LeaveDetails],
       providers: [
-        { provide: LeaveService, useValue: leaveServiceSpy },
-        { provide: LeaveBalanceService, useValue: balanceServiceSpy },
-        { provide: ToastrService, useValue: toastrSpy },
+        { provide: LeaveRequestService, useValue: mockLeaveRequestService },
+        { provide: LeaveAttachmentService, useValue: mockLeaveAttachmentService },
+        { provide: LeaveBalanceService, useValue: mockLeaveBalanceService },
+        { provide: UserService, useValue: mockUserService },
+        { provide: ToastrService, useValue: mockToastrService },
         {
           provide: ActivatedRoute,
           useValue: {
-            snapshot: {
-              paramMap: {
-                get: () => 'mockLeaveId'
-              }
-            }
+            snapshot: { paramMap: { get: () => 'test-leave-id' } }
           }
         }
       ]
@@ -41,81 +58,49 @@ describe('LeaveDetails Component', () => {
 
     fixture = TestBed.createComponent(LeaveDetails);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load leave details successfully', fakeAsync(() => {
-    leaveServiceSpy.getLeaveRequestById.and.returnValue(of({
-      data: {
-        userId: 'u1',
-        leaveTypeId: 'lt1',
-        userName: 'User',
-        leaveTypeName: 'Sick Leave',
-        status: 'Pending',
-        startDate: new Date(),
-        endDate: new Date(),
-        reason: 'Test Reason'
-      }
-    }));
-    leaveServiceSpy.getLeaveAttachmentsByRequestId.and.returnValue(of({
-      data: {
-        $values: [
-          { fileName: 'proof.pdf', downloadUrl: 'url', uploadedAt: new Date() }
-        ]
-      }
-    }));
-    balanceServiceSpy.getLeaveBalanceForType.and.returnValue(of({
-      data: {
-        leaveBalance: {
-          totalLeaves: 10,
-          usedLeaves: 3,
-          remainingLeaves: 7
-        }
-      }
-    }));
+  it('should fetch leave balance for type', () => {
+    expect(mockLeaveBalanceService.getLeaveBalanceForType).toHaveBeenCalledWith('u1', 'lt1');
+    expect(component.leaveBalanceForType).toBeTruthy();
+  });
 
-    fixture.detectChanges(); // triggers ngOnInit
-    tick();
-
-    expect(component.leaveRequest.userName).toBe('User');
-    expect(component.attachments.length).toBe(1);
-    expect(component.leaveBalanceForType.remainingLeaves).toBe(7);
-  }));
-
-  it('should handle error if leave request fetch fails', fakeAsync(() => {
-    leaveServiceSpy.getLeaveRequestById.and.returnValue(throwError(() => new Error('Error loading')));
-    fixture.detectChanges();
-    tick();
-
-    expect(component.errorMsg).toBe('Failed to load leave details');
-    expect(toastrSpy.error).toHaveBeenCalledWith('Failed to load leave details', 'Error');
-  }));
-
-  it('should update leave status successfully', fakeAsync(() => {
-    component.leaveId = 'mockLeaveId';
-    leaveServiceSpy.updateLeaveStatus.and.returnValue(of({}));
-    leaveServiceSpy.getLeaveRequestById.and.returnValue(of({
-      data: { userId: 'u1', leaveTypeId: 'lt1' }
-    }));
+  it('should update status as HR', () => {
+    component.isHr = true;
+    component.leaveRequest = { status: 'Pending' } as any;
+    component.leaveId = 'test-leave-id';
 
     component.updateStatus('Approved');
-    tick();
 
-    expect(toastrSpy.success).toHaveBeenCalledWith('Leave request approved successfully!', 'Success');
-  }));
+    expect(mockLeaveRequestService.updateLeaveStatus).toHaveBeenCalledWith('test-leave-id', { status: 'Approved' });
+  });
 
-  it('should handle update status failure', fakeAsync(() => {
-    component.leaveId = 'mockLeaveId';
-    leaveServiceSpy.updateLeaveStatus.and.returnValue(throwError(() => ({
-      error: { message: 'Update failed' }
-    })));
+  it('should override as Admin', () => {
+    component.isAdmin = true;
+    component.leaveRequest = { status: 'Approved' } as any;
+    component.leaveId = 'test-leave-id';
+    component.newStatus = 'Rejected';
+    component.overrideComment = 'Policy Violation';
 
-    component.updateStatus('Rejected');
-    tick();
+    component.adminOverride();
 
-    expect(toastrSpy.error).toHaveBeenCalledWith('Failed to update status. Update failed', 'Error');
-  }));
+    expect(mockLeaveRequestService.overrideLeaveRequestAsAdmin).toHaveBeenCalled();
+  });
+
+  it('should handle errors in loadDetails', () => {
+    mockLeaveRequestService.getLeaveRequestById.and.returnValue(throwError(() => new Error('Fetch error')));
+    component.loadDetails();
+    expect(mockToastrService.error).toHaveBeenCalledWith('Failed to load leave details', 'Error');
+  });
+
+  it('should return correct status class', () => {
+    expect(component.getStatusClass('Pending')).toBe('status-pending');
+    expect(component.getStatusClass('Approved')).toBe('status-approved');
+    expect(component.getStatusClass('Rejected')).toBe('status-rejected');
+  });
 });

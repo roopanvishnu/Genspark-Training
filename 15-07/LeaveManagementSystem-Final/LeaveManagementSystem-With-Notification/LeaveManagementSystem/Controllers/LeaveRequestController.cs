@@ -1,9 +1,11 @@
 using LeaveManagementSystem.Interfaces;
 using LeaveManagementSystem.Models.DTOs;
 using LeaveManagementSystem.Responses;
+using LeaveManagementSystem.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -241,7 +243,35 @@ namespace LeaveManagementSystem.Controllers
                 return StatusCode(500, ApiResponse<object>.FailureResponse(ex.Message));
             }
         }
+       [HttpGet("{id}/admin-override-comment")]
+[Authorize(Roles = "Admin,HR,Manager")]
+public async Task<ActionResult<AdminOverrideCommentDto>> GetAdminOverrideComment(Guid id)
+{
+    try
+    {
+        Log.Information("🎯 API called: GetAdminOverrideComment for LeaveRequestId: {LeaveRequestId}", id);
 
+        var comment = await _service.GetAdminOverrideCommentAsync(id);
+        
+        // Check if it's an empty response (no comment found)
+        if (string.IsNullOrEmpty(comment.Comment) && comment.CreatedAt == DateTime.MinValue)
+        {
+            Log.Information("ℹ️ No admin override comment found for LeaveRequestId: {LeaveRequestId}", id);
+            return NotFound(new { message = $"No admin override comment found for leave request {id}" });
+        }
+
+        Log.Information("✅ Successfully retrieved admin override comment for LeaveRequestId: {LeaveRequestId}", id);
+        return Ok(comment);
+    }
+    catch (Exception ex)
+    {
+        Log.Error(ex, "❌ Failed to fetch admin override comment for LeaveRequest ID: {LeaveRequestId}", id);
+        return StatusCode(500, new { 
+            message = "An error occurred while fetching the admin override comment",
+            error = ex.Message 
+        });
+    }
+}
 
         private Dictionary<string, List<string>> ModelStateErrors()
         {

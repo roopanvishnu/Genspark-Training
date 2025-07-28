@@ -1,4 +1,373 @@
+
 <div class="leave-details-container">
+  <div *ngIf="isLoading" class="loading-spinner">
+    <i class="fa fa-spinner fa-spin"></i> Loading leave details...
+  </div>
+  <div *ngIf="errorMsg" class="error-message">
+    <i class="fa fa-exclamation-circle"></i> {{ errorMsg }}
+  </div>
+  <div *ngIf="!isLoading && !errorMsg">
+    <h2><i class="fa fa-file-alt"></i> Leave Request Summary</h2>
+    <div class="card summary-card" *ngIf="leaveRequest">
+      <div class="card-header">
+        <h3>Request Details</h3>
+        <span
+          class="status-badge"
+          [ngClass]="getStatusClass(leaveRequest.status)"
+        >
+          {{ leaveRequest.status }}
+        </span>
+      </div>
+
+      <div class="card-body">
+        <div class="detail-row">
+          <p><strong>Employee:</strong> {{ leaveRequest.userName }}</p>
+          <p><strong>Employee ID:</strong> {{ leaveRequest.userId }}</p>
+        </div>
+
+        <div class="detail-row">
+          <p><strong>Leave Type:</strong> {{ leaveRequest.leaveTypeName }}</p>
+          <p><strong>Request ID:</strong> {{ leaveId }}</p>
+        </div>
+
+        <div class="detail-row">
+          <p>
+            <strong>Start Date:</strong> {{ leaveRequest.startDate | date:
+            'mediumDate' }}
+          </p>
+          <p>
+            <strong>End Date:</strong> {{ leaveRequest.endDate | date:
+            'mediumDate' }}
+          </p>
+        </div>
+
+        <div class="detail-row full-width">
+          <p><strong>Reason:</strong></p>
+          <p class="reason-text">{{ leaveRequest.reason }}</p>
+        </div>
+
+        <div class="detail-row" *ngIf="leaveRequest.status !== 'Pending'">
+          <p><strong>Reviewed By:</strong> {{ leaveRequest.reviewedByName }}</p>
+          <p>
+            <strong>Review Date:</strong> {{ leaveRequest.reviewedAt | date:
+            'medium' }}
+          </p>
+        </div>
+
+        <div class="detail-row" *ngIf="adminOverrideComment">
+          <p>
+            <strong>Admin Override Comment:</strong> {{ adminOverrideComment }}
+          </p>
+        </div>
+        <div class="detail-row full-width" *ngIf="leaveRequest.reviewComments">
+          <p><strong>Review Comments:</strong></p>
+          <p class="comment-text">{{ leaveRequest.reviewComments }}</p>
+        </div>
+      </div>
+      <div class="card-actions" *ngIf="canTakeHrAction()">
+        <h4>HR Actions</h4>
+        <div class="action-buttons">
+          <button (click)="updateStatus('Approved')" class="btn approve-btn">
+            <i class="fa fa-check"></i> Approve
+          </button>
+          <button (click)="updateStatus('Rejected')" class="btn reject-btn">
+            <i class="fa fa-times"></i> Reject
+          </button>
+        </div>
+      </div>
+
+      <!-- Admin Override Section (for approved/rejected requests) -->
+      <div
+        class="card admin-override-card mt-4 border-0 shadow-lg"
+        style="border-left: 5px solid #f39c12 !important"
+        *ngIf="canOverrideAsAdmin()"
+      >
+        <div
+          class="card-header text-white d-flex justify-content-between align-items-center"
+          style="
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            border-radius: 0.375rem 0.375rem 0 0;
+          "
+        >
+          <h4 class="mb-0 fw-bold">
+            <i class="fa fa-shield-alt me-2 text-white"></i> Admin Override
+          </h4>
+          <button
+            class="btn btn-sm btn-light shadow-sm px-3 py-2"
+            (click)="showOverrideForm = !showOverrideForm"
+            style="border-radius: 25px; font-weight: 500"
+          >
+            {{ showOverrideForm ? 'Hide' : 'Show' }} Form
+          </button>
+        </div>
+        <div
+          class="card-body"
+          *ngIf="showOverrideForm"
+          style="
+            background: linear-gradient(to bottom, #fef9e7, #fdf6e3);
+            padding: 2rem;
+          "
+        >
+          <div
+            class="alert alert-info border-0 mb-4 shadow-sm"
+            style="
+              background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+              border-left: 4px solid #2196f3 !important;
+              border-radius: 8px;
+            "
+          >
+            <i class="fa fa-info-circle text-primary me-2"></i>
+            As an <strong class="text-primary">Admin</strong>, you can override
+            the HR decision for this leave request.
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="newStatus" class="form-label fw-bold text-dark mb-2">
+              <i class="fa fa-tasks me-2 text-warning"></i>New Status
+            </label>
+            <select
+              id="newStatus"
+              [(ngModel)]="newStatus"
+              class="form-control form-select shadow-sm"
+              [ngClass]="{'is-invalid': newStatus === ''}"
+              style="
+                border: 2px solid #f39c12;
+                border-radius: 8px;
+                padding: 12px 16px;
+                font-size: 1rem;
+                background-color: #fff;
+              "
+            >
+              <option value="" disabled>-- Select Status --</option>
+              <option value="Approved" style="color: #27ae60; font-weight: 500">
+                ✓ Approve
+              </option>
+              <option value="Rejected" style="color: #e74c3c; font-weight: 500">
+                ✗ Reject
+              </option>
+            </select>
+            <div class="invalid-feedback fw-bold">
+              Please select a status for the override.
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label
+              for="overrideComment"
+              class="form-label fw-bold text-dark mb-2"
+            >
+              <i class="fa fa-comment-alt me-2 text-warning"></i>Override
+              Comment
+            </label>
+            <textarea
+              id="overrideComment"
+              [(ngModel)]="overrideComment"
+              class="form-control shadow-sm"
+              rows="4"
+              placeholder="Provide a detailed reason for overriding HR's decision..."
+              style="
+                border: 2px solid #f39c12;
+                border-radius: 8px;
+                padding: 16px;
+                font-size: 0.95rem;
+                background-color: #fff;
+                resize: vertical;
+                line-height: 1.5;
+              "
+            ></textarea>
+            <small class="form-text text-muted mt-1">
+              <i class="fa fa-lightbulb me-1"></i>
+              Be specific about the reason for this administrative override.
+            </small>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="text-muted small">
+              <i class="fa fa-clock me-1"></i>
+              This action will be logged and audited.
+            </div>
+            <button
+              (click)="adminOverride()"
+              class="btn btn-lg px-5 py-3 shadow-lg"
+              [disabled]="!newStatus || !overrideComment.trim()"
+              style="
+                background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+                border: none;
+                border-radius: 25px;
+                color: white;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                transition: all 0.3s ease;
+                transform: translateY(0);
+              "
+              onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(243, 156, 18, 0.4)';"
+              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)';"
+            >
+              <i class="fa fa-exclamation-triangle me-2"></i>
+              Confirm Override
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        .admin-override-card {
+          border-radius: 12px !important;
+          overflow: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .admin-override-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 30px rgba(243, 156, 18, 0.2) !important;
+        }
+
+        .form-control:focus {
+          border-color: #f39c12 !important;
+          box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25) !important;
+        }
+
+        .btn:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          transform: none !important;
+        }
+
+        .alert {
+          border-radius: 8px !important;
+        }
+        .form-control::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        .form-control::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 4px;
+        }
+
+        .form-control::-webkit-scrollbar-thumb {
+          background: #f39c12;
+          border-radius: 4px;
+        }
+
+        .form-control::-webkit-scrollbar-thumb:hover {
+          background: #e67e22;
+        }
+      </style>
+    </div>
+    <div class="card attachments-card">
+      <div class="card-header">
+        <h3><i class="fa fa-paperclip"></i> Attachments</h3>
+        <span class="attachment-count" *ngIf="attachments.length > 0">
+          {{ attachments.length }} file(s)
+        </span>
+      </div>
+
+      <div class="card-body">
+        <ng-container *ngIf="attachments.length > 0; else noAttachments">
+          <div class="attachments-list">
+            <div class="attachment-item" *ngFor="let file of attachments">
+              <div class="attachment-info">
+                <i class="fa fa-file"></i>
+                <div class="file-details">
+                  <a
+                    [href]="file.downloadUrl"
+                    target="_blank"
+                    class="file-link"
+                  >
+                    {{ file.fileName }}
+                  </a>
+                  <span class="upload-date">
+                    Uploaded: {{ file.uploadedAt | date: 'medium' }}
+                  </span>
+                </div>
+              </div>
+              <a [href]="file.downloadUrl" target="_blank" class="download-btn">
+                <i class="fa fa-download"></i> Download
+              </a>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #noAttachments>
+          <div class="no-attachments">
+            <i class="fa fa-folder-open"></i>
+            <p>No attachments uploaded for this leave request.</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="card balance-card">
+      <div class="card-header">
+        <h3><i class="fa fa-balance-scale"></i> Leave Balance</h3>
+        <span class="balance-type" *ngIf="leaveRequest">
+          {{ leaveRequest.leaveTypeName }}
+        </span>
+      </div>
+      <div class="card-body">
+        <ng-container *ngIf="leaveBalanceForType; else loadingBalance">
+          <div class="balance-summary">
+            <div class="balance-item total">
+              <div class="balance-value">
+                {{ leaveBalanceForType.totalLeaves }}
+              </div>
+              <div class="balance-label">Total Allocated</div>
+            </div>
+
+            <div class="balance-item used">
+              <div class="balance-value">
+                {{ leaveBalanceForType.usedLeaves }}
+              </div>
+              <div class="balance-label">Used</div>
+            </div>
+            <div class="balance-item remaining">
+              <div class="balance-value">
+                {{ leaveBalanceForType.remainingLeaves }}
+              </div>
+              <div class="balance-label">Remaining</div>
+            </div>
+          </div>
+          <div class="balance-progress">
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                [style.width.%]="(leaveBalanceForType.usedLeaves / leaveBalanceForType.totalLeaves) * 100"
+              ></div>
+            </div>
+            <div class="progress-labels">
+              <span>0</span>
+              <span>{{ leaveBalanceForType.totalLeaves }}</span>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-template #loadingBalance>
+          <div class="loading-balance">
+            <i class="fa fa-spinner fa-spin"></i>
+            <p>Loading leave balance information...</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div
+      class="debug-info"
+      *ngIf="currentUserRole"
+      style="
+        margin-top: 20px;
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 4px;
+        font-size: 12px;
+        color: #666;
+      "
+    >
+      <strong>Debug Info:</strong> Current Role: {{ currentUserRole }} |
+      IsAdmin: {{ isAdmin }} | IsHR: {{ isHr }} | Can Take HR Action: {{
+      canTakeHrAction() }} | Can Override: {{ canOverrideAsAdmin() }}
+    </div>
+  </div>
+</div>
+
+<!-- <div class="leave-details-container">
   <h2><i class="fa fa-file-alt"></i> Leave Request Summary</h2>
 
   <div class="card summary-card" *ngIf="leaveRequest">
@@ -28,6 +397,7 @@
       <button (click)="updateStatus('Rejected')" class="reject-btn">Reject</button>
     </div>
   </div>
+  
 
   <h3><i class="fa fa-paperclip"></i> Attachments</h3>
   <div class="card attachments-card">
@@ -66,4 +436,5 @@
       <p>Loading leave balance...</p>
     </ng-template>
   </div>
-</div>
+</div> -->
+

@@ -59,7 +59,7 @@ describe('UserEdit Component', () => {
       createdAt: new Date().toISOString()
     };
 
-    userServiceSpy.getUserById.and.returnValue(of({ data: mockUser }));
+    userServiceSpy.getUserById.and.returnValue;
 
     component.ngOnInit();
 

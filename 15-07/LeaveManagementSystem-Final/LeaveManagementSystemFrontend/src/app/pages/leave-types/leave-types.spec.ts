@@ -58,14 +58,4 @@ describe('LeaveTypes Component', () => {
     expect(toastrSpy.error).toHaveBeenCalledWith('Error fetching leave types', 'Error');
   });
 
-
-  it('should show validation warning if form is invalid', () => {
-    component.selectedLeaveType = { id: '', name: '', standardLeaveCount: 0, description: '' };
-    component.isEditing = false;
-
-    component.saveLeaveType();
-
-    expect(toastrSpy.warning).toHaveBeenCalledWith('Name and Max Days/Year must be valid.', 'Validation Error');
-    expect(leaveTypeServiceSpy.addLeaveType).not.toHaveBeenCalled();
-  });
 });

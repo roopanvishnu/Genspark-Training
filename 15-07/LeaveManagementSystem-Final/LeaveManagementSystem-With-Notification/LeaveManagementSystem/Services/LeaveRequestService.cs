@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using LeaveManagementSystem.Hubs;
+using Microsoft.EntityFrameworkCore;
+using LeaveManagementSystem.Contexts;
+using Serilog;
 
 namespace LeaveManagementSystem.Services
 {
@@ -23,6 +26,7 @@ namespace LeaveManagementSystem.Services
         private readonly INotificationService _notificationService;
         private readonly IHubContext<NotificationHub> _hubContext;
         private readonly IServiceScopeFactory _scopeFactory;
+        private readonly ApplicationDbContext _context;
 
         public LeaveRequestService(
             IRepository<Guid, LeaveRequest> leaveRequestRepository,
@@ -35,7 +39,8 @@ namespace LeaveManagementSystem.Services
             INotificationService notificationService,
             IHubContext<NotificationHub> hubContext,
             IServiceScopeFactory scopeFactory,
-            ILeaveRequestCommentRepository leaveRequestCommentRepository
+            ILeaveRequestCommentRepository leaveRequestCommentRepository,
+            ApplicationDbContext context
             )
         {
             _leaveRequestRepository = leaveRequestRepository;
@@ -48,10 +53,11 @@ namespace LeaveManagementSystem.Services
             _notificationService = notificationService;
             _hubContext = hubContext;
             _scopeFactory = scopeFactory;
-             _leaveRequestCommentRepository = leaveRequestCommentRepository;
+            _leaveRequestCommentRepository = leaveRequestCommentRepository;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-       
+
         public async Task<(IEnumerable<LeaveRequestResponseDto> Requests, int TotalCount)> GetAllAsync(
             int pageNumber, int pageSize, string searchTerm, string status, string sortBy, string sortOrder)
         {
@@ -131,7 +137,7 @@ namespace LeaveManagementSystem.Services
         {
             try
             {
-                var currentUserId = _currentUserService.GetUserId(); 
+                var currentUserId = _currentUserService.GetUserId();
 
                 await ValidateGenderBasedLeaveAsync(currentUserId, dto.LeaveTypeId);
                 ValidateStartDate(dto.StartDate);
@@ -139,10 +145,11 @@ namespace LeaveManagementSystem.Services
                 var leaveType = await GetAndValidateLeaveType(dto.LeaveTypeId);
 
                 int requestedDays = 0;
-                if (!IsLeaveTypeExemptedFromConsecutiveDaysLimit(leaveType.Name)){
+                if (!IsLeaveTypeExemptedFromConsecutiveDaysLimit(leaveType.Name))
+                {
                     requestedDays = GetAndValidateRequestedDays(dto.StartDate, dto.EndDate);
                 }
-                
+
 
                 if (!IsLeaveTypeExemptedFromBalanceCheck(leaveType.Name))
                 {
@@ -288,7 +295,7 @@ namespace LeaveManagementSystem.Services
             );
 
             var hrIds = result.Users
-                .Where(u => u.Id != createdById) 
+                .Where(u => u.Id != createdById)
                 .Select(u => u.Id)
                 .ToList();
 
@@ -303,7 +310,7 @@ namespace LeaveManagementSystem.Services
 
         //---------------------------------------------------------------------------------------
 
-        
+
 
         public async Task<bool> UpdateStatusAsync(Guid id, string status, Guid approverId)
         {
@@ -315,7 +322,7 @@ namespace LeaveManagementSystem.Services
 
                 if (request.Status == "Approved" || request.Status == "Rejected")
                     throw new InvalidOperationException("Cannot change status of a finalized request.");
-                
+
                 if (request.UserId == approverId)
                     throw new InvalidOperationException("You cannot approve or reject your own leave request.");
 
@@ -345,7 +352,7 @@ namespace LeaveManagementSystem.Services
 
                 await NotifyRequesterAsync(request, status, approverId);
                 await NotifyHRsAsync(request, status);
-                
+
                 return true;
             }
             catch (KeyNotFoundException)
@@ -361,7 +368,7 @@ namespace LeaveManagementSystem.Services
         private async Task NotifyRequesterAsync(LeaveRequest request, string status, Guid approverId)
         {
             using var scope = _scopeFactory.CreateScope();
-            
+
             var userService = scope.ServiceProvider.GetRequiredService<IUserService>();
             var notificationService = scope.ServiceProvider.GetRequiredService<INotificationService>();
 
@@ -489,7 +496,6 @@ namespace LeaveManagementSystem.Services
         {
             var currentUserId = _currentUserService.GetUserId();
 
-            // Step 1: Get the leave request
             var request = await _leaveRequestRepository.Get(id);
             if (request == null)
                 throw new KeyNotFoundException($"Leave request with ID {id} not found.");
@@ -503,81 +509,111 @@ namespace LeaveManagementSystem.Services
             if (request.Status == "Rejected")
                 throw new InvalidOperationException("Rejected leave requests do not need cancellation.");
 
-            // Step 2: Update request
             request.Status = "Cancelled";
             request.UpdatedAt = DateTime.UtcNow;
             await _leaveRequestRepository.Update(id, request);
 
-            // Step 4: Notify user
             var userMessage = $"❌ You cancelled your leave request from {request.StartDate:MMM dd} to {request.EndDate:MMM dd}.";
             await _notificationService.CreateAsync(currentUserId, userMessage);
 
-            // Step 5: Get HRs first
-            // var hrUsersResult = await _userService.GetAllUsers(
-            //     1, int.MaxValue, null, "HR", "CreatedAt", "asc"
-            // );
-            // var hrUserIds = hrUsersResult.Users
-            //     .Where(hr => hr.Id != currentUserId)
-            //     .Select(hr => hr.Id)
-            //     .ToList();
 
-            // // Step 6: Get current user data
-            // var creator = await _userService.GetUserById(currentUserId);
-            // var hrMessage = $" {creator.Username} ({creator.Email}) has cancelled their leave request from {request.StartDate:MMM dd} to {request.EndDate:MMM dd}.";
-
-            // // Step 7: Notify HRs
-            // await _notificationService.CreateForMultipleAsync(hrUserIds, hrMessage);
 
             return true;
         }
         public async Task<bool> AdminOverrideLeaveStatusAsync(Guid leaveRequestId, string newStatus, Guid adminId, string? comment = null)
-{
-    var leaveRequest = await _leaveRequestRepository.Get(leaveRequestId);
-    if (leaveRequest == null)
-        throw new KeyNotFoundException($"Leave request with ID {leaveRequestId} not found");
-
-    if (leaveRequest.Status != "Approved" && leaveRequest.Status != "Rejected")
-        throw new InvalidOperationException("Only approved or rejected leave requests can be overridden by admin.");
-
-    if (leaveRequest.UserId == adminId)
-        throw new InvalidOperationException("Admin cannot override their own leave request.");
-
-    // Update status
-    leaveRequest.Status = newStatus;
-    leaveRequest.ReviewedById = adminId;
-    leaveRequest.UpdatedAt = DateTime.UtcNow;
-
-    if (newStatus == "Approved")
-    {
-        int requestedDays = GetWorkingDays(leaveRequest.StartDate, leaveRequest.EndDate);
-        await _leaveBalanceService.DeductLeaveBalanceAsync(
-            leaveRequest.UserId,
-            leaveRequest.LeaveTypeId,
-            requestedDays
-        );
-    }
-
-    await _leaveRequestRepository.Update(leaveRequestId, leaveRequest);
-
-    // Save comment if provided
-    if (!string.IsNullOrWhiteSpace(comment))
-    {
-        var commentEntry = new LeaveRequestComment
         {
-            Id = Guid.NewGuid(),
-            LeaveRequestId = leaveRequestId,
-            AdminId = adminId,
-            Comment = comment,
-            CreatedAt = DateTime.UtcNow
+            var leaveRequest = await _leaveRequestRepository.Get(leaveRequestId);
+            if (leaveRequest == null)
+                throw new KeyNotFoundException($"Leave request with ID {leaveRequestId} not found");
+
+            if (leaveRequest.Status != "Approved" && leaveRequest.Status != "Rejected")
+                throw new InvalidOperationException("Only approved or rejected leave requests can be overridden by admin.");
+
+            if (leaveRequest.UserId == adminId)
+                throw new InvalidOperationException("Admin cannot override their own leave request.");
+
+            // Update status
+            leaveRequest.Status = newStatus;
+            leaveRequest.ReviewedById = adminId;
+            leaveRequest.UpdatedAt = DateTime.UtcNow;
+
+            if (newStatus == "Approved")
+            {
+                int requestedDays = GetWorkingDays(leaveRequest.StartDate, leaveRequest.EndDate);
+                await _leaveBalanceService.DeductLeaveBalanceAsync(
+                    leaveRequest.UserId,
+                    leaveRequest.LeaveTypeId,
+                    requestedDays
+                );
+            }
+
+            await _leaveRequestRepository.Update(leaveRequestId, leaveRequest);
+
+            // Save comment if provided
+            if (!string.IsNullOrWhiteSpace(comment))
+            {
+                var commentEntry = new LeaveRequestComment
+                {
+                    Id = Guid.NewGuid(),
+                    LeaveRequestId = leaveRequestId,
+                    AdminId = adminId,
+                    Comment = comment,
+                    CreatedAt = DateTime.UtcNow
+                };
+
+                await _leaveRequestCommentRepository.Add(commentEntry);
+            }
+
+            await _auditLogService.LogAsync(adminId, "ADMIN OVERRIDE", "LEAVEREQUEST", leaveRequestId);
+            await NotifyRequesterAsync(leaveRequest, newStatus, adminId);
+
+            return true;
+        }
+         public async Task<AdminOverrideCommentDto> GetAdminOverrideCommentAsync(Guid leaveRequestId)
+{
+    Log.Debug("🔍 [AdminOverride] Fetching override comment for LeaveRequestId: {LeaveRequestId}", leaveRequestId);
+
+    try
+    {
+        // Check if _context is not null
+        if (_context == null)
+        {
+            Log.Error("❌ [AdminOverride] Database context is null");
+            throw new InvalidOperationException("Database context is not available");
+        }
+
+        Log.Debug("🔍 [AdminOverride] Querying LeaveRequestComments table...");
+
+        // Simple query - no navigation properties, just your table columns
+        var comment = await _context.LeaveRequestComments
+            .Where(c => c.LeaveRequestId == leaveRequestId && c.AdminId != Guid.Empty)
+            .OrderByDescending(c => c.CreatedAt)
+            .FirstOrDefaultAsync();
+
+        if (comment == null)
+        {
+            Log.Warning("⚠️ [AdminOverride] No admin override comment found for LeaveRequestId: {LeaveRequestId}", leaveRequestId);
+            // Return empty DTO instead of null
+            return new AdminOverrideCommentDto
+            {
+                Comment = string.Empty,
+                CreatedAt = DateTime.MinValue // or DateTime.UtcNow, depending on your preference
+            };
+        }
+
+        Log.Debug("✅ [AdminOverride] Successfully fetched comment: {Comment}", comment.Comment);
+
+        return new AdminOverrideCommentDto
+        {
+            Comment = comment.Comment ?? string.Empty,
+            CreatedAt = comment.CreatedAt
         };
-
-        await _leaveRequestCommentRepository.Add(commentEntry);
     }
-
-    await _auditLogService.LogAsync(adminId, "ADMIN OVERRIDE", "LEAVEREQUEST", leaveRequestId);
-    await NotifyRequesterAsync(leaveRequest, newStatus, adminId);
-
-    return true;
+    catch (Exception ex)
+    {
+        Log.Error(ex, "❌ [AdminOverride] Exception while fetching comment for LeaveRequestId: {LeaveRequestId}", leaveRequestId);
+        throw;
+    }
 }
 
     }

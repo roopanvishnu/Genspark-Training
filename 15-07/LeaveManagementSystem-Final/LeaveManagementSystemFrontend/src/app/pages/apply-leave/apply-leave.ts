@@ -88,7 +88,8 @@ export class ApplyLeave implements OnInit {
       leaveTypeId: formValue.leaveTypeId,
       startDate: formValue.startDate,
       endDate: formValue.endDate,
-      reason: formValue.reason
+      reason: formValue.reason,
+      role: formValue.role
     };
 
     this.leaveRequestService.createLeaveRequest(dto).subscribe({

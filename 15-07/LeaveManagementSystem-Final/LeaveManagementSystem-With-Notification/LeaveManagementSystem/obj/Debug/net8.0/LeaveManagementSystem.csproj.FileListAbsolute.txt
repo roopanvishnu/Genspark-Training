@@ -97,3 +97,10 @@
 /Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/obj/Debug/net8.0/LeaveManagementSystem.pdb
 /Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/obj/Debug/net8.0/LeaveManagementSystem.genruntimeconfig.cache
 /Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/obj/Debug/net8.0/ref/LeaveManagementSystem.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/bin/Debug/net8.0/Serilog.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/bin/Debug/net8.0/Serilog.Extensions.Logging.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/bin/Debug/net8.0/Serilog.Sinks.Console.dll
+/Users/roopanvishnu/Documents/GensparkTraining/Training/15-07/LeaveManagementSystem-Final/LeaveManagementSystem-With-Notification/LeaveManagementSystem/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll

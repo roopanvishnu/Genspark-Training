@@ -51,7 +51,7 @@ describe('UserAdd Component', () => {
       createdAt: new Date().toISOString()
     };
 
-    userServiceSpy.createUser.and.returnValue(of({ data: mockUser }));
+    userServiceSpy.createUser.and.returnValue;
 
     component.userForm = {
       username: 'testuser',

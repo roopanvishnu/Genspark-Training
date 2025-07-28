@@ -8,6 +8,7 @@ import { LeaveRequestResponse } from '../models/leave-request-response.model';
 import { UpdateLeaveRequestStatusDto } from '../models/update-leave-status.dto';
 import { ApiResponse } from '../models/api-response.model';
 import { PaginationResponse } from '../models/pagination-response.model';
+import { AdminOverrideLeaveRequestDto } from '../models/admin-override-leave-request.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -56,4 +57,17 @@ export class LeaveRequestService {
   deleteLeaveRequest(id: string): Observable<ApiResponse<null>> {
     return this.http.delete<ApiResponse<null>>(`${this.baseUrl}/${id}`);
   }
+  overrideLeaveRequestAsAdmin(id: string, dto: AdminOverrideLeaveRequestDto): Observable<ApiResponse<null>> {
+  return this.http.put<ApiResponse<null>>(`${this.baseUrl}/${id}/admin-override`, dto);
+}
+// getAdminOverrideComment(leaveId: string): Observable<ApiResponse<string>> {
+//   return this.http.get<ApiResponse<string>>(`${this.baseUrl}/${leaveId}/admin-override-comment`);
+// }
+getAdminOverrideComment(leaveId: string): Observable<{ comment: string }> {
+  const url = `${this.baseUrl}/${leaveId}/admin-override-comment`;
+  console.log('GET admin override comment URL:', url);
+  return this.http.get<{ comment: string }>(url);  // remove ApiResponse wrapper
+}
+
+
 }

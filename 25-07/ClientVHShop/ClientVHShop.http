@@ -1,0 +1,6 @@
+@ClientVHShop_HostAddress = http://localhost:5043
+
+GET {{ClientVHShop_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

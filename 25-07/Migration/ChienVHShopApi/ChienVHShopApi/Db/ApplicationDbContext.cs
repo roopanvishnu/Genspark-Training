@@ -33,6 +33,11 @@ namespace ChienVHShopAPI.Contexts
                 .HasOne(od => od.Product)
                 .WithMany(p => p.OrderDetails)
                 .HasForeignKey(od => od.ProductId);
+            
+            modelBuilder.Entity<User>()
+                .Property(u => u.UserId)
+                .ValueGeneratedOnAdd(); 
+
         }
 
     }

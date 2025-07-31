@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChienVHShopApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6df0abe39e7363b15071db79673c3b7ddff845ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+88a91fc8e37105afe6e7f89e4c71c95e44c5b9e4")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChienVHShopApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChienVHShopApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

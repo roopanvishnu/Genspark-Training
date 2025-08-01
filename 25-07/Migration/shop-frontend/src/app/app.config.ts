@@ -8,6 +8,8 @@ import { CategoryService } from './services/category.service';
 import { UserService } from './services/user.service';
 import { ColorService } from './services/color.service';
 import { CartService } from './services/cart.service';
+import { OrderDetailService } from './services/orderdetail.service';
+import { OrderService } from './services/order.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +21,8 @@ export const appConfig: ApplicationConfig = {
     CategoryService,
     UserService,
     ColorService,
-    CartService
+    CartService,
+    OrderService,
+    OrderDetailService
   ]
 };

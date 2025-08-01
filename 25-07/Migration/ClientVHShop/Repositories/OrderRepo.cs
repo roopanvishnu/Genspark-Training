@@ -12,11 +12,11 @@ public class OrderRepo : Repo<int, Order>
 
     public override async Task<Order> Get(int id)
     {
-        return await _context.Orders.FindAsync(id) ?? throw new Exception("Order not found");
+        return await _context.Orders.Include(o => o.OrderDetails).FirstOrDefaultAsync(o => o.OrderID == id) ?? throw new Exception("Order not found");
     }
 
     public override async Task<ICollection<Order>> GetAll()
     {
-        return await _context.Orders.ToListAsync() ?? throw new Exception("No Orders found");
+        return await _context.Orders.Include(o => o.OrderDetails).ToListAsync() ?? throw new Exception("No Orders found");
     }
 }

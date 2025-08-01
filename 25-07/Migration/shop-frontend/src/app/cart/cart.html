@@ -1,5 +1,9 @@
 <h2 class="cart-title"> Your Cart</h2>
 
+<button matFab extended class="clear-button" (click)="clearCart()">
+    <mat-icon>shopping_cart_off</mat-icon>
+    Clear cart
+</button>
 <table mat-table [dataSource]="cartItems" class="mat-elevation-z8 cart-table">
 
     <!-- Product Name -->

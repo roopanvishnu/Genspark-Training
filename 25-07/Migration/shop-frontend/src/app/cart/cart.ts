@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { CustomerDataModel } from '../models/customerdata.model';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'app-cart',
@@ -22,7 +23,8 @@ import { CustomerDataModel } from '../models/customerdata.model';
         MatTableModule,
         MatInputModule,
         MatFormFieldModule,
-        MatButtonModule
+        MatButtonModule,
+        MatIconModule
     ],
     templateUrl: './cart.html',
     styleUrl: './cart.css',
@@ -124,4 +126,10 @@ export class Cart {
             }
         })
      }
+
+    clearCart(){
+        this.cartService.clearCart();
+        this.loadData();
+        alert("Cart is cleared");
+    }
 }

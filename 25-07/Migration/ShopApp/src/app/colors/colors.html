@@ -1,0 +1,61 @@
+<button matFab extended class="create-button" (click)="openModal()">
+    <mat-icon>add_2</mat-icon>
+    Create Color
+</button>
+
+<table mat-table [dataSource]="colors" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <ng-container matColumnDef="Id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.colorId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Color">
+        <th mat-header-cell *matHeaderCellDef> Color </th>
+        <td mat-cell *matCellDef="let element"> {{element.color1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Operations">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element">
+            <div class="buttons">
+                <button matButton="tonal" (click)="openModal(element)">
+                    <mat-icon>edit</mat-icon>
+                    Edit
+                </button>
+                <button matButton="tonal"(click)="openDeleteDialog(element.color1,element.colorId)">
+                    <mat-icon>delete</mat-icon>
+                    Delete
+                </button>
+
+            </div>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!-- Modal Overlay -->
+@if(showModal){
+<div class="modal-overlay">
+    <div class="modal">
+        <h2>{{ editingColor ? 'Edit Color' : 'Create Color' }}</h2>
+
+        <form (submit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>Color</mat-label>
+                <input matInput [(ngModel)]="colorFormName" name="name" required >
+            </mat-form-field>
+
+            <div class="modal-buttons">
+                <button type="submit" mat-flat-button color="primary">{{ editingColor ? 'Update' : 'Create'}}</button>
+                <button type="button" mat-button (click)="closeModal()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+}

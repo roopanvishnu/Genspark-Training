@@ -1,0 +1,13 @@
+<h2 class="title">Latest News</h2>
+
+<div class="news-list">
+  <div class="news-card" *ngFor="let n of news">
+    <img *ngIf="n.image" [src]="n.image" alt="News image" class="news-image" />
+    <div class="news-content">
+      <h3>{{ n.title }}</h3>
+      <p class="date">{{ n.createdDate | date:'mediumDate' }}</p>
+      <p class="short-desc">{{ n.shortDescription }}</p>
+      <p class="full-content">{{ n.content }}</p>
+    </div>
+  </div>
+</div>

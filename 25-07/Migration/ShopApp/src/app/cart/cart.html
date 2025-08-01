@@ -1,0 +1,72 @@
+<h2 class="cart-title"> Your Cart</h2>
+
+<table mat-table [dataSource]="cartItems" class="mat-elevation-z8 cart-table">
+
+    <!-- Product Name -->
+    <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef>Product</th>
+        <td mat-cell *matCellDef="let item">{{ item.productName }}</td>
+    </ng-container>
+
+    <!-- Category -->
+    <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let item">
+            {{ getCategoryName(item.categoryId) }}
+        </td>
+    </ng-container>
+
+    <!-- Color -->
+    <ng-container matColumnDef="color">
+        <th mat-header-cell *matHeaderCellDef>Color</th>
+        <td mat-cell *matCellDef="let item">
+            {{ getColorName(item.colorId) }}
+        </td>
+    </ng-container>
+
+    <!-- Price -->
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let item">₹{{ item.price }}</td>
+    </ng-container>
+
+    <!-- Quantity -->
+    <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef>Qty</th>
+        <td mat-cell *matCellDef="let item">{{ item.quantity }}</td>
+    </ng-container>
+
+    <!-- Total -->
+    <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef>Total</th>
+        <td mat-cell *matCellDef="let item">₹{{ item.quantity * item.price }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!-- Checkout Form -->
+<div class="checkout-form">
+    <h3>Customer Details</h3>
+    <form #checkoutForm="ngForm" (ngSubmit)="checkout()">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput name="name" [(ngModel)]="customer.customerName" placeholder="Name" required />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput name="email" type="email" [(ngModel)]="customer.customerEmail" placeholder="Email" required />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Address</mat-label>
+            <textarea matInput name="address" [(ngModel)]="customer.customerAddress" placeholder="Address" required ></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput name="phone" type="text" [(ngModel)]="customer.customerPhone" placeholder="Phone" required />
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" type="submit">Checkout</button>
+    </form>
+</div>

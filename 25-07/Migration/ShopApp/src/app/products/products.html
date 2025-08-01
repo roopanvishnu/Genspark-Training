@@ -1,0 +1,128 @@
+<div class="main">
+    <div class="header spacer">
+        <h1>Products</h1>
+        @if(currentUser !=null){
+        <button matButton="tonal" (click)="openModal()">
+            <mat-icon>cloud_upload</mat-icon>
+            Create
+        </button>
+
+        }
+
+    </div>
+
+    <div class="controls">
+
+        <div class="mat-form-field">
+
+            <mat-form-field>
+                <mat-label>Category</mat-label>
+                <mat-select [(ngModel)]="productsearch.category" (ngModelChange)="onValueChange()">
+                    @for (c of categoryList; track $index) {
+                    <mat-option [value]=" c.value">{{c.view}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </div>
+
+    <div class="content">
+        @if (products.length>0) {
+        <div class="products">
+            @for (p of products; track $index) {
+            <mat-card class="card" appearance="outlined">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{p.productName}}</mat-card-title>
+                    <!-- <mat-card-subtitle>{{p.productId}}</mat-card-subtitle> -->
+                </mat-card-header>
+                <img mat-card-image class="image" [src]="p.image" alt="">
+                <mat-card-content>
+                    <p>
+                        <strong>Price : </strong> {{p.price}}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button matButton="tonal" (click)="buyNow(p.productId)">Buy Now</button>
+                    <button matButton="tonal" (click)="addToCart(p.productId)">Add to Cart</button>
+                    @if(currentUser != null && currentUser.userId == p.userId){
+                        <button matButton="tonal" (click)="openModal(p)">Edit</button>
+
+                    }
+                </mat-card-actions>
+            </mat-card>
+            }
+        </div>
+        }
+        @else {
+        <div class="error-loading">
+            <mat-spinner></mat-spinner>
+            @if(errorMessage != null){
+            {{errorMessage}}
+            }
+        </div>
+        }
+    </div>
+</div>
+
+
+<!-- Product Modal -->
+@if(showModal){
+
+<div class="modal-overlay">
+    <div class="modal">
+        <h2>{{ selectedProduct ? 'Edit Product' : 'Create Product' }}</h2>
+
+        <form (ngSubmit)="saveProduct()" #productForm="ngForm" class="input-form">
+
+            <mat-form-field>
+                <mat-label>Product Name</mat-label>
+                <input matInput [(ngModel)]="productFormModel.productName" name="productName" required />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Image URL</mat-label>
+                <input matInput [(ngModel)]="productFormModel.image" name="image" required />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Price</mat-label>
+                <input matInput type="number" [(ngModel)]="productFormModel.price" name="price" required />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Category</mat-label>
+                <mat-select [(ngModel)]="productFormModel.categoryId" name="categoryId">
+                    @for (c of categoryList; track $index) {
+                        <mat-option  [value]="c.value">{{ c.view }}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Sell Start Date</mat-label>
+                <input matInput [matDatepicker]="picker1" [(ngModel)]="productFormModel.sellStartDate"
+                    name="sellStartDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Sell End Date</mat-label>
+                <input matInput [matDatepicker]="picker2" [(ngModel)]="productFormModel.sellEndDate" name="sellEndDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+
+            <div class="modal-buttons">
+                <button mat-flat-button color="primary" type="submit">
+                    {{ selectedProduct ? 'Update' : 'Create' }}
+                </button>
+                <button mat-stroked-button color="warn" type="button" (click)="closeModal()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+}

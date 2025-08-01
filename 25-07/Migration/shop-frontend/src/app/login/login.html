@@ -1,0 +1,38 @@
+<div class="main">
+    <div class="login">
+
+        <h1>Login</h1>
+        
+        <mat-form-field class="input">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" [(ngModel)]="username">
+        </mat-form-field>
+        
+        <mat-form-field class="input">
+            <mat-label>Password</mat-label>
+            <input 
+                matInput 
+                [type]="hidePassword()? 'password' : 'text'" 
+                [(ngModel)]="password"
+                [formControl]="fc"
+            >
+            <button
+                matIconButton
+                matSuffix
+                (click)="passwordView()"
+                [attr.aria-pressed]="hidePassword()"
+            >
+                <mat-icon>{{hidePassword() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+
+            @if (fc.hasError('server')) {
+                <mat-error>{{fc.getError('server')}}</mat-error>
+            }
+        </mat-form-field>
+        
+        <button matFab extended (click)="handleLogin()">
+            <mat-icon>login</mat-icon>
+            Login
+        </button>
+    </div>
+</div>

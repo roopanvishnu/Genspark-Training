@@ -1,0 +1,69 @@
+<mat-toolbar class="navbar">
+    <button matIconButton class="menu-button" [matMenuTriggerFor]="navMenu" >
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span 
+    class="toolbar-title"
+    (click)="navigate('/')">
+        Shop App
+    </span>
+    
+    <span class="spacer"></span>
+
+    <div class="nav-buttons">
+
+        <button [matButton]="currentUrl() == ''? 'filled' : 'text' "  (click)="navigate('/')">
+          Home
+        </button>
+        <button [matButton]="currentUrl() == 'categories'? 'filled' : 'text' "  (click)="navigate('/categories')">
+          Categories
+        </button>
+        <button [matButton]="currentUrl() == 'colors'? 'filled' : 'text' "  (click)="navigate('/colors')">
+            Colors
+        </button>
+        <button [matButton]="currentUrl() == 'orders'? 'filled' : 'text' "  (click)="navigate('/orders')">
+            Orders
+        </button>
+        <button [matButton]="currentUrl() == 'cart'? 'filled' : 'text' "  (click)="navigate('/cart')">
+            <mat-icon>shopping_cart</mat-icon>
+        </button>
+    </div>
+
+    <button matButton="text" [matMenuTriggerFor]="profileMenu">
+        <mat-icon>account_circle</mat-icon>
+        @if(currentUser != null){
+            {{currentUser.username}}
+        }
+        @else {
+            Login
+        }
+    </button>
+  
+    <mat-menu #profileMenu="matMenu">
+        @if(currentUser!=null){
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                Logout
+            </button>
+        }
+        @else {
+            <button mat-menu-item (click)="navigate('/login')">
+                <mat-icon>login</mat-icon>
+                Login
+            </button>
+            <button mat-menu-item (click)="navigate('/signup')">
+                <mat-icon>person_add</mat-icon>
+                    Sign up
+            </button>
+
+        }
+    </mat-menu>
+
+    <mat-menu #navMenu="matMenu">
+        <button mat-menu-item (click)="navigate('/')">Home</button>
+        <button mat-menu-item (click)="navigate('/categories')">Categories</button>
+        <button mat-menu-item (click)="navigate('/colors')">Colors</button>
+        <button mat-menu-item (click)="navigate('/orders')">Orders</button>
+        <button mat-menu-item (click)="navigate('/cart')">Cart</button>
+    </mat-menu>
+</mat-toolbar>

@@ -1,0 +1,8 @@
+<p>contactus works!</p>
+<h2>Contact Info</h2>
+<ul>
+  <li *ngFor="let contact of contacts">
+    <strong>{{ contact.name }}</strong> ({{ contact.email }}, {{ contact.phone }})<br />
+    <p>{{ contact.content }}</p>
+  </li>
+</ul>

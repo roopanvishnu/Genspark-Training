@@ -1,0 +1,20 @@
+<p>contact-management works!</p>
+<h2>Manage Contact Info</h2>
+
+<form (ngSubmit)="save()">
+  <input [(ngModel)]="form.name" name="name" placeholder="Name" required />
+  <input [(ngModel)]="form.email" name="email" placeholder="Email" required />
+  <input [(ngModel)]="form.phone" name="phone" placeholder="Phone" required />
+  <textarea [(ngModel)]="form.content" name="content" placeholder="Message" required></textarea>
+  <button type="submit">{{ editingId ? 'Update' : 'Create' }}</button>
+  <button *ngIf="editingId" type="button" (click)="cancel()">Cancel</button>
+</form>
+
+<ul>
+  <li *ngFor="let c of contacts">
+    <strong>{{ c.name }}</strong> ({{ c.email }}, {{ c.phone }})<br />
+    <p>{{ c.content }}</p>
+    <button (click)="edit(c)">Edit</button>
+    <button (click)="delete(c.id)">Delete</button>
+  </li>
+</ul>

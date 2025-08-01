@@ -1,0 +1,22 @@
+<h2>Manage News</h2>
+
+<form (ngSubmit)="save()">
+  <input [(ngModel)]="form.title" name="title" placeholder="Title" required />
+  <input [(ngModel)]="form.shortDescription" name="shortDescription" placeholder="Short Description" required />
+  <input [(ngModel)]="form.image" name="image" placeholder="Image URL" />
+  <textarea [(ngModel)]="form.content" name="content" placeholder="Content" required></textarea>
+  <button type="submit">{{ editingId ? 'Update' : 'Create' }}</button>
+  <button type="button" (click)="cancel()" *ngIf="editingId">Cancel</button>
+</form>
+
+<button (click)="exportCSV()">Export as CSV</button>
+
+<ul>
+  <li *ngFor="let n of news">
+    <h4>{{ n.title }}</h4>
+    <p><em>{{ n.shortDescription }}</em></p>
+    <p>{{ n.content }}</p>
+    <button (click)="edit(n)">Edit</button>
+    <button (click)="delete(n.newsId)">Delete</button>
+  </li>
+</ul>
